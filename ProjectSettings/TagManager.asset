@@ -8,6 +8,12 @@ TagManager:
   - Enemy
   - The Hell Fire
   - Death Point
+  - The Word
+  - Daystar
+  - Daystar Death Point 1
+  - Daystar Death Point 2
+  - Daystar Win Point
+  - Daystar Death Point
   layers:
   - Default
   - TransparentFX
@@ -19,7 +25,7 @@ TagManager:
   - 
   - PostProcessing
   - Fallen Star
-  - 
+  - Daystar
   - 
   - 
   - 

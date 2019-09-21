@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class TheStar : Enemy
 {
@@ -16,6 +18,7 @@ public class TheStar : Enemy
         base.Awake ();
         _rotationDirection = _indicatedRotationDirections[Random.Range (0, _indicatedRotationDirections.Length)];
         _rotationSpeed = _rotationSpeedModifier * Random.Range (.75f, 1f);
+
     }
 
     public override void Start ()

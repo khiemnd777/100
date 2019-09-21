@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6417859830192193503}
   m_Layer: 0
   m_Name: The Prayer's Word
-  m_TagString: Untagged
+  m_TagString: The Word
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

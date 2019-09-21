@@ -29,4 +29,9 @@ public class ThePrayerWord : MonoBehaviour
             Destroy (gameObject);
         }
     }
+
+    public void SelfDestruct ()
+    {
+        Destroy (gameObject);
+    }
 }
