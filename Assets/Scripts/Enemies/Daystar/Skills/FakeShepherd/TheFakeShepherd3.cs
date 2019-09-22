@@ -45,8 +45,8 @@ public class TheFakeShepherd3 : MonoBehaviour
         var t = 0f;
         while (t <= 1f)
         {
-            transform.localScale = Vector3.Lerp (Vector3.zero, Vector3.one, t);
             t += Time.deltaTime / .4f;
+            transform.localScale = Vector3.Lerp (Vector3.zero, Vector3.one, t);
             yield return null;
         }
     }
@@ -59,9 +59,9 @@ public class TheFakeShepherd3 : MonoBehaviour
         var expectedScale = new Vector3 (1, .25f, 1);
         while (t <= 1f)
         {
+            t += Time.deltaTime / .124f;
             transform.position = Vector3.Lerp (original, expect, t);
             transform.localScale = Vector3.Lerp (Vector3.one, expectedScale, t);
-            t += Time.deltaTime / .124f;
             yield return null;
         }
     }

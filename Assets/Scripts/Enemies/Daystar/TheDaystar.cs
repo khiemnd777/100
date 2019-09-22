@@ -4,30 +4,44 @@ using UnityEngine;
 
 public class TheDaystar : MonoBehaviour
 {
+    [SerializeField]
+    float _stepUp;
     HealthPoint _hp;
     [SerializeField]
     List<TheDayStarGetHit> _meshHits;
+    [SerializeField]
+    Transform _deathPoint;
+    [SerializeField]
+    ObjectShake _shake;
     bool _isHit;
+
     void Awake ()
     {
         _hp = GetComponent<HealthPoint> ();
+        _shake = GetComponent<ObjectShake> ();
         _hp.OnDeath += OnDeath;
         _meshHits.ForEach (x => x.onHit += OnHit);
+    }
+
+    void Update ()
+    {
+        Debug.DrawLine (transform.position, transform.position + Vector3.right * 5f);
+        Debug.DrawLine (_deathPoint.position, _deathPoint.position + Vector3.right * 5f);
     }
 
     void OnHit (Collider other)
     {
         if (!"The Word".Equals (other.tag)) return;
-        if (_isHit) return;
-        _isHit = true;
         var theWord = other.GetComponent<ThePrayerWord> ();
         _hp.TakeDamage (theWord.damage);
+        MoveUp (_stepUp);
+        _shake.Shake ();
         theWord.SelfDestruct ();
     }
 
-    void LateUpdate ()
+    void MoveUp (float stepUp)
     {
-        _isHit = false;
+        transform.Translate (Vector3.up * _stepUp * Time.deltaTime);
     }
 
     void OnDeath ()

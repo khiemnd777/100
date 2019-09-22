@@ -12,7 +12,6 @@ public class TheDayStarGetHit : MonoBehaviour
             if (onHit != null)
             {
                 onHit (other);
-                
             }
         }
     }

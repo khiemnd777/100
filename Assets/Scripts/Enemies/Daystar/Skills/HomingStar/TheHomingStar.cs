@@ -70,13 +70,17 @@ public class TheHomingStar : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "Player")
+        if ("Player".Equals (other.tag))
         {
             Destroy (gameObject);
         }
-        else if (other.tag == "The House")
+        else if ("The House".Equals (other.tag))
         {
             Destroy (gameObject);
+        }
+        else if ("The Word".Equals (other.tag))
+        {
+            other.GetComponent<ThePrayerWord> ().SelfDestruct ();
         }
     }
 }

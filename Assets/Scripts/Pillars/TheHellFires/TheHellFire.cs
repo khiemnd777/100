@@ -42,8 +42,8 @@ public class TheHellFire : MonoBehaviour
         var destPos = new Vector3 (currentPos.x, _currentStartY, currentPos.z);
         while (t <= 1f)
         {
-            transform.position = Vector3.Lerp (currentPos, destPos, t);
             t += Time.deltaTime * 2.5f;
+            transform.position = Vector3.Lerp (currentPos, destPos, t);
             yield return null;
         }
     }
@@ -61,8 +61,8 @@ public class TheHellFire : MonoBehaviour
         var startPoint = new Vector3 (currentPos.x, _defaultStartY, currentPos.z);
         while (t <= 1f)
         {
-            transform.position = Vector3.Lerp (currentPos, startPoint, t);
             t += Time.deltaTime / second;
+            transform.position = Vector3.Lerp (currentPos, startPoint, t);
             yield return null;
         }
     }

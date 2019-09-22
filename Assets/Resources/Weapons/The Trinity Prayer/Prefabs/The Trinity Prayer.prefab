@@ -124,7 +124,7 @@ MonoBehaviour:
     type: 3}
   _detectedLayer:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 5632
 --- !u!135 &1682356402
 SphereCollider:
   m_ObjectHideFlags: 0

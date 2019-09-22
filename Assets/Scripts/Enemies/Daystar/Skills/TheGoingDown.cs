@@ -13,7 +13,17 @@ public class TheGoingDown : MonoBehaviour
     ParticleSystem _fxPrefab;
     [SerializeField]
     float _fxWaitedInitTime;
+    [SerializeField]
+    ParticleSystem _fxAtCollision;
+    [SerializeField]
+    AudioSource _soundFxAtCollision;
+    CameraShake _theCamera;
     float _speed;
+
+    void Awake ()
+    {
+        _theCamera = FindObjectOfType<CameraShake> ();
+    }
 
     void Start ()
     {
@@ -32,7 +42,7 @@ public class TheGoingDown : MonoBehaviour
 
     IEnumerator WaitToAcceleration ()
     {
-        if(accelerationWaitedTime <= 0) yield break;
+        if (accelerationWaitedTime <= 0) yield break;
         yield return new WaitForSeconds (accelerationWaitedTime);
         _speed = acceleration;
     }
@@ -50,11 +60,44 @@ public class TheGoingDown : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            other.GetComponent<TheShepherd> ().Hit ();
+            _theCamera.Shake (.175f, .065f);
+            InstantiateEffectAtCollision ();
+            InstantiateSoundEffectAtCollision ();
             Destroy (gameObject);
         }
         else if (other.tag == "The House")
         {
-            Destroy (gameObject);
+            StartCoroutine (Disappear ());
         }
+        else if (other.tag == "The Word")
+        {
+            other.GetComponent<ThePrayerWord> ().SelfDestruct ();
+        }
+    }
+
+    void InstantiateEffectAtCollision ()
+    {
+        if (!_fxAtCollision) return;
+        Instantiate (_fxAtCollision, transform.position, Quaternion.identity);
+    }
+
+    void InstantiateSoundEffectAtCollision ()
+    {
+        if (!_soundFxAtCollision) return;
+        Instantiate (_soundFxAtCollision, transform.position, Quaternion.identity);
+    }
+
+    IEnumerator Disappear ()
+    {
+        var t = 0f;
+        var originScale = transform.localScale;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime * 20f;
+            transform.localScale = Vector3.Lerp (originScale, Vector3.zero, t);
+            yield return null;
+        }
+        Destroy (gameObject);
     }
 }

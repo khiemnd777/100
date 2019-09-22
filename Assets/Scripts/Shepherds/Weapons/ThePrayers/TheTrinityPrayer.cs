@@ -51,6 +51,7 @@ public class TheTrinityPrayer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast (_projectilePoint.position, Vector3.up, out hit, float.MaxValue, _detectedLayer))
         {
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer ("Void")) return;
             if (!isTrinity)
             {
                 LaunchSide (Vector3.up, true, .075f);

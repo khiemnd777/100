@@ -14,6 +14,7 @@ TagManager:
   - Daystar Death Point 2
   - Daystar Win Point
   - Daystar Death Point
+  - Daystar Attacker
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - PostProcessing
   - Fallen Star
   - Daystar
-  - 
-  - 
+  - Resistance
+  - Void
   - 
   - 
   - 

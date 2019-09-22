@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8695076759117506137}
   m_Layer: 0
   m_Name: Cannon Ball
-  m_TagString: Untagged
+  m_TagString: Daystar Attacker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6faa23a8a9e4896be48065160d9006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forward: {x: 0, y: 0, z: 0}
   _fxPrefab: {fileID: 4927374282108555112, guid: ee4ef80939eb64dd4a917c3f3f605945,
     type: 3}
   _fxWaitedInitTime: 0.065

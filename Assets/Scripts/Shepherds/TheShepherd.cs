@@ -74,8 +74,8 @@ public class TheShepherd : MonoBehaviour
         var t = 0f;
         while (t <= 1f)
         {
-            transform.position = Vector3.Lerp (start, end, t);
             t += Time.deltaTime / .075f;
+            transform.position = Vector3.Lerp (start, end, t);
             yield return null;
         }
         transform.position = end;
@@ -101,19 +101,33 @@ public class TheShepherd : MonoBehaviour
         var end1 = _theHouse.theShepherdPoint.position + Vector3.up * .2f;
         while (t <= 1f)
         {
-            transform.position = Vector3.Lerp (start1, end1, t);
             t += Time.deltaTime / (_appearedStartTime * .75f);
+            transform.position = Vector3.Lerp (start1, end1, t);
             yield return null;
         }
         t = 0f;
         var end2 = _theHouse.theShepherdPoint.position;
         while (t <= 1f)
         {
-            transform.position = Vector3.Lerp (end1, end2, t);
             t += Time.deltaTime / (_appearedStartTime * .25f);
+            transform.position = Vector3.Lerp (end1, end2, t);
             yield return null;
         }
         transform.position = end2;
         _isMoving = true;
     }
+
+    public void Hit ()
+    {
+        _theHouse.OnInfected ();
+    }
+
+    // void OnTriggerEnter (Collider other)
+    // {
+    //     if ("Daystar Attacker".Equals (other.tag))
+    //     {
+    //         Debug.Log (other.name);
+    //         _theHouse.OnInfected ();
+    //     }
+    // }
 }
