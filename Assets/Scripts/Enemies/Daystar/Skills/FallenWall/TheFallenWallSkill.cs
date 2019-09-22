@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class TheFallenWallSkill : MonoBehaviour
+public class TheFallenWallSkill : DaystarSkill
 {
     public int number;
     public float initSpeed;
@@ -16,19 +16,20 @@ public class TheFallenWallSkill : MonoBehaviour
     Settings _settings;
     int[] _initMaskList = new [] { 1, 1, 1, 1, 1 };
     List<TheGoingDown> _currentList = new List<TheGoingDown> ();
-
+    int _number;
     void Awake ()
     {
         _settings = FindObjectOfType<Settings> ();
     }
 
-    void Start ()
+    public override void Execute ()
     {
         StartCoroutine (Spawn ());
     }
 
     IEnumerator Spawn ()
     {
+        _number = number;
         while (number-- > 0)
         {
             _currentList.Clear ();
@@ -36,6 +37,10 @@ public class TheFallenWallSkill : MonoBehaviour
             MapMaskToFakeShepherd (maskList);
             yield return StartCoroutine (Appear ());
             yield return new WaitForSeconds (_delay);
+        }
+        if (onEnd != null)
+        {
+            onEnd ();
         }
     }
 

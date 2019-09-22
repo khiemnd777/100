@@ -1235,6 +1235,56 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &1168838074
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 312206981, guid: 405a21a7f5e534749912da761e3f2293, type: 3}
+      propertyPath: m_Name
+      value: The Fake Shepherd Skill S3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588021698681549985, guid: 405a21a7f5e534749912da761e3f2293,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588021698681549985, guid: 405a21a7f5e534749912da761e3f2293,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588021698681549985, guid: 405a21a7f5e534749912da761e3f2293,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588021698681549985, guid: 405a21a7f5e534749912da761e3f2293,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588021698681549985, guid: 405a21a7f5e534749912da761e3f2293,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.82
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 405a21a7f5e534749912da761e3f2293, type: 3}
+--- !u!114 &1168838075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 312206982, guid: 405a21a7f5e534749912da761e3f2293,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168838074}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ac53b093701494ea1eced43fdad55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1542517589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,7 +2060,7 @@ PrefabInstance:
     - target: {fileID: 7035682759220239776, guid: a3d98c6619b1e498d9c96a6de2a61223,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7035682759220239776, guid: a3d98c6619b1e498d9c96a6de2a61223,
         type: 3}
@@ -2032,6 +2082,11 @@ PrefabInstance:
       propertyPath: _deathPoint
       value: 
       objectReference: {fileID: 462579805}
+    - target: {fileID: 7035682759220239783, guid: a3d98c6619b1e498d9c96a6de2a61223,
+        type: 3}
+      propertyPath: _stepUp
+      value: 0.0325
+      objectReference: {fileID: 0}
     - target: {fileID: 7035682759634819807, guid: a3d98c6619b1e498d9c96a6de2a61223,
         type: 3}
       propertyPath: m_Mesh
@@ -2072,6 +2127,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 938126030}
+    - target: {fileID: 1208157147, guid: a3d98c6619b1e498d9c96a6de2a61223, type: 3}
+      propertyPath: _skills.Array.data[3]
+      value: 
+      objectReference: {fileID: 1168838075}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3d98c6619b1e498d9c96a6de2a61223, type: 3}
 --- !u!1001 &8773254242501466170

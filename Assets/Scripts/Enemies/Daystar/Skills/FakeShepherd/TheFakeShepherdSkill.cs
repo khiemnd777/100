@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TheFakeShepherdSkill : MonoBehaviour
+public class TheFakeShepherdSkill : DaystarSkill
 {
     public float initSpeed;
     public float acceleration;
@@ -20,7 +20,7 @@ public class TheFakeShepherdSkill : MonoBehaviour
         _settings = FindObjectOfType<Settings> ();
     }
 
-    void Start ()
+    public override void Execute ()
     {
         if (Random.Range (0, 2) == 0)
         {
@@ -64,6 +64,10 @@ public class TheFakeShepherdSkill : MonoBehaviour
             }
             yield return new WaitForSeconds (_delay);
         }
+        if (onEnd != null)
+        {
+            onEnd ();
+        }
     }
 
     public IEnumerator Spawn2 ()
@@ -97,6 +101,10 @@ public class TheFakeShepherdSkill : MonoBehaviour
                 InitFakeShepherd (-stepX);
             }
             yield return new WaitForSeconds (_delay);
+        }
+        if (onEnd != null)
+        {
+            onEnd ();
         }
     }
 

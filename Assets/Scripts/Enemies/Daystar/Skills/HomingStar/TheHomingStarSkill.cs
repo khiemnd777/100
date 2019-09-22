@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TheHomingStarSkill : MonoBehaviour
+public class TheHomingStarSkill : DaystarSkill
 {
+    public int number;
     public float speed = 5f;
     public float maxDegreesDeltaRotation = 75f;
     public float acceleration = 7f;
@@ -16,23 +17,29 @@ public class TheHomingStarSkill : MonoBehaviour
     [SerializeField]
     Transform _spawnPoint;
     Settings _settings;
+    int _number;
 
     void Awake ()
     {
         _settings = FindObjectOfType<Settings> ();
     }
 
-    void Start ()
+    public override void Execute ()
     {
         StartCoroutine (Spawn ());
     }
 
     public IEnumerator Spawn ()
     {
-        while (!_settings.gameOver)
+        _number = number;
+        while (_number-- > 0)
         {
             SpawnFallenStar ();
             yield return new WaitForSeconds (_delay);
+        }
+        if (onEnd != null)
+        {
+            onEnd ();
         }
     }
 

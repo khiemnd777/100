@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TheFakeShepherdSkill3 : MonoBehaviour
+public class TheFakeShepherdSkill3 : DaystarSkill
 {
     public float initSpeed;
     public int number;
@@ -14,13 +14,14 @@ public class TheFakeShepherdSkill3 : MonoBehaviour
     Transform _spawnPoint;
     Settings _settings;
     int[] _initMaskList = new [] { 1, 1, 1, 1, 1 };
+    int _number;
 
     void Awake ()
     {
         _settings = FindObjectOfType<Settings> ();
     }
 
-    void Start ()
+    public override void Execute ()
     {
         StartCoroutine (Spawn ());
     }
@@ -47,11 +48,16 @@ public class TheFakeShepherdSkill3 : MonoBehaviour
 
     IEnumerator Spawn ()
     {
-        while (number-- > 0)
+        _number = number;
+        while (_number-- > 0)
         {
             var maskList = ComputeMaskList (_initMaskList);
             MapMaskToFakeShepherd (maskList);
             yield return new WaitForSeconds (_delay);
+        }
+        if (onEnd != null)
+        {
+            onEnd ();
         }
     }
 

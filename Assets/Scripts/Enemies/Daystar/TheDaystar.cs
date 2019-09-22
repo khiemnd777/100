@@ -6,7 +6,6 @@ public class TheDaystar : MonoBehaviour
 {
     [SerializeField]
     float _stepUp;
-    HealthPoint _hp;
     [SerializeField]
     List<TheDayStarGetHit> _meshHits;
     [SerializeField]
@@ -17,9 +16,7 @@ public class TheDaystar : MonoBehaviour
 
     void Awake ()
     {
-        _hp = GetComponent<HealthPoint> ();
         _shake = GetComponent<ObjectShake> ();
-        _hp.OnDeath += OnDeath;
         _meshHits.ForEach (x => x.onHit += OnHit);
     }
 
@@ -33,7 +30,6 @@ public class TheDaystar : MonoBehaviour
     {
         if (!"The Word".Equals (other.tag)) return;
         var theWord = other.GetComponent<ThePrayerWord> ();
-        _hp.TakeDamage (theWord.damage);
         MoveUp (_stepUp);
         _shake.Shake ();
         theWord.SelfDestruct ();
@@ -42,11 +38,6 @@ public class TheDaystar : MonoBehaviour
     void MoveUp (float stepUp)
     {
         transform.Translate (Vector3.up * _stepUp * Time.deltaTime);
-    }
-
-    void OnDeath ()
-    {
-        Debug.Log (name + " is dead.");
     }
 
     void OnTriggerEnter (Collider other)
