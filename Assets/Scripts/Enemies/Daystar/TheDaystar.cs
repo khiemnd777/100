@@ -11,6 +11,7 @@ public class TheDaystar : MonoBehaviour
     [SerializeField]
     Transform _deathPoint;
     [SerializeField]
+    ParticleSystem _hitFx;
     ObjectShake _shake;
     bool _isHit;
 
@@ -32,12 +33,18 @@ public class TheDaystar : MonoBehaviour
         var theWord = other.GetComponent<ThePrayerWord> ();
         MoveUp (_stepUp);
         _shake.Shake ();
+        InstantiateHitFx (theWord.transform.position);
         theWord.SelfDestruct ();
     }
 
     void MoveUp (float stepUp)
     {
         transform.Translate (Vector3.up * _stepUp * Time.deltaTime);
+    }
+
+    void InstantiateHitFx (Vector3 hitPosition)
+    {
+        Instantiate (_hitFx, hitPosition, Quaternion.identity);
     }
 
     void OnTriggerEnter (Collider other)

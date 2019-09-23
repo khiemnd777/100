@@ -32,7 +32,6 @@ public class TheDaystarSkillController : MonoBehaviour
     {
         yield return new WaitForSeconds (1.15f);
         var nextSkill = GetNextSkill ();
-        Debug.Log (nextSkill.gameObject.name);
         nextSkill.Execute ();
     }
 }

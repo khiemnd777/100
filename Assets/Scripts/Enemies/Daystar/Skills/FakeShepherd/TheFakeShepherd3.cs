@@ -5,6 +5,7 @@ using UnityEngine;
 public class TheFakeShepherd3 : MonoBehaviour
 {
     public float initSpeed;
+    public float appearedSpeed = .4f;
     [SerializeField]
     bool _useFx;
     [SerializeField]
@@ -51,7 +52,7 @@ public class TheFakeShepherd3 : MonoBehaviour
         var t = 0f;
         while (t <= 1f)
         {
-            t += Time.deltaTime / .4f;
+            t += Time.deltaTime / appearedSpeed;
             transform.localScale = Vector3.Lerp (Vector3.zero, Vector3.one, t);
             yield return null;
         }
