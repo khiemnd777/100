@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 84507841}
   - component: {fileID: 84507842}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643691921367474390}
   - component: {fileID: 3643691921367474389}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 3643691921981571233}
   - component: {fileID: 3643691921981571239}
   - component: {fileID: 3716992441613757980}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: The Fake Shepherd
   m_TagString: Daystar Attacker
   m_Icon: {fileID: 0}
@@ -278,3 +278,7 @@ MonoBehaviour:
   accelerationWaitedTime: 0.5
   _fxPrefab: {fileID: 0}
   _fxWaitedInitTime: 0
+  _fxAtCollision: {fileID: 474882060159339921, guid: 3303a1c62c1c84eab887b64b86eacc2b,
+    type: 3}
+  _soundFxAtCollision: {fileID: 8056055530601919810, guid: db5b0d17ccff24ee7a44235281568adf,
+    type: 3}

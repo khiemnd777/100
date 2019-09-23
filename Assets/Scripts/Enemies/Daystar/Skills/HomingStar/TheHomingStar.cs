@@ -21,13 +21,19 @@ public class TheHomingStar : MonoBehaviour
     TheShepherd _theShepherd;
     [SerializeField]
     Transform _display;
+    [SerializeField]
+    Transform _fxAtCollision;
+    [SerializeField]
+    AudioSource _soundFxAtCollision;
     int _rotationDirection;
     int[] _indicatedRotationDirections = {-1, 1 };
+    CameraShake _shakeCamera;
 
     void Awake ()
     {
         _theShepherd = FindObjectOfType<TheShepherd> ();
         _rotationDirection = _indicatedRotationDirections[Random.Range (0, _indicatedRotationDirections.Length)];
+        _shakeCamera = FindObjectOfType<CameraShake> ();
     }
 
     void Start ()
@@ -68,14 +74,32 @@ public class TheHomingStar : MonoBehaviour
         }
     }
 
+    void InstantiateEffectAtCollision ()
+    {
+        if (!_fxAtCollision) return;
+        Instantiate (_fxAtCollision, transform.position, Quaternion.identity);
+    }
+
+    void InstantiateSoundEffectAtCollision ()
+    {
+        if (!_soundFxAtCollision) return;
+        Instantiate (_soundFxAtCollision, transform.position, Quaternion.identity);
+    }
+
     void OnTriggerEnter (Collider other)
     {
         if ("Player".Equals (other.tag))
         {
+            other.GetComponent<TheShepherd> ().Hit ();
+            _shakeCamera.Shake (.175f, .065f);
+            InstantiateEffectAtCollision ();
+            InstantiateSoundEffectAtCollision ();
             Destroy (gameObject);
         }
         else if ("The House".Equals (other.tag))
         {
+            InstantiateEffectAtCollision ();
+            InstantiateSoundEffectAtCollision ();
             Destroy (gameObject);
         }
         else if ("The Word".Equals (other.tag))

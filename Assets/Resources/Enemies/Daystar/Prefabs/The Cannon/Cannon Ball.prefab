@@ -63,6 +63,10 @@ MonoBehaviour:
     type: 3}
   _fxWaitedInitTime: 0.065
   _display: {fileID: 1509927901894700356}
+  _fxAtCollision: {fileID: 4665583522122435774, guid: 72ff49b51046848368b592eaaeb577cc,
+    type: 3}
+  _soundFxAtCollision: {fileID: 8056055530601919810, guid: db5b0d17ccff24ee7a44235281568adf,
+    type: 3}
 --- !u!54 &8695076759117506137
 Rigidbody:
   m_ObjectHideFlags: 0

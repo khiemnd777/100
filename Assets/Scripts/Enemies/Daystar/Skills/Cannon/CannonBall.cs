@@ -14,6 +14,16 @@ public class CannonBall : MonoBehaviour
     float _fxWaitedInitTime;
     [SerializeField]
     Transform _display;
+    [SerializeField]
+    Transform _fxAtCollision;
+    [SerializeField]
+    AudioSource _soundFxAtCollision;
+    CameraShake _shakeCamera;
+
+    void Awake ()
+    {
+        _shakeCamera = FindObjectOfType<CameraShake> ();
+    }
 
     void Start ()
     {
@@ -38,14 +48,32 @@ public class CannonBall : MonoBehaviour
         }
     }
 
+    void InstantiateEffectAtCollision ()
+    {
+        if (!_fxAtCollision) return;
+        Instantiate (_fxAtCollision, transform.position, Quaternion.identity);
+    }
+
+    void InstantiateSoundEffectAtCollision ()
+    {
+        if (!_soundFxAtCollision) return;
+        Instantiate (_soundFxAtCollision, transform.position, Quaternion.identity);
+    }
+
     void OnTriggerEnter (Collider other)
     {
         if (other.tag == "Player")
         {
+            other.GetComponent<TheShepherd> ().Hit ();
+            _shakeCamera.Shake (.175f, .065f);
+            InstantiateEffectAtCollision ();
+            InstantiateSoundEffectAtCollision ();
             Destroy (gameObject);
         }
         else if (other.tag == "The House")
         {
+            InstantiateEffectAtCollision ();
+            InstantiateSoundEffectAtCollision ();
             Destroy (gameObject);
         }
     }

@@ -17,12 +17,12 @@ public class TheGoingDown : MonoBehaviour
     ParticleSystem _fxAtCollision;
     [SerializeField]
     AudioSource _soundFxAtCollision;
-    CameraShake _theCamera;
+    CameraShake _shakeCamera;
     float _speed;
 
     void Awake ()
     {
-        _theCamera = FindObjectOfType<CameraShake> ();
+        _shakeCamera = FindObjectOfType<CameraShake> ();
     }
 
     void Start ()
@@ -61,7 +61,7 @@ public class TheGoingDown : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<TheShepherd> ().Hit ();
-            _theCamera.Shake (.175f, .065f);
+            _shakeCamera.Shake (.175f, .065f);
             InstantiateEffectAtCollision ();
             InstantiateSoundEffectAtCollision ();
             Destroy (gameObject);

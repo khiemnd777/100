@@ -11,11 +11,17 @@ public class TheFakeShepherd3 : MonoBehaviour
     ParticleSystem _fxPrefab;
     [SerializeField]
     float _fxWaitedInitTime;
+    [SerializeField]
+    ParticleSystem _fxAtCollision;
+    [SerializeField]
+    AudioSource _soundFxAtCollision;
+    CameraShake _shakeCamera;
     float _speed;
 
     void Awake ()
     {
         transform.localScale = Vector3.zero;
+        _shakeCamera = FindObjectOfType<CameraShake> ();
     }
 
     void Start ()
@@ -75,10 +81,26 @@ public class TheFakeShepherd3 : MonoBehaviour
         }
     }
 
+    void InstantiateEffectAtCollision ()
+    {
+        if (!_fxAtCollision) return;
+        Instantiate (_fxAtCollision, transform.position, Quaternion.identity);
+    }
+
+    void InstantiateSoundEffectAtCollision ()
+    {
+        if (!_soundFxAtCollision) return;
+        Instantiate (_soundFxAtCollision, transform.position, Quaternion.identity);
+    }
+
     void OnTriggerEnter (Collider other)
     {
         if (other.tag == "Player")
         {
+            other.GetComponent<TheShepherd> ().Hit ();
+            _shakeCamera.Shake (.175f, .065f);
+            InstantiateEffectAtCollision ();
+            InstantiateSoundEffectAtCollision ();
             Destroy (gameObject);
         }
         else if (other.tag == "The House")
