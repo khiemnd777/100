@@ -1153,6 +1153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7035682759220239776}
   - component: {fileID: 7035682759220239783}
+  - component: {fileID: 120532535230708038}
   - component: {fileID: 7035682759220239780}
   - component: {fileID: 7035682759220239781}
   - component: {fileID: 1208157148}
@@ -1203,7 +1204,21 @@ MonoBehaviour:
   - {fileID: 7035682757801949829}
   - {fileID: 7035682757939148721}
   _deathPoint: {fileID: 0}
-  _shake: {fileID: 0}
+  _hitFx: {fileID: 0}
+--- !u!114 &120532535230708038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035682759220239777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f0b53b31dd6404fb2c9067c739e389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 9999
+  _maxHp: 9999
 --- !u!54 &7035682759220239780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1622,6 +1637,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: The Fallen Wall Skill
       objectReference: {fileID: 0}
+    - target: {fileID: 1842318134385408996, guid: 49c4cbb1b730744279914d4e20729d4b,
+        type: 3}
+      propertyPath: number
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842318134385408996, guid: 49c4cbb1b730744279914d4e20729d4b,
+        type: 3}
+      propertyPath: _spawnPoint
+      value: 
+      objectReference: {fileID: 8661265014729565938}
     - target: {fileID: 1842318134385408999, guid: 49c4cbb1b730744279914d4e20729d4b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1677,16 +1702,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1842318134385408996, guid: 49c4cbb1b730744279914d4e20729d4b,
-        type: 3}
-      propertyPath: number
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1842318134385408996, guid: 49c4cbb1b730744279914d4e20729d4b,
-        type: 3}
-      propertyPath: _spawnPoint
-      value: 
-      objectReference: {fileID: 8661265014729565938}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49c4cbb1b730744279914d4e20729d4b, type: 3}
 --- !u!4 &8661265014729565938 stripped
@@ -1725,6 +1740,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannon Skill
       objectReference: {fileID: 0}
+    - target: {fileID: 6903113676577478868, guid: edce36dc9655d4832a3df28539aa0370,
+        type: 3}
+      propertyPath: _projectilePoint
+      value: 
+      objectReference: {fileID: 7660637250037447815}
     - target: {fileID: 6903113676577478871, guid: edce36dc9655d4832a3df28539aa0370,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1780,16 +1800,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6903113676577478868, guid: edce36dc9655d4832a3df28539aa0370,
-        type: 3}
-      propertyPath: _projectilePoint
-      value: 
-      objectReference: {fileID: 7660637250037447815}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edce36dc9655d4832a3df28539aa0370, type: 3}
---- !u!4 &4498829265308492958 stripped
+--- !u!4 &7660637250037447815 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6903113676577478871, guid: edce36dc9655d4832a3df28539aa0370,
+  m_CorrespondingSourceObject: {fileID: 861252735323455694, guid: edce36dc9655d4832a3df28539aa0370,
     type: 3}
   m_PrefabInstance: {fileID: 7035682757872368713}
   m_PrefabAsset: {fileID: 0}
@@ -1805,9 +1820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54b64cf8474645b4b540a899bd57fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &7660637250037447815 stripped
+--- !u!4 &4498829265308492958 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 861252735323455694, guid: edce36dc9655d4832a3df28539aa0370,
+  m_CorrespondingSourceObject: {fileID: 6903113676577478871, guid: edce36dc9655d4832a3df28539aa0370,
     type: 3}
   m_PrefabInstance: {fileID: 7035682757872368713}
   m_PrefabAsset: {fileID: 0}
@@ -1822,6 +1837,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: The Fake Shepherd Skill
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095343513235269016, guid: b91baba0892934927852a247e7bf0eb7,
+        type: 3}
+      propertyPath: _spawnPoint
+      value: 
+      objectReference: {fileID: 1295827477212023053}
+    - target: {fileID: 8095343512860906380, guid: b91baba0892934927852a247e7bf0eb7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.22
       objectReference: {fileID: 0}
     - target: {fileID: 8095343513235269019, guid: b91baba0892934927852a247e7bf0eb7,
         type: 3}
@@ -1878,30 +1903,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8095343513235269016, guid: b91baba0892934927852a247e7bf0eb7,
-        type: 3}
-      propertyPath: _spawnPoint
-      value: 
-      objectReference: {fileID: 1295827477212023053}
-    - target: {fileID: 8095343512860906380, guid: b91baba0892934927852a247e7bf0eb7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.22
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91baba0892934927852a247e7bf0eb7, type: 3}
---- !u!4 &1295827478708305690 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8095343513235269019, guid: b91baba0892934927852a247e7bf0eb7,
-    type: 3}
-  m_PrefabInstance: {fileID: 7035682758282156673}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1295827477212023053 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8095343512860906380, guid: b91baba0892934927852a247e7bf0eb7,
-    type: 3}
-  m_PrefabInstance: {fileID: 7035682758282156673}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1295827478708305689 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8095343513235269016, guid: b91baba0892934927852a247e7bf0eb7,
@@ -1914,6 +1917,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f98bdd7c45c4462b3c9e4ab3f0ad84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1295827478708305690 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8095343513235269019, guid: b91baba0892934927852a247e7bf0eb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7035682758282156673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1295827477212023053 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8095343512860906380, guid: b91baba0892934927852a247e7bf0eb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7035682758282156673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7035682758485725017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1926,6 +1941,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: The Homing Star Skill
       objectReference: {fileID: 0}
+    - target: {fileID: 8729691289993376646, guid: e3bf50fbe75bd465a92c92de462e9b75,
+        type: 3}
+      propertyPath: number
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729691289993376646, guid: e3bf50fbe75bd465a92c92de462e9b75,
+        type: 3}
+      propertyPath: _spawnPoint
+      value: 
+      objectReference: {fileID: 1767051288284694547}
     - target: {fileID: 8729691289993376641, guid: e3bf50fbe75bd465a92c92de462e9b75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1981,16 +2006,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8729691289993376646, guid: e3bf50fbe75bd465a92c92de462e9b75,
-        type: 3}
-      propertyPath: number
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8729691289993376646, guid: e3bf50fbe75bd465a92c92de462e9b75,
-        type: 3}
-      propertyPath: _spawnPoint
-      value: 
-      objectReference: {fileID: 1767051288284694547}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3bf50fbe75bd465a92c92de462e9b75, type: 3}
 --- !u!4 &1767051287997824216 stripped
@@ -2028,6 +2043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: The Fake Shepherd Skill S2
       objectReference: {fileID: 0}
+    - target: {fileID: 1541143350, guid: a3475fd0cbb774c1897fd731f062e89b, type: 3}
+      propertyPath: _spawnPoint
+      value: 
+      objectReference: {fileID: 7035682759330157110}
     - target: {fileID: 235275919875183904, guid: a3475fd0cbb774c1897fd731f062e89b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2083,12 +2102,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1541143350, guid: a3475fd0cbb774c1897fd731f062e89b, type: 3}
-      propertyPath: _spawnPoint
-      value: 
-      objectReference: {fileID: 7035682759330157110}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3475fd0cbb774c1897fd731f062e89b, type: 3}
+--- !u!4 &7124723210178804769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 235275919875183904, guid: a3475fd0cbb774c1897fd731f062e89b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7035682758654241025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7035682759330157111 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1541143350, guid: a3475fd0cbb774c1897fd731f062e89b,
@@ -2101,12 +2122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1e79b9c44be44a295307f1d08b90ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &7124723210178804769 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 235275919875183904, guid: a3475fd0cbb774c1897fd731f062e89b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7035682758654241025}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7035682759330157110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1541143351, guid: a3475fd0cbb774c1897fd731f062e89b,

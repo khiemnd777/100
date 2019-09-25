@@ -26,8 +26,21 @@ public class HealthPoint : MonoBehaviour
         }
     }
 
+    public float normalize
+    {
+        get
+        {
+            return _hp / _maxHp;
+        }
+    }
+
     public void TakeDamage (float damage)
     {
+        if (_hp < 0)
+        {
+            _hp = 0;
+            return;
+        }
         _hp -= damage;
         if (_hp > 0) return;
         if (OnDeath != null)

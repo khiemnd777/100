@@ -77,5 +77,9 @@ public class TheFakeShepherd : MonoBehaviour
         {
             Destroy (gameObject);
         }
+        else if (other.tag == "The Word")
+        {
+            other.GetComponent<ThePrayerWord> ().SelfDestruct ();
+        }
     }
 }

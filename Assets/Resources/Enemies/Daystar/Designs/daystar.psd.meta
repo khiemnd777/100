@@ -3,6 +3,12 @@ guid: 3af4cd2e77c4b4462a5cc853de9473bc
 TextureImporter:
   fileIDToRecycleName:
     21300000: daystar_0
+    21300002: daystar_1
+    21300004: daystar_2
+    21300006: daystar_3
+    21300008: daystar_4
+    21300010: daystar_5
+    21300012: daystar_6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -32,12 +38,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -111,6 +117,126 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5a7fa6ddf75d84128855f220f0e11b16
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_1
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 46
+        width: 944
+        height: 898
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30c45892ee2f4641a7b5f2c5012a0fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_2
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 46
+        width: 944
+        height: 898
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e7629b5cb5146d0b871b8aa8b10e3d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_3
+      rect:
+        serializedVersion: 2
+        x: 3217
+        y: 45
+        width: 944
+        height: 898
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f30a8b02bb7f42fb8db4258cc1c5588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_4
+      rect:
+        serializedVersion: 2
+        x: 4293
+        y: 45
+        width: 944
+        height: 898
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da9355add312437d9744f1735a6a163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_5
+      rect:
+        serializedVersion: 2
+        x: 5382
+        y: 46
+        width: 944
+        height: 898
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb3f0b0d413d4d37b0347643c24f874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_6
+      rect:
+        serializedVersion: 2
+        x: 6458
+        y: 38
+        width: 950
+        height: 917
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e5159ab7ea74bfaa7d1106c8112236
       vertices: []
       indices: 
       edges: []
