@@ -9,7 +9,12 @@ public class TheDaystarTransform : MonoBehaviour
     [SerializeField]
     Sprite[] _appeareances;
     [SerializeField]
+    Sprite _lastTransformAppeareance;
+    [SerializeField]
     Transform _blastLight;
+    [SerializeField]
+    SpriteRenderer _blastLightDisplay;
+    
     ObjectShake _shake;
 
     void Awake ()
@@ -25,10 +30,12 @@ public class TheDaystarTransform : MonoBehaviour
 
     IEnumerator Script ()
     {
-        StartCoroutine (Shake ());
+        StartCoroutine ("Shake");
         yield return StartCoroutine (ChangeAppearance ());
         yield return StartCoroutine (BlastLight ());
-
+        StopCoroutine ("Shake");
+        _display.sprite = _lastTransformAppeareance;
+        yield return StartCoroutine (DissolveBlastLight ());
     }
 
     IEnumerator Shake ()
@@ -56,8 +63,19 @@ public class TheDaystarTransform : MonoBehaviour
         var t = 0f;
         while (t <= 1f)
         {
-            t += Time.deltaTime / 3.25f;
+            t += Time.deltaTime / 2f;
             _blastLight.localScale = Vector3.Lerp (Vector3.zero, Vector3.one * 100, t);
+            yield return null;
+        }
+    }
+
+    IEnumerator DissolveBlastLight ()
+    {
+        var t = 0f;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / .425f;
+            _blastLightDisplay.color = Color32.Lerp (new Color32 (255, 255, 255, 255), new Color32 (255, 255, 255, 0), t);
             yield return null;
         }
     }

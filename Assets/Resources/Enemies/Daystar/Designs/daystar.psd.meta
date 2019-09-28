@@ -15,6 +15,7 @@ TextureImporter:
     21300020: daystar_10
     21300022: daystar_11
     21300024: daystar_12
+    21300026: daystar_13
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -356,13 +357,33 @@ TextureImporter:
         width: 1206
         height: 1203
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: ca0ba25f93b5648bca708381297a5e0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_13
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 2167
+        width: 947
+        height: 906
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7d37c05ebb74286a911df935df17be
       vertices: []
       indices: 
       edges: []
