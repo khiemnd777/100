@@ -16,6 +16,11 @@ TextureImporter:
     21300022: daystar_11
     21300024: daystar_12
     21300026: daystar_13
+    21300028: daystar_14
+    21300030: daystar_15
+    21300032: daystar_16
+    21300034: daystar_17
+    21300036: daystar_18
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -384,6 +389,106 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4e7d37c05ebb74286a911df935df17be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_14
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 2166
+        width: 947
+        height: 906
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ffd7531d71994b8d9050b29527f1644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_15
+      rect:
+        serializedVersion: 2
+        x: 2110
+        y: 2166
+        width: 947
+        height: 906
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8733bc5abdf64241a09c04a4a458f07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_16
+      rect:
+        serializedVersion: 2
+        x: 3125
+        y: 2164
+        width: 947
+        height: 906
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda9fb5f11d56469b845b7437d1f6c69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_17
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 2165
+        width: 947
+        height: 906
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f6a5b155f81490d88cfe3b125659f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daystar_18
+      rect:
+        serializedVersion: 2
+        x: 5214
+        y: 2167
+        width: 947
+        height: 906
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419e147195fe842ac8c1543cef2ee088
       vertices: []
       indices: 
       edges: []

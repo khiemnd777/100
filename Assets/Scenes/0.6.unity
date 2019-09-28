@@ -1861,6 +1861,10 @@ MonoBehaviour:
   _blastLightDisplay: {fileID: 221514642}
   _theTrueDaystarPrefab: {fileID: 2207563543117441713, guid: 0ac105dd6905f4e35baa4914634c8429,
     type: 3}
+  _earthquakePrefab: {fileID: 3952270692691622799, guid: 1d6311fd9451f4ee3b2875dc75644543,
+    type: 3}
+  _earthquakeDuration: 0.08
+  _earthquakeMagnitude: 0.05
 --- !u!114 &1299483599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2922,7 +2926,7 @@ PrefabInstance:
     - target: {fileID: 3762913020915363370, guid: 48140b4a56b9b4b91b37e3fafde7b5af,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.66
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 3762913020915363370, guid: 48140b4a56b9b4b91b37e3fafde7b5af,
         type: 3}

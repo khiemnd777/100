@@ -15,6 +15,7 @@ TagManager:
   - Daystar Win Point
   - Daystar Death Point
   - Daystar Attacker
+  - The Sheep
   layers:
   - Default
   - TransparentFX

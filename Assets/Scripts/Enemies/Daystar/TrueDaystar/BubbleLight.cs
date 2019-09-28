@@ -6,10 +6,11 @@ public class BubbleLight : MonoBehaviour
 {
     public float speed;
     public Vector3 forward;
+    public float destructTime;
 
     void Start ()
     {
-        Destroy(gameObject, 2.75f);
+        Destroy(gameObject, destructTime);
     }
 
     void Update ()

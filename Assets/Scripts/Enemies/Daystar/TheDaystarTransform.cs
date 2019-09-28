@@ -16,6 +16,13 @@ public class TheDaystarTransform : MonoBehaviour
     SpriteRenderer _blastLightDisplay;
     [SerializeField]
     TheTrueDaystar _theTrueDaystarPrefab;
+    [Header ("Earthquake")]
+    [SerializeField]
+    Earthquake _earthquakePrefab;
+    [SerializeField]
+    float _earthquakeDuration;
+    [SerializeField]
+    float _earthquakeMagnitude;
     ObjectShake _shake;
 
     void Awake ()
@@ -37,6 +44,7 @@ public class TheDaystarTransform : MonoBehaviour
         StopCoroutine ("Shake");
         _display.sprite = _lastTransformAppeareance;
         Instantiate (_theTrueDaystarPrefab, transform.position, Quaternion.identity);
+        Earthquake ();
         yield return StartCoroutine (DissolveBlastLight ());
         Destroy (gameObject);
     }
@@ -48,6 +56,13 @@ public class TheDaystarTransform : MonoBehaviour
             _shake.Shake ();
             yield return new WaitForSeconds (_shake.duration);
         }
+    }
+
+    void Earthquake ()
+    {
+        var ins = Instantiate<Earthquake> (_earthquakePrefab, transform.position, Quaternion.identity);
+        ins.duration = _earthquakeDuration;
+        ins.magnitude = _earthquakeMagnitude;
     }
 
     IEnumerator ChangeAppearance ()

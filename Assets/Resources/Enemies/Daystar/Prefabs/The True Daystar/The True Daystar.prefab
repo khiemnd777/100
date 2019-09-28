@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2207563543117441712}
   - component: {fileID: 2207563543117441713}
-  m_Layer: 10
+  - component: {fileID: 7001482216170941420}
+  - component: {fileID: 868629975789003167}
+  - component: {fileID: 9212772061714798335}
+  m_Layer: 12
   m_Name: The True Daystar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +52,51 @@ MonoBehaviour:
     type: 3}
   _maxSpeed: 10
   _blastLightDisplay: {fileID: 2207563544445799261}
+--- !u!114 &7001482216170941420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207563543117441711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d90477f83694ebb921aee61c029919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _theSheepPrefab: {fileID: 4207112160213822472, guid: e3f9e7bce94e6498880acf8bc7bd321f,
+    type: 3}
+  _theSheepSpeed: 1.25
+  outSheep: 0
+--- !u!65 &868629975789003167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207563543117441711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.19536304, z: 1}
+  m_Center: {x: 0, y: -0.5418985, z: 0}
+--- !u!54 &9212772061714798335
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207563543117441711}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2207563543264790081
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2207563543264790082}
   - component: {fileID: 2207563543264790083}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2207563544445799260}
   - component: {fileID: 2207563544445799261}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Blast Light Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
