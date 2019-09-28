@@ -11,10 +11,14 @@ public class TheTrueDaystar : MonoBehaviour
     [SerializeField]
     SpriteRenderer _blastLightDisplay;
     TheTrueDaystarSkill _skill;
+    TheTrueDaystarComeback _comeback;
+    Earthquake _earthquake;
 
     void Awake ()
     {
         _skill = GetComponent<TheTrueDaystarSkill> ();
+        _comeback = GetComponent<TheTrueDaystarComeback> ();
+        _earthquake = FindObjectOfType<Earthquake> ();
     }
 
     void Start ()
@@ -50,19 +54,19 @@ public class TheTrueDaystar : MonoBehaviour
         var forward = ins.transform.position - transform.position;
         forward.Normalize ();
         ins.speed = Random.Range (_maxSpeed / 3f, _maxSpeed);
-        ins.forward = forward;
+        ins.direction = -1;
     }
 
     void CreateBubbleLightInverse ()
     {
         var pos = Random.insideUnitSphere * 12f + transform.position;
         var ins = Instantiate<BubbleLight> (_bubbleLightPrefab, pos, Quaternion.identity);
-        ins.destructTime = .425f;
+        ins.destructTime = .5f;
         ins.transform.localScale = Vector3.one * Random.Range (.5f, 1f);
         var forward = transform.position - ins.transform.position;
         forward.Normalize ();
         ins.speed = Random.Range (10f, 12f);
-        ins.forward = forward;
+        ins.direction = 1;
     }
 
     IEnumerator Twinkle ()
@@ -84,9 +88,11 @@ public class TheTrueDaystar : MonoBehaviour
     IEnumerator TransformToBlack ()
     {
         StartCoroutine ("BubbleLightInverse");
-        yield return new WaitForSeconds (10f);
+        yield return new WaitForSeconds (5f);
         StopCoroutine ("Twinkle");
         StopCoroutine ("BubbleLightInverse");
+        yield return StartCoroutine (_comeback.Comeback ());
+        _earthquake.StopEarthquake ();
     }
 
     void OnTriggerEnter (Collider other)

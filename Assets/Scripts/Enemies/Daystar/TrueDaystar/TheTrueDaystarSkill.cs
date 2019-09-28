@@ -41,7 +41,6 @@ public class TheTrueDaystarSkill : MonoBehaviour
             ins.transform.localScale = Vector3.one * Random.Range (.7f, 1f);
             var forward = transform.position - ins.transform.position;
             forward.Normalize ();
-            ins.forward = forward;
             ins.speed = Random.Range (_theSheepSpeed / 2.5f, _theSheepSpeed);
             yield return new WaitForSeconds (.085f);
         }

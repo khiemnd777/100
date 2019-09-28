@@ -5,9 +5,14 @@ using UnityEngine;
 public class TheSheep : MonoBehaviour
 {
     public float speed;
-    public Vector3 forward;
     [SerializeField]
     SpriteRenderer _display;
+    TheTrueDaystar _theTrueDaystar;
+
+    void Awake ()
+    {
+        _theTrueDaystar = FindObjectOfType<TheTrueDaystar> ();
+    }
 
     void Start ()
     {
@@ -16,6 +21,8 @@ public class TheSheep : MonoBehaviour
 
     void Update ()
     {
+        var forward = _theTrueDaystar.transform.position - transform.position;
+        forward.Normalize();
         transform.Translate (forward * speed * Time.deltaTime);
     }
 
@@ -31,6 +38,6 @@ public class TheSheep : MonoBehaviour
 
     public void SelfDestruct ()
     {
-        Destroy(gameObject);
+        Destroy (gameObject);
     }
 }

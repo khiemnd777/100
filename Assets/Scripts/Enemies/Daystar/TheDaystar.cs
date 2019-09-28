@@ -9,30 +9,26 @@ public class TheDaystar : MonoBehaviour
     [SerializeField]
     List<TheDayStarGetHit> _meshHits;
     [SerializeField]
-    Transform _deathPoint;
-    [SerializeField]
     ParticleSystem _hitFx;
     [SerializeField]
     SpriteRenderer _display;
     [SerializeField]
     Sprite[] _appearances;
+    [SerializeField]
+    TheDaystarTransform _theDaystarTransformPrefab;
     ObjectShake _shake;
     HealthPoint _hp;
     bool _isHit;
     int _currentAppearanceState;
+    Sprite _originalDisplay;
 
     void Awake ()
     {
+        _originalDisplay = _display.sprite;
         _shake = GetComponent<ObjectShake> ();
         _meshHits.ForEach (x => x.onHit += OnHit);
         _hp = GetComponent<HealthPoint> ();
         _currentAppearanceState = _appearances.Length;
-    }
-
-    void Update ()
-    {
-        Debug.DrawLine (transform.position, transform.position + Vector3.right * 5f);
-        Debug.DrawLine (_deathPoint.position, _deathPoint.position + Vector3.right * 5f);
     }
 
     void OnHit (Collider other)
@@ -49,7 +45,11 @@ public class TheDaystar : MonoBehaviour
 
     void ChangeAppearance ()
     {
-        if (_hp.hp <= 0) return;
+        if (_hp.hp <= 0)
+        {
+            ExecuteTransform ();
+            return;
+        }
         var normalizedHp = _hp.normalize;
         var ratio = 1f / _appearances.Length * _currentAppearanceState;
         if (normalizedHp <= ratio)
@@ -57,6 +57,19 @@ public class TheDaystar : MonoBehaviour
             _display.sprite = _appearances[_appearances.Length - _currentAppearanceState];
             --_currentAppearanceState;
         }
+    }
+
+    public void RestoreHp ()
+    {
+        _currentAppearanceState = _appearances.Length;
+        _hp.Recovery (_hp.maxHp);
+        _display.sprite = _originalDisplay;
+    }
+
+    void ExecuteTransform ()
+    {
+        Instantiate (_theDaystarTransformPrefab, transform.position, Quaternion.identity);
+        gameObject.SetActive (false);
     }
 
     void MoveUp (float stepUp)

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2207563543117441712}
   - component: {fileID: 2207563543117441713}
   - component: {fileID: 7001482216170941420}
+  - component: {fileID: 5775357245290639164}
   - component: {fileID: 868629975789003167}
   - component: {fileID: 9212772061714798335}
   m_Layer: 12
@@ -68,6 +69,27 @@ MonoBehaviour:
     type: 3}
   _theSheepSpeed: 1.25
   outSheep: 0
+--- !u!114 &5775357245290639164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207563543117441711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6606d1d23344205a835a665e4c4c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _appearances:
+  - {fileID: 21300026, guid: 3af4cd2e77c4b4462a5cc853de9473bc, type: 3}
+  - {fileID: 21300028, guid: 3af4cd2e77c4b4462a5cc853de9473bc, type: 3}
+  - {fileID: 21300030, guid: 3af4cd2e77c4b4462a5cc853de9473bc, type: 3}
+  - {fileID: 21300032, guid: 3af4cd2e77c4b4462a5cc853de9473bc, type: 3}
+  - {fileID: 21300034, guid: 3af4cd2e77c4b4462a5cc853de9473bc, type: 3}
+  - {fileID: 21300036, guid: 3af4cd2e77c4b4462a5cc853de9473bc, type: 3}
+  - {fileID: 21300000, guid: 3af4cd2e77c4b4462a5cc853de9473bc, type: 3}
+  _display: {fileID: 2207563543264790083}
 --- !u!65 &868629975789003167
 BoxCollider:
   m_ObjectHideFlags: 0
