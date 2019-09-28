@@ -14,7 +14,8 @@ public class TheDaystarTransform : MonoBehaviour
     Transform _blastLight;
     [SerializeField]
     SpriteRenderer _blastLightDisplay;
-    
+    [SerializeField]
+    TheTrueDaystar _theTrueDaystarPrefab;
     ObjectShake _shake;
 
     void Awake ()
@@ -35,7 +36,9 @@ public class TheDaystarTransform : MonoBehaviour
         yield return StartCoroutine (BlastLight ());
         StopCoroutine ("Shake");
         _display.sprite = _lastTransformAppeareance;
+        Instantiate (_theTrueDaystarPrefab, transform.position, Quaternion.identity);
         yield return StartCoroutine (DissolveBlastLight ());
+        Destroy (gameObject);
     }
 
     IEnumerator Shake ()
@@ -74,7 +77,7 @@ public class TheDaystarTransform : MonoBehaviour
         var t = 0f;
         while (t <= 1f)
         {
-            t += Time.deltaTime / .425f;
+            t += Time.deltaTime / 1f;
             _blastLightDisplay.color = Color32.Lerp (new Color32 (255, 255, 255, 255), new Color32 (255, 255, 255, 0), t);
             yield return null;
         }
