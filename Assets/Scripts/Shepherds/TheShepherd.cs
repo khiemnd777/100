@@ -122,6 +122,11 @@ public class TheShepherd : MonoBehaviour
         _theHouse.OnInfected ();
     }
 
+    public void SelfDestruct ()
+    {
+        Destroy (gameObject);
+    }
+
     // void OnTriggerEnter (Collider other)
     // {
     //     if ("Daystar Attacker".Equals (other.tag))

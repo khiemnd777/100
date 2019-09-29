@@ -16,6 +16,7 @@ TagManager:
   - Daystar Death Point
   - Daystar Attacker
   - The Sheep
+  - The Infected Shepherd
   layers:
   - Default
   - TransparentFX

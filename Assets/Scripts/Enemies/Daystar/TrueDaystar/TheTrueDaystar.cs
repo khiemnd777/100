@@ -97,7 +97,7 @@ public class TheTrueDaystar : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "The Sheep")
+        if (other.tag == "The Sheep" || other.tag == "The Infected Shepherd")
         {
             _skill.ConsumeSheep ();
             other.GetComponent<TheSheep> ().SelfDestruct ();

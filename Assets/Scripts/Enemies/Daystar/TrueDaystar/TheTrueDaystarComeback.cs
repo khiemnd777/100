@@ -8,12 +8,13 @@ public class TheTrueDaystarComeback : MonoBehaviour
     Sprite[] _appearances;
     [SerializeField]
     SpriteRenderer _display;
+    [SerializeField]
+    SpriteRenderer _blastLightDisplay;
     TheDaystar _theDaystar;
 
     void Awake ()
     {
         _theDaystar = Resources.FindObjectsOfTypeAll<TheDaystar> () [0];
-        Debug.Log (_theDaystar);
     }
 
     public IEnumerator Comeback ()
@@ -23,6 +24,12 @@ public class TheTrueDaystarComeback : MonoBehaviour
             _display.sprite = _appearances[i];
             yield return new WaitForSeconds (.25f);
         }
+        _blastLightDisplay.enabled = false;
+        // DaystarRestore ();
+    }
+
+    void DaystarRestore ()
+    {
         _theDaystar.RestoreHp ();
         _theDaystar.gameObject.SetActive (true);
         Destroy (gameObject);
