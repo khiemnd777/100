@@ -33,7 +33,7 @@ public class TheTrueDaystarSkill : MonoBehaviour
         StartCoroutine (SheepFlyOut ());
     }
 
-    IEnumerator SheepFlyOut ()
+    IEnumerator SheepFlyOut_bak ()
     {
         while (_theHouse.sheep > 0)
         {
@@ -57,6 +57,23 @@ public class TheTrueDaystarSkill : MonoBehaviour
                 forward.Normalize ();
                 ins.speed = Random.Range (_theSheepSpeed / 2.5f, _theSheepSpeed);
             }
+            yield return new WaitForSeconds (.085f);
+        }
+    }
+
+    IEnumerator SheepFlyOut ()
+    {
+        while (_theHouse.sheep > 1)
+        {
+            ++outSheep;
+            _theHouse.OnInfected ();
+            var pos = _theHouse.transform.position;
+            pos.x = Random.Range (-.8f, .8f);
+            var ins = Instantiate<TheSheep> (_theSheepPrefab, pos, Quaternion.identity);
+            ins.transform.localScale = Vector3.one * Random.Range (.7f, 1f);
+            var forward = transform.position - ins.transform.position;
+            forward.Normalize ();
+            ins.speed = Random.Range (_theSheepSpeed / 2.5f, _theSheepSpeed);
             yield return new WaitForSeconds (.085f);
         }
     }

@@ -25,7 +25,7 @@ public class TheTrueDaystarComeback : MonoBehaviour
             yield return new WaitForSeconds (.25f);
         }
         _blastLightDisplay.enabled = false;
-        // DaystarRestore ();
+        DaystarRestore ();
     }
 
     void DaystarRestore ()

@@ -21,6 +21,7 @@ public class TheDaystar : MonoBehaviour
     bool _isHit;
     int _currentAppearanceState;
     Sprite _originalDisplay;
+    bool _permanent;
 
     void Awake ()
     {
@@ -64,11 +65,13 @@ public class TheDaystar : MonoBehaviour
         _currentAppearanceState = _appearances.Length;
         _hp.Recovery (_hp.maxHp);
         _display.sprite = _originalDisplay;
+        _permanent = true;
     }
 
     void ExecuteTransform ()
     {
-        Instantiate (_theDaystarTransformPrefab, transform.position, Quaternion.identity);
+        var ins = Instantiate<TheDaystarTransform> (_theDaystarTransformPrefab, transform.position, Quaternion.identity);
+        ins.permanent = _permanent;
         gameObject.SetActive (false);
     }
 

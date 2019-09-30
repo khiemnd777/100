@@ -19,9 +19,12 @@ public class Settings : MonoBehaviour
 
     void Awake ()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = defaultScene == "0.1" ? 0f : 1f;
         playAgainButton.onClick.AddListener (PlayAgain);
-        startButton.onClick.AddListener (StartGame);
+        if (startButton)
+        {
+            startButton.onClick.AddListener (StartGame);
+        }
         playAgainButton.gameObject.SetActive (false);
         oopsText.gameObject.SetActive (false);
     }

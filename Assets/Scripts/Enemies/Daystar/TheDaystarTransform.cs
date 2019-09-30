@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TheDaystarTransform : MonoBehaviour
 {
+    public bool permanent;
     [SerializeField]
     SpriteRenderer _display;
     [SerializeField]
@@ -18,12 +19,14 @@ public class TheDaystarTransform : MonoBehaviour
     TheTrueDaystar _theTrueDaystarPrefab;
     ObjectShake _shake;
     Earthquake _earthquake;
+    Settings _settings;
 
     void Awake ()
     {
         _shake = GetComponent<ObjectShake> ();
         _blastLight.localScale = Vector3.zero;
         _earthquake = FindObjectOfType<Earthquake> ();
+        _settings = FindObjectOfType<Settings> ();
     }
 
     void Start ()
@@ -37,11 +40,24 @@ public class TheDaystarTransform : MonoBehaviour
         yield return StartCoroutine (ChangeAppearance ());
         yield return StartCoroutine (BlastLight ());
         StopCoroutine ("Shake");
-        _display.sprite = _lastTransformAppeareance;
+        _display.sprite = permanent ? null : _lastTransformAppeareance;
         _earthquake.StartEarthquake ();
-        Instantiate (_theTrueDaystarPrefab, transform.position, Quaternion.identity);
+        if (!permanent)
+        {
+            InitTrueDaystar ();
+        }
+
         yield return StartCoroutine (DissolveBlastLight ());
+        if (permanent)
+        {
+            _settings.GameOver ();
+        }
         Destroy (gameObject);
+    }
+
+    void InitTrueDaystar ()
+    {
+        Instantiate (_theTrueDaystarPrefab, transform.position, Quaternion.identity);
     }
 
     IEnumerator Shake ()
