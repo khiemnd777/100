@@ -8,6 +8,7 @@ public class TheTrueDaystarGoesAway : MonoBehaviour
     float _deltaForce;
     Gyroscope _gyro;
     Rigidbody _rigid;
+    bool _stop;
 
     void Awake ()
     {
@@ -22,6 +23,7 @@ public class TheTrueDaystarGoesAway : MonoBehaviour
 
     void Update ()
     {
+        if (_stop) return;
         var tilt = Input.acceleration;
         if (tilt.y > 0)
         {
@@ -31,5 +33,16 @@ public class TheTrueDaystarGoesAway : MonoBehaviour
         {
             _rigid.velocity = Vector3.zero;
         }
+    }
+
+    public void Stop ()
+    {
+        _stop = true;
+        _rigid.velocity = Vector3.zero;
+    }
+
+    public void KeepGoingDown ()
+    {
+        _stop = false;
     }
 }

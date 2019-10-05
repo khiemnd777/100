@@ -9,8 +9,15 @@ public class TheTrueDaystar : MonoBehaviour
     [SerializeField]
     float _maxSpeed;
     [SerializeField]
+    SpriteRenderer _twinkleDisplay;
+    [SerializeField]
+    Transform _blastLight;
+    [SerializeField]
     SpriteRenderer _blastLightDisplay;
+    [SerializeField]
+    SpriteRenderer _display;
     TheTrueDaystarSkill _skill;
+    TheTrueDaystarGoesAway _goesAway;
     TheTrueDaystarComeback _comeback;
     Earthquake _earthquake;
 
@@ -18,7 +25,9 @@ public class TheTrueDaystar : MonoBehaviour
     {
         _skill = GetComponent<TheTrueDaystarSkill> ();
         _comeback = GetComponent<TheTrueDaystarComeback> ();
+        _goesAway = GetComponent<TheTrueDaystarGoesAway> ();
         _earthquake = FindObjectOfType<Earthquake> ();
+        _blastLight.localScale = Vector3.zero;
     }
 
     void Start ()
@@ -71,10 +80,10 @@ public class TheTrueDaystar : MonoBehaviour
 
     IEnumerator Twinkle ()
     {
-        var scale = _blastLightDisplay.transform.localScale.x;
+        var scale = _twinkleDisplay.transform.localScale.x;
         while (gameObject)
         {
-            _blastLightDisplay.transform.localScale = Vector3.one * Random.Range (scale / 2f, scale);
+            _twinkleDisplay.transform.localScale = Vector3.one * Random.Range (scale / 2f, scale);
             yield return null;
         }
     }
@@ -83,6 +92,23 @@ public class TheTrueDaystar : MonoBehaviour
     {
         StopCoroutine ("BubbleLight");
         StartCoroutine (TransformToBlack ());
+    }
+
+    void ReleaseAndDecay ()
+    {
+        StopCoroutine ("BubbleLight");
+        StartCoroutine (ScriptReleaseAndDecay ());
+    }
+
+    IEnumerator ScriptReleaseAndDecay ()
+    {
+        yield return StartCoroutine (_skill.SheepGoingHome2 ());
+        yield return StartCoroutine (_skill.SheepGoingHome ());
+        yield return StartCoroutine (BlastLight ());
+        yield return new WaitForSeconds (1.25f);
+        _display.color = new Color32 (255, 255, 255, 0);
+        yield return StartCoroutine (DissolveBlastLight ());
+        Destroy (gameObject);
     }
 
     IEnumerator TransformToBlack ()
@@ -95,16 +121,49 @@ public class TheTrueDaystar : MonoBehaviour
         _earthquake.StopEarthquake ();
     }
 
+    IEnumerator BlastLight ()
+    {
+        var t = 0f;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / 2f;
+            _blastLight.localScale = Vector3.Lerp (Vector3.zero, Vector3.one * 100, t);
+            yield return null;
+        }
+    }
+
+    IEnumerator DissolveBlastLight ()
+    {
+        var t = 0f;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / 1f;
+            _blastLightDisplay.color = Color32.Lerp (new Color32 (255, 255, 255, 255), new Color32 (255, 255, 255, 0), t);
+            yield return null;
+        }
+    }
+
     void OnTriggerEnter (Collider other)
     {
         if (other.tag == "The Sheep" || other.tag == "The Infected Shepherd")
         {
-            _skill.ConsumeSheep ();
-            other.GetComponent<TheSheep> ().SelfDestruct ();
-            if (_skill.isOutOfSheep)
+            var sheep = other.GetComponent<TheSheep> ();
+            if (sheep.target.GetInstanceID () == GetInstanceID ())
             {
-                GameOver ();
+                _skill.ConsumeSheep (sheep);
+                other.GetComponent<TheSheep> ().SelfDestruct ();
+                if (_skill.isOutOfSheep)
+                {
+                    Debug.Log (2);
+                    GameOver ();
+                }
             }
+        }
+        else if (other.tag == "Daystar Death Point")
+        {
+            Debug.Log (1);
+            _goesAway.Stop ();
+            ReleaseAndDecay ();
         }
     }
 }

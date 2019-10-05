@@ -12,13 +12,25 @@ public class TheTrueDaystarSkill : MonoBehaviour
     float _theSheepSpeed;
     TheHouse _theHouse;
     TheShepherd _theShepherd;
-    public int outSheep;
+    [SerializeField]
+    int _outSheep;
+    int _consumedSheep;
+    int _maxSheep;
+    List<TheSheep> _insSheepList = new List<TheSheep> ();
 
     public bool isOutOfSheep
     {
         get
         {
-            return outSheep <= 0;
+            return _consumedSheep >= _maxSheep;
+        }
+    }
+
+    public bool isOutOfComsumedSheep
+    {
+        get
+        {
+            return _consumedSheep <= 0;
         }
     }
 
@@ -30,6 +42,7 @@ public class TheTrueDaystarSkill : MonoBehaviour
 
     void Start ()
     {
+        _maxSheep = _theHouse.sheep - 1;
         StartCoroutine (SheepFlyOut ());
     }
 
@@ -37,7 +50,7 @@ public class TheTrueDaystarSkill : MonoBehaviour
     {
         while (_theHouse.sheep > 0)
         {
-            ++outSheep;
+            ++_outSheep;
             _theHouse.OnInfected ();
             if (_theHouse.sheep == 0)
             {
@@ -65,21 +78,44 @@ public class TheTrueDaystarSkill : MonoBehaviour
     {
         while (_theHouse.sheep > 1)
         {
-            ++outSheep;
             _theHouse.OnInfected ();
-            var pos = _theHouse.transform.position;
+            var pos = _theHouse.initSheepPoint.position;
             pos.x = Random.Range (-.8f, .8f);
             var ins = Instantiate<TheSheep> (_theSheepPrefab, pos, Quaternion.identity);
+            ins.target = this.transform;
             ins.transform.localScale = Vector3.one * Random.Range (.7f, 1f);
-            var forward = transform.position - ins.transform.position;
-            forward.Normalize ();
             ins.speed = Random.Range (_theSheepSpeed / 2.5f, _theSheepSpeed);
+            _insSheepList.Add (ins);
             yield return new WaitForSeconds (.085f);
         }
     }
 
-    public void ConsumeSheep ()
+    public IEnumerator SheepGoingHome ()
     {
-        --outSheep;
+        while (_consumedSheep-- > 0)
+        {
+            Debug.Log (_consumedSheep);
+            var ins = Instantiate<TheSheep> (_theSheepPrefab, transform.position, Quaternion.identity);
+            ins.target = _theHouse.transform;
+            ins.transform.localScale = Vector3.one * Random.Range (.7f, 1f);
+            ins.speed = Random.Range (_theSheepSpeed / 2.5f, _theSheepSpeed);
+            yield return new WaitForSeconds (.02f);
+        }
+    }
+
+    public IEnumerator SheepGoingHome2 ()
+    {
+        foreach (var sheep in _insSheepList)
+        {
+            if (!sheep) continue;
+            sheep.target = _theHouse.transform;
+            yield return new WaitForSeconds (.02f);
+        }
+    }
+
+    public void ConsumeSheep (TheSheep theSheep)
+    {
+        ++_consumedSheep;
+        _insSheepList.Remove (theSheep);
     }
 }

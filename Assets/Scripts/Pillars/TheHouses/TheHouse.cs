@@ -8,6 +8,7 @@ public class TheHouse : MonoBehaviour
     public Transform goOutPoint;
     public Transform theShepherdPoint;
     public int sheep = 1;
+    public Transform initSheepPoint;
     public const int maxSheep = 100;
     [SerializeField]
     TextMesh _100txt;
@@ -64,5 +65,18 @@ public class TheHouse : MonoBehaviour
         if (string.IsNullOrEmpty (scene)) yield break;
         yield return new WaitForSeconds (.5f);
         SceneManager.LoadScene (string.Format ("Scenes/{0}", scene));
+    }
+
+    void OnTriggerEnter (Collider other)
+    {
+        if (other.tag == "The Sheep")
+        {
+            var theSheep = other.GetComponent<TheSheep> ();
+            if (theSheep.target.tag == "The House")
+            {
+                ++sheep;
+                theSheep.SelfDestruct ();
+            }
+        }
     }
 }
