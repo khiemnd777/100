@@ -336,7 +336,7 @@ MonoBehaviour:
   - 0.6
   - 0.3
   - 0
-  defaultScene: 0.5
+  defaultScene: 0.1
   oopsText: {fileID: 1900328906}
   playAgainButton: {fileID: 830526473}
   startButton: {fileID: 0}

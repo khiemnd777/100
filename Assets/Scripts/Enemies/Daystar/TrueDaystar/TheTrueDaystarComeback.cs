@@ -10,6 +10,8 @@ public class TheTrueDaystarComeback : MonoBehaviour
     SpriteRenderer _display;
     [SerializeField]
     SpriteRenderer _blastLightDisplay;
+    [SerializeField]
+    AnimationCurve _curveAnimThatPosition;
     TheDaystar _theDaystar;
 
     void Awake ()
@@ -25,6 +27,7 @@ public class TheTrueDaystarComeback : MonoBehaviour
             yield return new WaitForSeconds (.25f);
         }
         _blastLightDisplay.enabled = false;
+        yield return StartCoroutine (MoveToThatPosition ());
         DaystarRestore ();
     }
 
@@ -33,5 +36,21 @@ public class TheTrueDaystarComeback : MonoBehaviour
         _theDaystar.RestoreHp ();
         _theDaystar.gameObject.SetActive (true);
         Destroy (gameObject);
+    }
+
+    IEnumerator MoveToThatPosition ()
+    {
+        if (transform.position.y > 3.77f)
+        {
+            var srcPos = transform.position;
+            var destPos = new Vector3 (srcPos.x, 3.77f, srcPos.z);
+            var t = 0f;
+            while (t <= 1f)
+            {
+                t += Time.deltaTime / 1f;
+                transform.position = Vector3.Lerp (srcPos, destPos, _curveAnimThatPosition.Evaluate (t));
+                yield return null;
+            }
+        }
     }
 }

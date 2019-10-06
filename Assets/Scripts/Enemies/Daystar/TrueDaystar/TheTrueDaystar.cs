@@ -19,6 +19,7 @@ public class TheTrueDaystar : MonoBehaviour
     TheTrueDaystarSkill _skill;
     TheTrueDaystarGoesAway _goesAway;
     TheTrueDaystarComeback _comeback;
+    TheHellFire _theHellFire;
     Earthquake _earthquake;
 
     void Awake ()
@@ -27,6 +28,7 @@ public class TheTrueDaystar : MonoBehaviour
         _comeback = GetComponent<TheTrueDaystarComeback> ();
         _goesAway = GetComponent<TheTrueDaystarGoesAway> ();
         _earthquake = FindObjectOfType<Earthquake> ();
+        _theHellFire = FindObjectOfType<TheHellFire> ();
         _blastLight.localScale = Vector3.zero;
     }
 
@@ -105,10 +107,24 @@ public class TheTrueDaystar : MonoBehaviour
         yield return StartCoroutine (_skill.SheepGoingHome2 ());
         yield return StartCoroutine (_skill.SheepGoingHome ());
         yield return StartCoroutine (BlastLight ());
+        StartCoroutine (TheHellFireIsGone ());
         yield return new WaitForSeconds (1.25f);
         _display.color = new Color32 (255, 255, 255, 0);
         yield return StartCoroutine (DissolveBlastLight ());
         Destroy (gameObject);
+    }
+
+    IEnumerator TheHellFireIsGone ()
+    {
+        var t = 0f;
+        var srcPos = _theHellFire.transform.position;
+        var destPos = new Vector3 (srcPos.x, 14f, srcPos.z);
+        while (t <= 1f)
+        {
+            t += Time.deltaTime * 5f;
+            _theHellFire.transform.position = Vector3.Lerp (srcPos, destPos, t);
+            yield return null;
+        }
     }
 
     IEnumerator TransformToBlack ()
@@ -148,20 +164,18 @@ public class TheTrueDaystar : MonoBehaviour
         if (other.tag == "The Sheep" || other.tag == "The Infected Shepherd")
         {
             var sheep = other.GetComponent<TheSheep> ();
-            if (sheep.target.GetInstanceID () == GetInstanceID ())
+            if (sheep.target.GetInstanceID () == transform.GetInstanceID ())
             {
                 _skill.ConsumeSheep (sheep);
                 other.GetComponent<TheSheep> ().SelfDestruct ();
                 if (_skill.isOutOfSheep)
                 {
-                    Debug.Log (2);
                     GameOver ();
                 }
             }
         }
         else if (other.tag == "Daystar Death Point")
         {
-            Debug.Log (1);
             _goesAway.Stop ();
             ReleaseAndDecay ();
         }
