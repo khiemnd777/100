@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LogoAppearance : MonoBehaviour
 {
@@ -8,6 +8,8 @@ public class LogoAppearance : MonoBehaviour
     float _speed;
     [SerializeField]
     SpriteRenderer _display;
+    [SerializeField]
+    string _defaultScene;
 
     void Awake ()
     {
@@ -31,5 +33,7 @@ public class LogoAppearance : MonoBehaviour
             _display.color = Color.Lerp (src, dest, t);
             yield return null;
         }
+        yield return new WaitForSeconds(1.25f);
+        SceneManager.LoadScene (string.Format ("Scenes/{0}", _defaultScene));
     }
 }

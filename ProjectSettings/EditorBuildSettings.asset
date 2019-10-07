@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0.6.unity
     guid: 65a1b949b3be948898353ebb9c2c7ed0
+  - enabled: 1
+    path: Assets/Scenes/Tap to play.unity
+    guid: 8613a0b7d6f6347cf9106be897073357
   m_configObjects: {}

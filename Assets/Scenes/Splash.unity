@@ -256,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0.5
   _display: {fileID: 2139457837}
+  _defaultScene: Tap to play
 --- !u!1 &2139457835
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,12 @@ guid: eb9fcfa939f7548d08c4073bc192399f
 TextureImporter:
   fileIDToRecycleName:
     21300000: the house_0
+    21300002: the house_1
+    21300004: the house_2
+    21300006: the house_3
+    21300008: the house_4
+    21300010: the house_5
+    21300012: the house_6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -111,6 +117,126 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c7f74fc7641ec4ce5a0c043c5dc40014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the house_1
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 47
+        width: 391
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb9f09becc694f46ae039230c92a317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the house_2
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 48
+        width: 391
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f98cb8a016f54486f9986770321983fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the house_3
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 43
+        width: 391
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d1d7d3a8eeac4380a12820390b984ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the house_4
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 38
+        width: 391
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e1dbce16f0b4e29abfc84506ee9099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the house_5
+      rect:
+        serializedVersion: 2
+        x: 2485
+        y: 37
+        width: 391
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3fc89ba706464a8a8b2e48317cd211b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the house_6
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 512
+        width: 391
+        height: 391
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9f04b4067564f6295803ca2ed6b680
       vertices: []
       indices: 
       edges: []

@@ -19,7 +19,7 @@ public class Settings : MonoBehaviour
 
     void Awake ()
     {
-        Time.timeScale = defaultScene == "0.1" ? 0f : 1f;
+        // Time.timeScale = defaultScene == "0.1" ? 0f : 1f;
         playAgainButton.onClick.AddListener (PlayAgain);
         if (startButton)
         {
