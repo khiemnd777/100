@@ -11,10 +11,14 @@ public class TheHouse : MonoBehaviour
     public Transform initSheepPoint;
     public const int maxSheep = 100;
     [SerializeField]
+    Sprite[] _appearances;
+    [SerializeField]
+    SpriteRenderer _display;
+    [SerializeField]
     TextMesh _100txt;
     [SerializeField]
     string _nextScene;
-
+    int _currentAppearanceState;
     Settings _settings;
     TheHellFire _hellFire;
     TheLight _theLight;
@@ -24,6 +28,7 @@ public class TheHouse : MonoBehaviour
         _settings = FindObjectOfType<Settings> ();
         _hellFire = FindObjectOfType<TheHellFire> ();
         _theLight = FindObjectOfType<TheLight> ();
+        _currentAppearanceState = sheep == 100 ? _appearances.Length - 1 : 0;
     }
 
     void Update ()
@@ -34,12 +39,14 @@ public class TheHouse : MonoBehaviour
     public void OnConverted ()
     {
         sheep = sheep >= maxSheep ? maxSheep : sheep + 1;
+        ChangeAppearanceAsIncrease ();
         CollectEnough (sheep);
     }
 
     public void OnInfected ()
     {
         sheep = sheep <= 0 ? 0 : sheep - 1;
+        ChangeAppearanceAsDecrease ();
         // if (sheep <= 0)
         // {
         //     _settings.GameOver ();
@@ -49,6 +56,7 @@ public class TheHouse : MonoBehaviour
     public void OnHealed ()
     {
         sheep = sheep >= maxSheep ? maxSheep : sheep + 1;
+        ChangeAppearanceAsIncrease ();
         CollectEnough (sheep);
     }
 
@@ -65,6 +73,36 @@ public class TheHouse : MonoBehaviour
         if (string.IsNullOrEmpty (scene)) yield break;
         yield return new WaitForSeconds (.5f);
         SceneManager.LoadScene (string.Format ("Scenes/{0}", scene));
+    }
+
+    void ChangeAppearanceAsIncrease ()
+    {
+        if (_currentAppearanceState < 0)
+        {
+            _currentAppearanceState = 0;
+        }
+        var normalizedHp = sheep / 100f;
+        var ratio = 1f / _appearances.Length * (_currentAppearanceState + 1);
+        if (normalizedHp > ratio)
+        {
+            _display.sprite = _appearances[_currentAppearanceState];
+            ++_currentAppearanceState;
+        }
+    }
+
+    void ChangeAppearanceAsDecrease ()
+    {
+        if (_currentAppearanceState < 0)
+        {
+            _currentAppearanceState = 0;
+        }
+        var normalizedHp = sheep / 100f;
+        var ratio = 1f / _appearances.Length * (_currentAppearanceState + 1);
+        if (normalizedHp <= ratio)
+        {
+            _display.sprite = _appearances[_currentAppearanceState];
+            --_currentAppearanceState;
+        }
     }
 
     void OnTriggerEnter (Collider other)

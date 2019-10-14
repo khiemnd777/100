@@ -880,6 +880,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &879986928 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5666534022186198410, guid: 1a59f7c67cdd04864bcb28699b120acb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1948120327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &891136732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,9 +1816,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
+      propertyPath: _appearances.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
       propertyPath: _nextScene
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: _appearances.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300012, guid: eb9fcfa939f7548d08c4073bc192399f,
+        type: 3}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: _appearances.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: eb9fcfa939f7548d08c4073bc192399f,
+        type: 3}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: _appearances.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300002, guid: eb9fcfa939f7548d08c4073bc192399f,
+        type: 3}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: _appearances.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300004, guid: eb9fcfa939f7548d08c4073bc192399f,
+        type: 3}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: _appearances.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300006, guid: eb9fcfa939f7548d08c4073bc192399f,
+        type: 3}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: _appearances.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300008, guid: eb9fcfa939f7548d08c4073bc192399f,
+        type: 3}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: _appearances.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300010, guid: eb9fcfa939f7548d08c4073bc192399f,
+        type: 3}
+    - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: _display
+      value: 
+      objectReference: {fileID: 879986928}
     - target: {fileID: 5666534022186198410, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
       propertyPath: m_Color.r
@@ -1844,15 +1902,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300012, guid: eb9fcfa939f7548d08c4073bc192399f,
         type: 3}
-    - target: {fileID: 5666534023344992627, guid: 1a59f7c67cdd04864bcb28699b120acb,
-        type: 3}
-      propertyPath: m_OffsetZ
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5666534023344992624, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666534023344992627, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_OffsetZ
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5666534023344992625, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}

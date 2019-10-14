@@ -34,7 +34,6 @@ public class TheSheep : MonoBehaviour
 
     public void SelfDestruct ()
     {
-        Debug.Log(3);
         Destroy (gameObject);
     }
 }

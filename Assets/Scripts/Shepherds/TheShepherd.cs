@@ -19,6 +19,10 @@ public class TheShepherd : MonoBehaviour
         _theHouse = FindObjectOfType<TheHouse> ();
         _swipeDetector = GetComponent<SwipeDetector> ();
         _swipeDetector.OnSwipe += OnSwipe;
+    }
+
+    void Start ()
+    {
         StartCoroutine (AppearedAtStart ());
     }
 
