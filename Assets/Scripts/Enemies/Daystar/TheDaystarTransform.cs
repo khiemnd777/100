@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TheDaystarTransform : MonoBehaviour
 {
@@ -17,8 +18,13 @@ public class TheDaystarTransform : MonoBehaviour
     SpriteRenderer _blastLightDisplay;
     [SerializeField]
     TheTrueDaystar _theTrueDaystarPrefab;
+    [SerializeField]
+    SpriteRenderer _theEndBackgroundPrefab;
+    [SerializeField]
+    SpriteRenderer _addOilPrefab;
     ObjectShake _shake;
     Earthquake _earthquake;
+    TheHellFire _theHellFire;
     Settings _settings;
 
     void Awake ()
@@ -26,6 +32,7 @@ public class TheDaystarTransform : MonoBehaviour
         _shake = GetComponent<ObjectShake> ();
         _blastLight.localScale = Vector3.zero;
         _earthquake = FindObjectOfType<Earthquake> ();
+        _theHellFire = FindObjectOfType<TheHellFire> ();
         _settings = FindObjectOfType<Settings> ();
     }
 
@@ -45,14 +52,49 @@ public class TheDaystarTransform : MonoBehaviour
         if (!permanent)
         {
             InitTrueDaystar ();
+            yield return StartCoroutine (DissolveBlastLight ());
         }
-
-        yield return StartCoroutine (DissolveBlastLight ());
-        if (permanent)
+        else
         {
-            _settings.GameOver ();
+            _theHellFire.transform.position = new Vector3 (0f, 16f, 0f);
+            yield return StartCoroutine (DissolveBlastLight ());
+            _earthquake.StopEarthquake ();
+            yield return StartCoroutine (EndGame ());
         }
         Destroy (gameObject);
+    }
+
+    IEnumerator EndGame ()
+    {
+        var theEndBg = Instantiate<SpriteRenderer> (_theEndBackgroundPrefab, Vector3.zero, Quaternion.identity);
+        yield return new WaitForSeconds (1.5f);
+        var t = 0f;
+        var ca = new Color32 (255, 255, 255, 0);
+        var cb = new Color32 (255, 255, 255, 255);
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / 2f;
+            theEndBg.color = Color32.Lerp (ca, cb, t);
+            yield return null;
+        }
+        t = 0f;
+        var addOil = Instantiate<SpriteRenderer> (_addOilPrefab, new Vector3 (0f, .9f, 0f), Quaternion.identity);
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / 1.5f;
+            addOil.color = Color32.Lerp (ca, cb, t);
+            yield return null;
+        }
+        yield return new WaitForSeconds (3f);
+        t = 0f;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / 1.5f;
+            addOil.color = Color32.Lerp (cb, ca, t);
+            yield return null;
+        }
+        yield return new WaitForSeconds (1.25f);
+        SceneManager.LoadScene (string.Format ("Scenes/{0}", "Tap to play"));
     }
 
     void InitTrueDaystar ()

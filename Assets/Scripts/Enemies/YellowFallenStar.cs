@@ -47,6 +47,10 @@ public class YellowFallenStar : TheStar
         {
             if (!infected)
             {
+                if (_theHouse.sheep <= 0)
+                {
+                    Destroy (gameObject);
+                }
                 var goOutPoint = _theHouse.goOutPoint;
                 infected = true;
                 display.sprite = infectedSprite;

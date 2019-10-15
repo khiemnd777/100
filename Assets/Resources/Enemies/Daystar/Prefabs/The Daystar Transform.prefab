@@ -214,7 +214,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5503631656405923225}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f81f7fbe3d14339ae420892ee4fde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  permanent: 0
   _display: {fileID: 5503631656306781797}
   _appeareances:
   - {fileID: 21300014, guid: 3af4cd2e77c4b4462a5cc853de9473bc, type: 3}
@@ -248,10 +249,10 @@ MonoBehaviour:
   _blastLightDisplay: {fileID: 5503631655336408519}
   _theTrueDaystarPrefab: {fileID: 2207563543117441713, guid: 0ac105dd6905f4e35baa4914634c8429,
     type: 3}
-  _earthquakePrefab: {fileID: 3952270692691622799, guid: 1d6311fd9451f4ee3b2875dc75644543,
+  _theEndBackgroundPrefab: {fileID: 7732084031877793536, guid: ad1584f8149a3484e84a0f6687057a84,
     type: 3}
-  _earthquakeDuration: 0.08
-  _earthquakeMagnitude: 0.05
+  _addOilPrefab: {fileID: 5303808792059863934, guid: a31f0f4a6a8ac4165b7e50c04178a805,
+    type: 3}
 --- !u!114 &5503631656405923226
 MonoBehaviour:
   m_ObjectHideFlags: 0

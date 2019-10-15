@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: c77efca8e0b57406cae2f9084e22bb8b
+guid: c7cfa693b60ea4e77b2a938257d8a33d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hell fire bg1_0
+    21300000: Add oil_0
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -96,21 +96,21 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hell fire bg1_0
+      name: Add oil_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 999
-        height: 144
+        x: 165
+        y: 197
+        width: 189
+        height: 131
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8eeeae5a0a1a41faa8fa344de105f35
+      spriteID: 6d1f0d04026c2472182bb71626bdf478
       vertices: []
       indices: 
       edges: []
@@ -118,7 +118,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: eb96d0da5ef4d4f988e2bc88859cdec3
+    spriteID: 82d3400f0f5554064bdb6fbee737df1d
     vertices: []
     indices: 
     edges: []
