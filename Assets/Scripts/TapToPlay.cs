@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TapToPlay : MonoBehaviour
 {
     [SerializeField]
     float _speed;
     public Button tap2PlayButton;
+    [SerializeField]
+    Transform _logo;
     [SerializeField]
     Transform _theHellFire;
     [SerializeField]
@@ -32,6 +34,7 @@ public class TapToPlay : MonoBehaviour
     void OnTap ()
     {
         tap2PlayButton.gameObject.SetActive (false);
+        _logo.gameObject.SetActive (false);
         StartCoroutine (ScriptOnTap ());
     }
 

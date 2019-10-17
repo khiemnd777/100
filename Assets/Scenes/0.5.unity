@@ -299,6 +299,11 @@ PrefabInstance:
       propertyPath: delayBetweenLaunch
       value: 0.175
       objectReference: {fileID: 0}
+    - target: {fileID: 9223065650240813701, guid: 6582d01a69e53484d8b65ac4c2fac498,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6582d01a69e53484d8b65ac4c2fac498, type: 3}
 --- !u!1 &490846713
@@ -1677,7 +1682,7 @@ PrefabInstance:
     - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
       propertyPath: _appearances.Array.size
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
@@ -1688,7 +1693,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _appearances.Array.data[0]
       value: 
-      objectReference: {fileID: 21300012, guid: eb9fcfa939f7548d08c4073bc192399f,
+      objectReference: {fileID: 21300014, guid: eb9fcfa939f7548d08c4073bc192399f,
         type: 3}
     - target: {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
@@ -1734,7 +1739,18 @@ PrefabInstance:
     - target: {fileID: 5666534022186198410, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666534022186198410, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300014, guid: eb9fcfa939f7548d08c4073bc192399f,
+        type: 3}
+    - target: {fileID: 5666534023344992627, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4280352586
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a59f7c67cdd04864bcb28699b120acb, type: 3}

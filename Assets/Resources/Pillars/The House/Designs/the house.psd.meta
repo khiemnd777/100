@@ -9,6 +9,7 @@ TextureImporter:
     21300008: the house_4
     21300010: the house_5
     21300012: the house_6
+    21300014: the house_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -237,6 +238,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bf9f04b4067564f6295803ca2ed6b680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the house_7
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 506
+        width: 392
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb81fe2da7544f3384fec8eb1801c17
       vertices: []
       indices: 
       edges: []
