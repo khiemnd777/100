@@ -5,6 +5,8 @@ using UnityEngine;
 public class TheHomingStar : MonoBehaviour
 {
     [System.NonSerialized]
+    public TheTraitor theTraitor;
+    [System.NonSerialized]
     public float speed = 5f;
     [System.NonSerialized]
     public float maxDegreesDeltaRotation = 100f;
@@ -34,6 +36,7 @@ public class TheHomingStar : MonoBehaviour
         _theShepherd = FindObjectOfType<TheShepherd> ();
         _rotationDirection = _indicatedRotationDirections[Random.Range (0, _indicatedRotationDirections.Length)];
         _shakeCamera = FindObjectOfType<CameraShake> ();
+        theTraitor = GetComponent<TheTraitor> ();
     }
 
     void Start ()
@@ -90,10 +93,14 @@ public class TheHomingStar : MonoBehaviour
     {
         if ("Player".Equals (other.tag))
         {
-            other.GetComponent<TheShepherd> ().Hit ();
+            other.GetComponent<TheShepherd> ().Hit (theTraitor.isTraitor ? 5 : 1);
             _shakeCamera.Shake (.175f, .065f);
             InstantiateEffectAtCollision ();
             InstantiateSoundEffectAtCollision ();
+            if (theTraitor.isTraitor)
+            {
+                theTraitor.InstantiateBullet (100f);
+            }
             Destroy (gameObject);
         }
         else if ("The House".Equals (other.tag))

@@ -126,6 +126,14 @@ public class TheShepherd : MonoBehaviour
         _theHouse.OnInfected ();
     }
 
+    public void Hit (int damage)
+    {
+        for (var i = 0; i < damage; i++)
+        {
+            _theHouse.OnInfected ();
+        }
+    }
+
     public void SelfDestruct ()
     {
         Destroy (gameObject);

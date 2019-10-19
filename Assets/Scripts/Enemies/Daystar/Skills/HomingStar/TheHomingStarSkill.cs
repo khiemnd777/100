@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TheHomingStarSkill : DaystarSkill
@@ -10,6 +9,7 @@ public class TheHomingStarSkill : DaystarSkill
     public float acceleration = 7f;
     public float maxDegreesDeltaRotationAcceleration = 100f;
     public float accelerationWaitedTime = .5f;
+    public int traitorDue = 15;
     [SerializeField]
     float _delay;
     [SerializeField]
@@ -18,7 +18,7 @@ public class TheHomingStarSkill : DaystarSkill
     Transform _spawnPoint;
     Settings _settings;
     int _number;
-
+    int _traitorDueCount;
     void Awake ()
     {
         _settings = FindObjectOfType<Settings> ();
@@ -45,10 +45,18 @@ public class TheHomingStarSkill : DaystarSkill
 
     void SpawnFallenStar ()
     {
+        var isTraitor = false;
+        if (_traitorDueCount == traitorDue)
+        {
+            isTraitor = true;
+            _traitorDueCount = 0;
+        }
+        ++_traitorDueCount;
         var specificHorizontalStep = _settings.GetSpecificHorizontalStep (_settings.specificHorizontalSteps);
         var spawnPointX = _spawnPoint.position.x + specificHorizontalStep;
         var spawnPoint = new Vector3 (spawnPointX, _spawnPoint.position.y, _spawnPoint.position.z);
         var theStar = Instantiate<TheHomingStar> (_homingStarPrefab, spawnPoint, Quaternion.identity);
+        theStar.theTraitor.isTraitor = isTraitor;
         theStar.speed = speed;
         theStar.maxDegreesDeltaRotation = maxDegreesDeltaRotation;
         theStar.acceleration = acceleration;

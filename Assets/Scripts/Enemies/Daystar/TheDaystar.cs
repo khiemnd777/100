@@ -34,14 +34,24 @@ public class TheDaystar : MonoBehaviour
 
     void OnHit (Collider other)
     {
-        if (!"The Word".Equals (other.tag)) return;
-        var theWord = other.GetComponent<ThePrayerWord> ();
-        // MoveUp (_stepUp);
-        _hp.TakeDamage (theWord.damage);
-        _shake.Shake ();
-        ChangeAppearance ();
-        InstantiateHitFx (theWord.transform.position);
-        theWord.SelfDestruct ();
+        if ("The Word".Equals (other.tag))
+        {
+            var theWord = other.GetComponent<ThePrayerWord> ();
+            // MoveUp (_stepUp);
+            _hp.TakeDamage (theWord.damage);
+            _shake.Shake ();
+            ChangeAppearance ();
+            InstantiateHitFx (theWord.transform.position);
+            theWord.SelfDestruct ();
+        }
+        if ("The Traitor Bullet".Equals (other.tag))
+        {
+            Debug.Log("Here");
+            var theTraitorBullet = other.GetComponent<TheTraitorBullet> ();
+            _hp.TakeDamage (theTraitorBullet.damage);
+            _shake.Shake ();
+            theTraitorBullet.SelfDestruct ();
+        }
     }
 
     void ChangeAppearance ()

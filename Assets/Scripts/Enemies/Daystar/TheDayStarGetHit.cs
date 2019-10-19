@@ -7,12 +7,7 @@ public class TheDayStarGetHit : MonoBehaviour
     public event System.Action<Collider> onHit;
     void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "The Word")
-        {
-            if (onHit != null)
-            {
-                onHit (other);
-            }
-        }
+        if (onHit == null) return;
+        onHit (other);
     }
 }
