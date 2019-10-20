@@ -134,6 +134,8 @@ MonoBehaviour:
   _detectedLayer:
     serializedVersion: 2
     m_Bits: 512
+  _projectileSpotlightPrefab: {fileID: 2456895327168693646, guid: a71c91ef4a3e544428ac3d6fe41709e5,
+    type: 3}
 --- !u!1 &6332637858829518519
 GameObject:
   m_ObjectHideFlags: 0

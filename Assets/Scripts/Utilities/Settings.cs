@@ -10,6 +10,8 @@ public class Settings : MonoBehaviour
     public float horizontalStep = .2f;
     public float[] specificHorizontalSteps = { .6f, .4f, .2f, 0f };
     [Header ("Game Over")]
+    [SerializeField]
+    GameOver _gameOverPrefab;
     public string defaultScene;
     public Text oopsText;
     public Button playAgainButton;
@@ -51,8 +53,7 @@ public class Settings : MonoBehaviour
     {
         gameOver = true;
         Time.timeScale = 0f;
-        playAgainButton.gameObject.SetActive (true);
-        oopsText.gameObject.SetActive (true);
+        Instantiate(_gameOverPrefab, Vector3.zero, Quaternion.identity);
     }
 
     void PlayAgain ()

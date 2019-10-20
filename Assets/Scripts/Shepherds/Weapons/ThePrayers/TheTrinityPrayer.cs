@@ -25,6 +25,8 @@ public class TheTrinityPrayer : MonoBehaviour
     ThePrayerShield _theShieldPrefab;
     [SerializeField]
     Transform _theShieldPoint;
+    [SerializeField]
+    TheWordProjectileSpotlight _projectileSpotlightPrefab;
     bool _usingShield;
     [Space]
     [SerializeField]
@@ -56,12 +58,14 @@ public class TheTrinityPrayer : MonoBehaviour
             {
                 LaunchSide (Vector3.up, true, .075f);
                 StartCoroutine (LaunchingSide (false, .075f, .085f));
+                Instantiate (_projectileSpotlightPrefab, _projectilePoint.position, Quaternion.identity);
             }
             else
             {
                 Launch (Vector3.up, .09f);
                 StartCoroutine (LaunchingSide (true, .09f, .085f));
                 StartCoroutine (LaunchingSide (false, .09f, .1f));
+                Instantiate (_projectileSpotlightPrefab, _projectilePoint.position, Quaternion.identity);
             }
         }
     }

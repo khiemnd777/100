@@ -527,6 +527,8 @@ MonoBehaviour:
   - 0.6
   - 0.3
   - 0
+  _gameOverPrefab: {fileID: 7679221689439451360, guid: 48a833508776d4573951453392b7f0ff,
+    type: 3}
   defaultScene: 0.1
   oopsText: {fileID: 1900328906}
   playAgainButton: {fileID: 830526473}
@@ -1817,6 +1819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896164224568559905, guid: d34f59c2d6aee456383b00868a8e3bfe,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1809599645075924953, guid: d34f59c2d6aee456383b00868a8e3bfe,
         type: 3}

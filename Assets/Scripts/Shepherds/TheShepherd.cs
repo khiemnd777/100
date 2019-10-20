@@ -124,6 +124,10 @@ public class TheShepherd : MonoBehaviour
     public void Hit ()
     {
         _theHouse.OnInfected ();
+        if (_theHouse.sheep <= 0)
+        {
+            _settings.GameOver ();
+        }
     }
 
     public void Hit (int damage)
@@ -131,6 +135,11 @@ public class TheShepherd : MonoBehaviour
         for (var i = 0; i < damage; i++)
         {
             _theHouse.OnInfected ();
+            if (_theHouse.sheep <= 0)
+            {
+                _settings.GameOver ();
+                return;
+            }
         }
     }
 

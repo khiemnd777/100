@@ -13,10 +13,14 @@ public class TheTrueDaystarComeback : MonoBehaviour
     [SerializeField]
     AnimationCurve _curveAnimThatPosition;
     TheDaystar _theDaystar;
+    TheHouse _theHouse;
+    Settings _settings;
 
     void Awake ()
     {
         _theDaystar = Resources.FindObjectsOfTypeAll<TheDaystar> () [0];
+        _theHouse = FindObjectOfType<TheHouse> ();
+        _settings = FindObjectOfType<Settings> ();
     }
 
     public IEnumerator Comeback ()
@@ -29,6 +33,10 @@ public class TheTrueDaystarComeback : MonoBehaviour
         _blastLightDisplay.enabled = false;
         yield return StartCoroutine (MoveToThatPosition ());
         DaystarRestore ();
+        if (_theHouse.sheep <= 0)
+        {
+            _settings.GameOver ();
+        }
     }
 
     void DaystarRestore ()

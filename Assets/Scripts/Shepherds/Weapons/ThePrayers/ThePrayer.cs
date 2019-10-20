@@ -15,6 +15,8 @@ public class ThePrayer : MonoBehaviour
     ThePrayerWord _theWordPrefab;
     [SerializeField]
     LayerMask _detectedLayer;
+    [SerializeField]
+    TheWordProjectileSpotlight _projectileSpotlightPrefab;
     float _tDelay = 1f;
 
     void Start ()
@@ -34,6 +36,7 @@ public class ThePrayer : MonoBehaviour
         if (Physics.Raycast (transform.position, Vector3.up, out hit, float.MaxValue, _detectedLayer))
         {
             Launch ();
+            Instantiate (_projectileSpotlightPrefab, _projectilePoint.position, Quaternion.identity);
         }
     }
 

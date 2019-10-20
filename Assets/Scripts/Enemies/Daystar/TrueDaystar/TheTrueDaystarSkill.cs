@@ -42,7 +42,7 @@ public class TheTrueDaystarSkill : MonoBehaviour
 
     void Start ()
     {
-        _maxSheep = _theHouse.sheep - 1;
+        _maxSheep = _theHouse.sheep - (_theHouse.sheep == 1 ? 0 : 1);
         StartCoroutine (SheepFlyOut ());
     }
 
@@ -76,6 +76,17 @@ public class TheTrueDaystarSkill : MonoBehaviour
 
     IEnumerator SheepFlyOut ()
     {
+        if (_theHouse.sheep == 1)
+        {
+            _theHouse.OnInfected ();
+            var ins = Instantiate<TheSheep> (_theInfectedShepherdPrefab, _theShepherd.transform.position, Quaternion.identity);
+            ins.target = this.transform;
+            var forward = transform.position - ins.transform.position;
+            forward.Normalize ();
+            ins.speed = _theSheepSpeed / 2.5f;
+            _theShepherd.gameObject.SetActive (false);
+            yield break;
+        }
         while (_theHouse.sheep > 1)
         {
             _theHouse.OnInfected ();
@@ -94,7 +105,6 @@ public class TheTrueDaystarSkill : MonoBehaviour
     {
         while (_consumedSheep-- > 0)
         {
-            Debug.Log (_consumedSheep);
             var ins = Instantiate<TheSheep> (_theSheepPrefab, transform.position, Quaternion.identity);
             ins.target = _theHouse.transform;
             ins.transform.localScale = Vector3.one * Random.Range (.7f, 1f);

@@ -119,6 +119,8 @@ MonoBehaviour:
   _shieldNumber: 0
   _theShieldPrefab: {fileID: 0}
   _theShieldPoint: {fileID: 659016872}
+  _projectileSpotlightPrefab: {fileID: 2456895327168693646, guid: a71c91ef4a3e544428ac3d6fe41709e5,
+    type: 3}
   _projectilePoint: {fileID: 2764348402247161765}
   _theWordPrefab: {fileID: 6959386448060094880, guid: 8fdc4bed5499843219d99ce70a5afd22,
     type: 3}
