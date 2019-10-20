@@ -84,6 +84,7 @@ public class TheTrueDaystarSkill : MonoBehaviour
             var forward = transform.position - ins.transform.position;
             forward.Normalize ();
             ins.speed = _theSheepSpeed / 2.5f;
+            _insSheepList.Add (ins);
             _theShepherd.gameObject.SetActive (false);
             yield break;
         }
@@ -115,10 +116,13 @@ public class TheTrueDaystarSkill : MonoBehaviour
 
     public IEnumerator SheepGoingHome2 ()
     {
+        var total = _insSheepList.Count - _consumedSheep;
         foreach (var sheep in _insSheepList)
         {
+            if (total <= 0) break;
             if (!sheep) continue;
             sheep.target = _theHouse.transform;
+            --total;
             yield return new WaitForSeconds (.02f);
         }
     }
@@ -126,6 +130,6 @@ public class TheTrueDaystarSkill : MonoBehaviour
     public void ConsumeSheep (TheSheep theSheep)
     {
         ++_consumedSheep;
-        _insSheepList.Remove (theSheep);
+        // _insSheepList.Remove (theSheep);
     }
 }

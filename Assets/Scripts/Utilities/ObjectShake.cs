@@ -14,17 +14,17 @@ public class ObjectShake : MonoBehaviour
         _originalLocalPosition = shakedObject.localPosition;
     }
 
-    public void Shake ()
+    public void Shake (bool vibrate = false)
     {
-        Shake (duration, magnitude);
+        Shake (duration, magnitude, vibrate);
     }
 
-    public void Shake (float duration, float magnitude)
+    public void Shake (float duration, float magnitude, bool vibrate = false)
     {
-        StartCoroutine (Shaking (duration, magnitude));
+        StartCoroutine (Shaking (duration, magnitude, vibrate));
     }
 
-    public IEnumerator Shaking (float duration, float magnitude)
+    public IEnumerator Shaking (float duration, float magnitude, bool vibrate = false)
     {
         var elapsed = 0f;
         while (elapsed <= 1f)
@@ -34,5 +34,9 @@ public class ObjectShake : MonoBehaviour
             yield return new WaitForFixedUpdate ();
         }
         shakedObject.localPosition = _originalLocalPosition;
+        if (vibrate)
+        {
+            Handheld.Vibrate ();
+        }
     }
 }

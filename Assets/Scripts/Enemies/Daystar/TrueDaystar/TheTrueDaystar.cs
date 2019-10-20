@@ -21,6 +21,7 @@ public class TheTrueDaystar : MonoBehaviour
     TheTrueDaystarComeback _comeback;
     TheHellFire _theHellFire;
     Earthquake _earthquake;
+    EndGame _endGame;
 
     void Awake ()
     {
@@ -29,6 +30,7 @@ public class TheTrueDaystar : MonoBehaviour
         _goesAway = GetComponent<TheTrueDaystarGoesAway> ();
         _earthquake = FindObjectOfType<Earthquake> ();
         _theHellFire = FindObjectOfType<TheHellFire> ();
+        _endGame = FindObjectOfType<EndGame> ();
         _blastLight.localScale = Vector3.zero;
     }
 
@@ -107,10 +109,13 @@ public class TheTrueDaystar : MonoBehaviour
         yield return StartCoroutine (_skill.SheepGoingHome2 ());
         yield return StartCoroutine (_skill.SheepGoingHome ());
         yield return StartCoroutine (BlastLight ());
+        transform.position = new Vector3 (0f, 10f, 0f);
+        _earthquake.StopEarthquake ();
         StartCoroutine (TheHellFireIsGone ());
         yield return new WaitForSeconds (1.25f);
         _display.color = new Color32 (255, 255, 255, 0);
         yield return StartCoroutine (DissolveBlastLight ());
+        yield return StartCoroutine (_endGame.Play ());
         Destroy (gameObject);
     }
 

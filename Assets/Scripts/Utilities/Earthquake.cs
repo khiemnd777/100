@@ -15,20 +15,24 @@ public class Earthquake : MonoBehaviour
         _stop = false;
     }
 
-    public void StartEarthquake ()
+    public void StartEarthquake (bool vibrate = false)
     {
         _stop = false;
         if (_cameraShake)
         {
-            StartCoroutine ("Shake");
+            StartCoroutine (Shake (vibrate));
         }
     }
 
-    IEnumerator Shake ()
+    IEnumerator Shake (bool vibrate = false)
     {
         while (!_stop)
         {
             _cameraShake.Shake (duration, magnitude);
+            if (vibrate)
+            {
+                Handheld.Vibrate ();
+            }
             yield return new WaitForSeconds (duration);
         }
     }

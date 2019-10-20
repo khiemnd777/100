@@ -124,6 +124,7 @@ public class TheShepherd : MonoBehaviour
     public void Hit ()
     {
         _theHouse.OnInfected ();
+        Handheld.Vibrate ();
         if (_theHouse.sheep <= 0)
         {
             _settings.GameOver ();
@@ -135,6 +136,7 @@ public class TheShepherd : MonoBehaviour
         for (var i = 0; i < damage; i++)
         {
             _theHouse.OnInfected ();
+            Handheld.Vibrate ();
             if (_theHouse.sheep <= 0)
             {
                 _settings.GameOver ();
