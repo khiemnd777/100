@@ -46,7 +46,6 @@ public class TheDaystar : MonoBehaviour
         }
         if ("The Traitor Bullet".Equals (other.tag))
         {
-            Debug.Log("Here");
             var theTraitorBullet = other.GetComponent<TheTraitorBullet> ();
             _hp.TakeDamage (theTraitorBullet.damage);
             _shake.Shake ();
@@ -103,7 +102,6 @@ public class TheDaystar : MonoBehaviour
         }
         else if ("Daystar Win Point".Equals (other.tag))
         {
-            Debug.Log (1);
         }
     }
 }

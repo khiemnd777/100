@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TheFakeShepherd3 : MonoBehaviour
 {
+    [System.NonSerialized]
+    public TheTraitor theTraitor;
     public float initSpeed;
     public float appearedSpeed = .4f;
     [SerializeField]
@@ -23,6 +25,7 @@ public class TheFakeShepherd3 : MonoBehaviour
     {
         transform.localScale = Vector3.zero;
         _shakeCamera = FindObjectOfType<CameraShake> ();
+        theTraitor = GetComponent<TheTraitor> ();
     }
 
     void Start ()
@@ -98,10 +101,14 @@ public class TheFakeShepherd3 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<TheShepherd> ().Hit ();
+            other.GetComponent<TheShepherd> ().Hit (theTraitor.isTraitor ? 5 : 1);
             _shakeCamera.Shake (.175f, .065f);
             InstantiateEffectAtCollision ();
             InstantiateSoundEffectAtCollision ();
+            if (theTraitor.isTraitor)
+            {
+                theTraitor.InstantiateBullet (100f);
+            }
             Destroy (gameObject);
         }
         else if (other.tag == "The House")

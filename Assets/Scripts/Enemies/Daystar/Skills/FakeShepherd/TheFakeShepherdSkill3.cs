@@ -12,6 +12,7 @@ public class TheFakeShepherdSkill3 : DaystarSkill
     TheFakeShepherd3 _fakeShepherdPrefab;
     [SerializeField]
     Transform _spawnPoint;
+    TheTraitorDueCount _theTraitorDueCount;
     Settings _settings;
     int[] _initMaskList = new [] { 1, 1, 1, 1, 1 };
     int _number;
@@ -19,6 +20,7 @@ public class TheFakeShepherdSkill3 : DaystarSkill
     void Awake ()
     {
         _settings = FindObjectOfType<Settings> ();
+        _theTraitorDueCount = GetComponent<TheTraitorDueCount> ();
     }
 
     public override void Execute ()
@@ -66,6 +68,7 @@ public class TheFakeShepherdSkill3 : DaystarSkill
         var spawnPointX = _spawnPoint.position.x + stepX;
         var spawnPoint = new Vector3 (spawnPointX, _spawnPoint.position.y, _spawnPoint.position.z);
         var theFakeShepherd = Instantiate<TheFakeShepherd3> (_fakeShepherdPrefab, spawnPoint, Quaternion.identity);
+        theFakeShepherd.theTraitor.isTraitor = _theTraitorDueCount.isDue;
         theFakeShepherd.initSpeed = initSpeed;
     }
 }

@@ -230,51 +230,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6887153301565831191, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: _magnitude
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6887153301565831191, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: _beatInSeconds
-      value: 0.015
-      objectReference: {fileID: 0}
-    - target: {fileID: 6887153301565831191, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: _wrapperDisplay
-      value: 
-      objectReference: {fileID: 1497604792}
-    - target: {fileID: 6887153301565831191, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: _renderer
-      value: 
-      objectReference: {fileID: 2107885430}
-    - target: {fileID: 4308183219962056863, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308183219962056863, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308183219962056863, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308183219962056860, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308183219962056860, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.57254905
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4bf4bf506d2f4b8f88591f58eec79b5, type: 3}
 --- !u!4 &1497604792 stripped
@@ -295,9 +250,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6acde3670a36f480fb038f7f54cd1fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &2107885430 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4308183219962056860, guid: d4bf4bf506d2f4b8f88591f58eec79b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 4308183221360711658}
-  m_PrefabAsset: {fileID: 0}

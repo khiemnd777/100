@@ -5,6 +5,8 @@ using UnityEngine;
 public class CannonBall : MonoBehaviour
 {
     [System.NonSerialized]
+    public TheTraitor theTraitor;
+    [System.NonSerialized]
     public float speed = 5f;
     [System.NonSerialized]
     public Vector3 forward;
@@ -23,6 +25,7 @@ public class CannonBall : MonoBehaviour
     void Awake ()
     {
         _shakeCamera = FindObjectOfType<CameraShake> ();
+        theTraitor = GetComponent<TheTraitor> ();
     }
 
     void Start ()
@@ -64,10 +67,14 @@ public class CannonBall : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<TheShepherd> ().Hit ();
+            other.GetComponent<TheShepherd> ().Hit (theTraitor.isTraitor ? 5 : 1);
             _shakeCamera.Shake (.175f, .065f);
             InstantiateEffectAtCollision ();
             InstantiateSoundEffectAtCollision ();
+            if (theTraitor.isTraitor)
+            {
+                theTraitor.InstantiateBullet (100f);
+            }
             Destroy (gameObject);
         }
         else if (other.tag == "The House")

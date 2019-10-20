@@ -13,6 +13,7 @@ public class TheFallenBlockSkill : DaystarSkill
     TheFakeShepherd3 _fakeShepherdPrefab;
     [SerializeField]
     Transform _spawnPoint;
+    TheTraitorDueCount _theTraitorDueCount;
     Settings _settings;
     TheShepherd _player;
     int _number;
@@ -21,6 +22,7 @@ public class TheFallenBlockSkill : DaystarSkill
     {
         _settings = FindObjectOfType<Settings> ();
         _player = FindObjectOfType<TheShepherd> ();
+        _theTraitorDueCount = GetComponent<TheTraitorDueCount> ();
     }
 
     public override void Execute ()
@@ -46,6 +48,7 @@ public class TheFallenBlockSkill : DaystarSkill
     {
         var spawnPoint = new Vector3 (_player.transform.position.x, _spawnPoint.position.y, _spawnPoint.position.z);
         var theFakeShepherd = Instantiate<TheFakeShepherd3> (_fakeShepherdPrefab, spawnPoint, Quaternion.identity);
+        theFakeShepherd.theTraitor.isTraitor = _theTraitorDueCount.isDue;
         theFakeShepherd.initSpeed = initSpeed;
         theFakeShepherd.appearedSpeed = appearedSpeed;
     }

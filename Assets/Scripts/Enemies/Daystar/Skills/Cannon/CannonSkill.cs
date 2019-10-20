@@ -16,12 +16,14 @@ public class CannonSkill : DaystarSkill
     [SerializeField]
     Transform _projectilePoint;
     TheShepherd _theShepherd;
+    TheTraitorDueCount _theTraitorDueCount;
     int _number;
     int _numberOfFinal;
 
     void Awake ()
     {
         _theShepherd = FindObjectOfType<TheShepherd> ();
+        _theTraitorDueCount = GetComponent<TheTraitorDueCount> ();
     }
 
     public override void Execute ()
@@ -52,13 +54,14 @@ public class CannonSkill : DaystarSkill
         }
         if (onEnd != null)
         {
-            onEnd();
+            onEnd ();
         }
     }
 
     void InstantiateBall (Vector3 forward)
     {
         var cannonBall = Instantiate<CannonBall> (_theCannonBallPrefab, transform.position, Quaternion.identity);
+        cannonBall.theTraitor.isTraitor = _theTraitorDueCount.isDue;
         cannonBall.speed = _speed;
         cannonBall.forward = forward;
     }
