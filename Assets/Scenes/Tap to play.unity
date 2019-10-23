@@ -6742,14 +6742,29 @@ PrefabInstance:
     - target: {fileID: 5666534022186198410, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5666534022186198410, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300012, guid: eb9fcfa939f7548d08c4073bc192399f,
+      objectReference: {fileID: 21300014, guid: eb9fcfa939f7548d08c4073bc192399f,
         type: 3}
+    - target: {fileID: 5666534023344992624, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666534023344992627, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666534023344992627, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 3172794327
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5666534022286481883, guid: 1a59f7c67cdd04864bcb28699b120acb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a59f7c67cdd04864bcb28699b120acb, type: 3}

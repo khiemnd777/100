@@ -12,7 +12,7 @@ public class TheDaystarSkillController : MonoBehaviour
         _skills.ForEach (skill => skill.onEnd += OnSkillEnd);
     }
 
-    void Start ()
+    public void Play ()
     {
         OnSkillEnd ();
     }

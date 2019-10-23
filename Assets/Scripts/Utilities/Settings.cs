@@ -9,26 +9,35 @@ public class Settings : MonoBehaviour
     public bool gameOver = false;
     public float horizontalStep = .2f;
     public float[] specificHorizontalSteps = { .6f, .4f, .2f, 0f };
+    public Button play;
+    public Button pause;
     [Header ("Game Over")]
     [SerializeField]
     GameOver _gameOverPrefab;
     public string defaultScene;
-    public Text oopsText;
-    public Button playAgainButton;
-    public Button startButton;
 
     int[] _movedStepDirections = {-1, 1 };
 
     void Awake ()
     {
         // Time.timeScale = defaultScene == "0.1" ? 0f : 1f;
-        playAgainButton.onClick.AddListener (PlayAgain);
-        if (startButton)
-        {
-            startButton.onClick.AddListener (StartGame);
-        }
-        playAgainButton.gameObject.SetActive (false);
-        oopsText.gameObject.SetActive (false);
+        play.onClick.AddListener (Play);
+        pause.onClick.AddListener (Pause);
+        play.gameObject.SetActive (false);
+    }
+
+    void Play ()
+    {
+        Time.timeScale = 1f;
+        play.gameObject.SetActive (false);
+        pause.gameObject.SetActive (true);
+    }
+
+    void Pause ()
+    {
+        Time.timeScale = 0f;
+        play.gameObject.SetActive (true);
+        pause.gameObject.SetActive (false);
     }
 
     public float GetSpecificHorizontalStep (float[] indicators)
@@ -53,7 +62,7 @@ public class Settings : MonoBehaviour
     {
         gameOver = true;
         Time.timeScale = 0f;
-        Instantiate(_gameOverPrefab, Vector3.zero, Quaternion.identity);
+        Instantiate (_gameOverPrefab, Vector3.zero, Quaternion.identity);
     }
 
     void PlayAgain ()
@@ -68,6 +77,5 @@ public class Settings : MonoBehaviour
         // if(string.IsNullOrEmpty(defaultScene)) return;
         // SceneManager.LoadScene(string.Format("Scenes/{0}", defaultScene));
         Time.timeScale = 1f;
-        startButton.gameObject.SetActive (false);
     }
 }

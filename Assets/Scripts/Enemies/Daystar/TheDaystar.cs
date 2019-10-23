@@ -18,6 +18,7 @@ public class TheDaystar : MonoBehaviour
     TheDaystarTransform _theDaystarTransformPrefab;
     ObjectShake _shake;
     HealthPoint _hp;
+    TheDaystarSkillController _skillController;
     bool _isHit;
     int _currentAppearanceState;
     Sprite _originalDisplay;
@@ -29,7 +30,13 @@ public class TheDaystar : MonoBehaviour
         _shake = GetComponent<ObjectShake> ();
         _meshHits.ForEach (x => x.onHit += OnHit);
         _hp = GetComponent<HealthPoint> ();
+        _skillController = GetComponent<TheDaystarSkillController> ();
         _currentAppearanceState = _appearances.Length;
+    }
+
+    void Start ()
+    {
+        ExecuteSkill ();
     }
 
     void OnHit (Collider other)
@@ -77,6 +84,11 @@ public class TheDaystar : MonoBehaviour
         _permanent = true;
     }
 
+    public void ExecuteSkill ()
+    {
+        _skillController.Play ();
+    }
+
     void ExecuteTransform ()
     {
         var ins = Instantiate<TheDaystarTransform> (_theDaystarTransformPrefab, transform.position, Quaternion.identity);
@@ -100,8 +112,6 @@ public class TheDaystar : MonoBehaviour
         {
             Debug.Log (0);
         }
-        else if ("Daystar Win Point".Equals (other.tag))
-        {
-        }
+        else if ("Daystar Win Point".Equals (other.tag)) { }
     }
 }

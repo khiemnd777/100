@@ -25,13 +25,14 @@ public class TheTrueDaystarComeback : MonoBehaviour
 
     public IEnumerator Comeback ()
     {
+        StartCoroutine (MoveToThatPosition ());
         for (var i = 0; i < _appearances.Length; i++)
         {
             _display.sprite = _appearances[i];
             yield return new WaitForSeconds (.25f);
         }
         _blastLightDisplay.enabled = false;
-        yield return StartCoroutine (MoveToThatPosition ());
+        // yield return StartCoroutine (MoveToThatPosition ());
         DaystarRestore ();
         if (_theHouse.sheep <= 0)
         {
@@ -43,6 +44,7 @@ public class TheTrueDaystarComeback : MonoBehaviour
     {
         _theDaystar.RestoreHp ();
         _theDaystar.gameObject.SetActive (true);
+        _theDaystar.ExecuteSkill ();
         Destroy (gameObject);
     }
 
@@ -55,7 +57,7 @@ public class TheTrueDaystarComeback : MonoBehaviour
             var t = 0f;
             while (t <= 1f)
             {
-                t += Time.deltaTime / 1f;
+                t += Time.deltaTime / 2f;
                 transform.position = Vector3.Lerp (srcPos, destPos, _curveAnimThatPosition.Evaluate (t));
                 yield return null;
             }
