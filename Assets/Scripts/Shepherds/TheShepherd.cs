@@ -11,14 +11,15 @@ public class TheShepherd : MonoBehaviour
     bool _smoothMoving;
     Settings _settings;
     TheHouse _theHouse;
-    SwipeDetector _swipeDetector;
+    [SerializeField]
+    Camera _theCamera;
+    Rigidbody _rd;
 
     void Awake ()
     {
         _settings = FindObjectOfType<Settings> ();
         _theHouse = FindObjectOfType<TheHouse> ();
-        _swipeDetector = GetComponent<SwipeDetector> ();
-        _swipeDetector.OnSwipe += OnSwipe;
+        _rd = GetComponent<Rigidbody> ();
     }
 
     void Start ()
@@ -28,73 +29,17 @@ public class TheShepherd : MonoBehaviour
 
     void Update ()
     {
-        if (Input.GetKeyDown (KeyCode.A))
+        foreach (var touch in Input.touches)
         {
-            DirectedSwipe (-1);
+            if (touch.phase == TouchPhase.Moved)
+            {
+                _rd.velocity = Vector3.right * touch.deltaPosition.x / 11f;
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                _rd.velocity = Vector3.zero;
+            }
         }
-        else if (Input.GetKeyDown (KeyCode.D))
-        {
-            DirectedSwipe (1);
-        }
-    }
-
-    void OnSwipe (SwipeData data)
-    {
-        if (_settings.gameOver) return;
-        if (!_isMoving) return;
-        switch (data.Direction)
-        {
-            case SwipeDirection.Left:
-                if (_smoothMoving)
-                {
-                    StartCoroutine (DirectedSwiping (-1));
-                }
-                else
-                {
-                    DirectedSwipe (-1);
-                }
-                break;
-            case SwipeDirection.Right:
-                if (_smoothMoving)
-                {
-                    StartCoroutine (DirectedSwiping (1));
-                }
-                else
-                {
-                    DirectedSwipe (1);
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    IEnumerator DirectedSwiping (int direction)
-    {
-        _isMoving = false;
-        var horizontalStep = _settings.horizontalStep;
-        var start = transform.position;
-        var end = new Vector3 (start.x + horizontalStep * direction, start.y, start.z);
-        var t = 0f;
-        while (t <= 1f)
-        {
-            t += Time.deltaTime / .075f;
-            transform.position = Vector3.Lerp (start, end, t);
-            yield return null;
-        }
-        transform.position = end;
-        _isMoving = true;
-    }
-
-    void DirectedSwipe (int direction)
-    {
-        var start = transform.position;
-        var horizontalStep = _settings.horizontalStep;
-        var maxStep = _settings.specificHorizontalSteps[0];
-        var endX = start.x + horizontalStep * direction;
-        var realEndX = Mathf.Clamp (endX, -maxStep, maxStep);
-        var end = new Vector3 (realEndX, start.y, start.z);
-        transform.position = end;
     }
 
     IEnumerator AppearedAtStart ()

@@ -11,6 +11,7 @@ public class HeavyFallenStar : YellowFallenStar
     YellowFallenStar _yellowStarPrefab;
     public float yellowHp;
     public float yellowSpeed;
+    public int yellowDamage;
     public float yellowInfectedSpeed;
 
     Settings _settings;
@@ -47,6 +48,7 @@ public class HeavyFallenStar : YellowFallenStar
             var theStar = Instantiate<YellowFallenStar> (_yellowStarPrefab, spawnPoint, Quaternion.identity);
             theStar.hp = theStar.maxHp = yellowHp;
             theStar.speed = yellowSpeed;
+            theStar.damage = yellowDamage;
             theStar.infectedSpeed = yellowInfectedSpeed;
             _theLight.AddStar (theStar);
         }

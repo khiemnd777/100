@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 80
-  delayBetweenLaunch: 0.2
+  speed: 100
+  delayBetweenLaunch: 0.175
   _lifetime: 3
   _projectilePoint: {fileID: 6332637858829518520}
   _theWordPrefab: {fileID: 6959386448060094880, guid: 8fdc4bed5499843219d99ce70a5afd22,

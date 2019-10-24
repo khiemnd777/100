@@ -356,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
       propertyPath: _shieldDamage
-      value: 12.25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
@@ -372,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
       propertyPath: _shieldScaleTime
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
@@ -382,7 +382,7 @@ PrefabInstance:
     - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
       propertyPath: _shieldScale
-      value: 1.85
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
@@ -392,12 +392,17 @@ PrefabInstance:
     - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
       propertyPath: damage
-      value: 9
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
       propertyPath: delayBetweenLaunch
-      value: 0.175
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
+        type: 3}
+      propertyPath: speed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9223065650240813701, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
@@ -437,6 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   horizontalStep: 0.3
+  swipeSpeed: 0.075
   specificHorizontalSteps:
   - 0.6
   - 0.3
@@ -1738,6 +1744,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 866673044196001640, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393984975034564071, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 460
+      objectReference: {fileID: 0}
     - target: {fileID: 5666534022286481863, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
       propertyPath: m_Name

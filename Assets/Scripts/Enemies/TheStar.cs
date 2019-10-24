@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class TheStar : Enemy
 {
+    public int damage;
     public float speed;
     [SerializeField]
     protected SpriteRenderer display;

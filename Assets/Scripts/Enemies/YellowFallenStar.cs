@@ -19,11 +19,13 @@ public class YellowFallenStar : TheStar
     protected TheHellFire _theHellFire;
     [SerializeField]
     protected ParticleSystem _blowFx;
+    CameraShake _shakeCamera;
     bool _freeze;
 
     public override void Awake ()
     {
         base.Awake ();
+        _shakeCamera = FindObjectOfType<CameraShake> ();
         _objectShake = GetComponent<ObjectShake> ();
         _theHouse = FindObjectOfType<TheHouse> ();
         _theHellFire = FindObjectOfType<TheHellFire> ();
@@ -61,6 +63,13 @@ public class YellowFallenStar : TheStar
                 particleMain.loop = false;
                 StartCoroutine (GoingOut (goOutPoint));
             }
+        }
+        else if (other.tag == "Player")
+        {
+            other.GetComponent<TheShepherd> ().Hit (damage);
+            _shakeCamera.Shake (.175f, .065f, true);
+            Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
+            Destroy (gameObject);
         }
         else if (other.tag == "The Hell Fire")
         {

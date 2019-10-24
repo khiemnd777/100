@@ -545,6 +545,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
+        type: 3}
+      propertyPath: speed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 602911151293474061, guid: 6582d01a69e53484d8b65ac4c2fac498,
+        type: 3}
+      propertyPath: delayBetweenLaunch
+      value: 0.135
+      objectReference: {fileID: 0}
     - target: {fileID: 9223065650240813701, guid: 6582d01a69e53484d8b65ac4c2fac498,
         type: 3}
       propertyPath: m_SortingOrder
@@ -662,6 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   horizontalStep: 0.3
+  swipeSpeed: 0.075
   specificHorizontalSteps:
   - 0.6
   - 0.3
@@ -671,9 +682,6 @@ MonoBehaviour:
   _gameOverPrefab: {fileID: 7679221689439451360, guid: 48a833508776d4573951453392b7f0ff,
     type: 3}
   defaultScene: 0.1
-  oopsText: {fileID: 0}
-  playAgainButton: {fileID: 0}
-  startButton: {fileID: 0}
 --- !u!4 &490846715
 Transform:
   m_ObjectHideFlags: 0
@@ -1685,6 +1693,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 866673044196001640, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393984975034564071, guid: 1a59f7c67cdd04864bcb28699b120acb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51
+      objectReference: {fileID: 0}
     - target: {fileID: 5666534022286481863, guid: 1a59f7c67cdd04864bcb28699b120acb,
         type: 3}
       propertyPath: m_Name

@@ -11,6 +11,8 @@ public class TheLightSpawnerLevel1 : TheLightSpawner
     [SerializeField]
     float _fallenStarSpeed;
     [SerializeField]
+    int _fallenStarDamage = 1;
+    [SerializeField]
     float _fallenInfectedStarSpeed;
     [Space]
     [SerializeField]
@@ -34,6 +36,7 @@ public class TheLightSpawnerLevel1 : TheLightSpawner
             var theStar = Instantiate<YellowFallenStar> (_yellowFallenStarPrefab, spawnPoint, Quaternion.identity);
             theStar.hp = theStar.maxHp = _fallenStarHp;
             theStar.speed = _fallenStarSpeed;
+            theStar.damage = _fallenStarDamage;
             theStar.infectedSpeed = _fallenInfectedStarSpeed;
             AddStar (theStar);
             yield return new WaitForSeconds (delay);

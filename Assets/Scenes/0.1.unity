@@ -523,6 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   horizontalStep: 0.3
+  swipeSpeed: 0.075
   specificHorizontalSteps:
   - 0.6
   - 0.3
@@ -532,9 +533,6 @@ MonoBehaviour:
   _gameOverPrefab: {fileID: 7679221689439451360, guid: 48a833508776d4573951453392b7f0ff,
     type: 3}
   defaultScene: 0.1
-  oopsText: {fileID: 1900328906}
-  playAgainButton: {fileID: 830526473}
-  startButton: {fileID: 1006841783}
 --- !u!4 &490846715
 Transform:
   m_ObjectHideFlags: 0

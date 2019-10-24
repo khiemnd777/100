@@ -12,6 +12,8 @@ public class TheLightSpawnerLevel3 : TheLightSpawner
     [SerializeField]
     float _heavyFallenStarSpeed;
     [SerializeField]
+    int _heavyFallenStarDamage;
+    [SerializeField]
     float _heavyFallenInfectedStarSpeed;
     [SerializeField]
     HeavyFallenStar _heavyYellowFallenStarPrefab;
@@ -21,6 +23,8 @@ public class TheLightSpawnerLevel3 : TheLightSpawner
     float _fallenStarHp;
     [SerializeField]
     float _fallenStarSpeed;
+    [SerializeField]
+    int _fallenStarDamage;
     [SerializeField]
     float _fallenInfectedStarSpeed;
     [SerializeField]
@@ -68,9 +72,11 @@ public class TheLightSpawnerLevel3 : TheLightSpawner
         theStar.starNumber = 5;
         theStar.hp = theStar.maxHp = _heavyFallenStarHp;
         theStar.speed = _heavyFallenStarSpeed;
+        theStar.damage = _heavyFallenStarDamage;
         theStar.infectedSpeed = _heavyFallenInfectedStarSpeed;
         theStar.yellowHp = _fallenStarHp;
         theStar.yellowSpeed = _fallenStarSpeed;
+        theStar.yellowDamage = _fallenStarDamage;
         theStar.yellowInfectedSpeed = _fallenInfectedStarSpeed;
         AddStar (theStar);
     }
@@ -83,6 +89,7 @@ public class TheLightSpawnerLevel3 : TheLightSpawner
         var theStar = Instantiate<YellowFallenStar> (_yellowFallenStarPrefab, spawnPoint, Quaternion.identity);
         theStar.hp = theStar.maxHp = _fallenStarHp;
         theStar.speed = _fallenStarSpeed;
+        theStar.damage = _fallenStarDamage;
         theStar.infectedSpeed = _fallenInfectedStarSpeed;
         AddStar (theStar);
     }

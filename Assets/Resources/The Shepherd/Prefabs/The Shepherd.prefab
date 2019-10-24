@@ -41,9 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5692252918412344564}
   - component: {fileID: 5692252918412344567}
-  - component: {fileID: 5692252918412344566}
   - component: {fileID: 19636429}
   - component: {fileID: 3244838378909773036}
+  - component: {fileID: 1066360584985440309}
   m_Layer: 0
   m_Name: The Shepherd
   m_TagString: Player
@@ -80,20 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _appearedStartTime: 0.25
   _smoothMoving: 0
---- !u!114 &5692252918412344566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692252918412344565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cdea72076d4e44c0bed7ad7db44805a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _detectSwipeOnlyAfterRelease: 0
-  _minDistanceForSwipe: 24.25
+  _theCamera: {fileID: 0}
 --- !u!54 &19636429
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,6 +106,19 @@ BoxCollider:
   m_GameObject: {fileID: 5692252918412344565}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.163223, y: 0.32538986, z: 1}
+  m_Center: {x: -0.003243249, y: 0.16865277, z: 0}
+--- !u!65 &1066360584985440309
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692252918412344565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.163223, y: 0.32538986, z: 1}

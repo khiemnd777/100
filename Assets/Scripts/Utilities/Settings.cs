@@ -8,6 +8,7 @@ public class Settings : MonoBehaviour
 {
     public bool gameOver = false;
     public float horizontalStep = .2f;
+    public float swipeSpeed = .075f;
     public float[] specificHorizontalSteps = { .6f, .4f, .2f, 0f };
     public Button play;
     public Button pause;

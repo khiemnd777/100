@@ -25,7 +25,7 @@ public class ThePrayerShield : MonoBehaviour
         while (t <= 1f)
         {
             t += Time.deltaTime / scaleTime;
-            transform.localScale = Vector3.Lerp (Vector3.zero, Vector3.one, t);
+            transform.localScale = Vector3.Lerp (Vector3.one * .75f, Vector3.one, t);
             yield return null;
         }
         Destroy (gameObject);
