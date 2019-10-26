@@ -32,5 +32,14 @@ public class TheHouseEnergyRadioactive : MonoBehaviour
                 Handheld.Vibrate ();
             }
         }
+        else if ("Daystar".Equals (other.tag))
+        {
+            var theDaystar = other.GetComponent<TheDaystar> ();
+            if (theDaystar)
+            {
+                theDaystar.Hit(7999f);
+                Handheld.Vibrate ();
+            }
+        }
     }
 }

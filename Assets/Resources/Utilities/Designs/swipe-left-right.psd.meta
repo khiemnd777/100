@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: 69a337be03e204f0a82c10e621bc7b96
+guid: ad39538534ca04741845f584a0e1e238
 TextureImporter:
   fileIDToRecycleName:
-    21300000: play pause_0
-    21300002: play pause_1
-    21300004: play pause_2
-    21300006: play pause_3
+    21300000: swipe-left-right_0
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -99,13 +96,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: play pause_0
+      name: swipe-left-right_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 66
-        width: 317
-        height: 366
+        x: 11
+        y: 4
+        width: 609
+        height: 109
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,67 +110,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d00ae3c652ac402fa7d780e0dc0fa6c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: play pause_1
-      rect:
-        serializedVersion: 2
-        x: 445
-        y: 70
-        width: 263
-        height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86084f52c08634b2b800977f683e3646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: play pause_2
-      rect:
-        serializedVersion: 2
-        x: 833
-        y: 66
-        width: 317
-        height: 366
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe53ff019e7c5433d82bb140720f7bcd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: play pause_3
-      rect:
-        serializedVersion: 2
-        x: 1247
-        y: 70
-        width: 263
-        height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4037f643426ca44dba2f743dd5c626fe
+      spriteID: e514bff8c0c50445e80d6b55f0570fba
       vertices: []
       indices: 
       edges: []
@@ -181,7 +118,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cfea09904c2324066885666cb0ce0a84
+    spriteID: 465b89a9aaa6a4c7d91a08625f635e83
     vertices: []
     indices: 
     edges: []

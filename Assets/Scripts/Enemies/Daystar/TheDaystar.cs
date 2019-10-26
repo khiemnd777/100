@@ -16,6 +16,8 @@ public class TheDaystar : MonoBehaviour
     Sprite[] _appearances;
     [SerializeField]
     TheDaystarTransform _theDaystarTransformPrefab;
+    [SerializeField]
+    AudioSource _changeAppearanceSoundFxAtCollision;
     ObjectShake _shake;
     HealthPoint _hp;
     TheDaystarSkillController _skillController;
@@ -71,9 +73,22 @@ public class TheDaystar : MonoBehaviour
         var ratio = 1f / _appearances.Length * _currentAppearanceState;
         if (normalizedHp <= ratio)
         {
+            InstantiateDeathSoundEffectAtCollision ();
             _display.sprite = _appearances[_appearances.Length - _currentAppearanceState];
             --_currentAppearanceState;
         }
+    }
+
+    void InstantiateDeathSoundEffectAtCollision ()
+    {
+        if (!_changeAppearanceSoundFxAtCollision) return;
+        Instantiate (_changeAppearanceSoundFxAtCollision, transform.position, Quaternion.identity);
+    }
+
+    public void Hit (float damage)
+    {
+        _hp.TakeDamage (damage / 4f);
+        _shake.Shake ();
     }
 
     public void RestoreHp ()

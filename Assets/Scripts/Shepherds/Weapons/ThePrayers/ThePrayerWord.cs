@@ -12,11 +12,24 @@ public class ThePrayerWord : MonoBehaviour
     public Vector3 direction;
     [SerializeField]
     ParticleSystem _hitBlow;
+    [SerializeField]
+    AudioSource _soundFxAtCollision;
+
+    void Start ()
+    {
+        InstantiateSoundEffectAtCollision ();
+    }
 
     // Update is called once per frame
     void FixedUpdate ()
     {
         transform.Translate (Time.fixedDeltaTime * direction * (speed / 10f));
+    }
+
+    void InstantiateSoundEffectAtCollision ()
+    {
+        if (!_soundFxAtCollision) return;
+        Instantiate (_soundFxAtCollision, transform.position, Quaternion.identity);
     }
 
     void OnTriggerEnter (Collider other)

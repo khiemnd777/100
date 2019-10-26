@@ -4827,6 +4827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 0
+  damage: 0
   speed: 0
   display: {fileID: 5106085451510976973}
   _rotationSpeedModifier: 200
@@ -4839,12 +4840,16 @@ MonoBehaviour:
   particleRenderer: {fileID: 5106085451699410416}
   particle: {fileID: 5106085451699410419}
   _blowFx: {fileID: 3357290889976383843, guid: aa1819f507d56447da01d590ad4ad4c6, type: 3}
+  _deathSoundFxAtCollision: {fileID: 0}
   starNumber: 0
   _yellowStarPrefab: {fileID: 5106085451701770470, guid: fc4ba9bbdc08046d3bb6d96295575499,
     type: 3}
   yellowHp: 0
   yellowSpeed: 0
+  yellowDamage: 0
   yellowInfectedSpeed: 0
+  _deathSoundFxAtCollision: {fileID: 1826962044964505815, guid: db7232e986540440b9065215634ae0b0,
+    type: 3}
 --- !u!65 &774163547
 BoxCollider:
   m_ObjectHideFlags: 0

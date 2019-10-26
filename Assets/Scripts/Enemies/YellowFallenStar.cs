@@ -19,6 +19,10 @@ public class YellowFallenStar : TheStar
     protected TheHellFire _theHellFire;
     [SerializeField]
     protected ParticleSystem _blowFx;
+    [SerializeField]
+    AudioSource _deathSoundFxAtCollision;
+    [SerializeField]
+    AudioSource _playerSoundFxAtCollision;
     CameraShake _shakeCamera;
     bool _freeze;
 
@@ -41,6 +45,18 @@ public class YellowFallenStar : TheStar
     {
         if (_freeze) return;
         transform.Translate (Vector3.down * Time.deltaTime * (speed / 10f));
+    }
+
+    void InstantiateDeathSoundEffectAtCollision ()
+    {
+        if (!_deathSoundFxAtCollision) return;
+        Instantiate (_deathSoundFxAtCollision, transform.position, Quaternion.identity);
+    }
+
+    void InstantiatePlayerSoundEffectAtCollision ()
+    {
+        if (!_playerSoundFxAtCollision) return;
+        Instantiate (_playerSoundFxAtCollision, transform.position, Quaternion.identity);
     }
 
     void OnTriggerEnter (Collider other)
@@ -69,6 +85,7 @@ public class YellowFallenStar : TheStar
             other.GetComponent<TheShepherd> ().Hit (damage);
             _shakeCamera.Shake (.175f, .065f, true);
             Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
+            InstantiatePlayerSoundEffectAtCollision ();
             Destroy (gameObject);
         }
         else if (other.tag == "The Hell Fire")
@@ -118,6 +135,7 @@ public class YellowFallenStar : TheStar
         {
             _theHouse.OnConverted ();
             Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
+            InstantiateDeathSoundEffectAtCollision ();
         }
     }
 

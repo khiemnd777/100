@@ -6,19 +6,12 @@ public class TheTrueDaystarGoesAway : MonoBehaviour
 {
     [SerializeField]
     float _deltaForce;
-    Gyroscope _gyro;
     Rigidbody _rigid;
     bool _stop;
 
     void Awake ()
     {
         _rigid = GetComponent<Rigidbody> ();
-    }
-
-    void Start ()
-    {
-        _gyro = Input.gyro;
-        _gyro.enabled = true;
     }
 
     void Update ()

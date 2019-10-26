@@ -7,39 +7,18 @@ public class TheShepherd : MonoBehaviour
     [SerializeField]
     float _appearedStartTime = .25f;
     bool _isMoving = false;
-    [SerializeField]
-    bool _smoothMoving;
     Settings _settings;
     TheHouse _theHouse;
-    [SerializeField]
-    Camera _theCamera;
-    Rigidbody _rd;
 
     void Awake ()
     {
         _settings = FindObjectOfType<Settings> ();
         _theHouse = FindObjectOfType<TheHouse> ();
-        _rd = GetComponent<Rigidbody> ();
     }
 
     void Start ()
     {
         StartCoroutine (AppearedAtStart ());
-    }
-
-    void Update ()
-    {
-        foreach (var touch in Input.touches)
-        {
-            if (touch.phase == TouchPhase.Moved)
-            {
-                _rd.velocity = Vector3.right * touch.deltaPosition.x / 11f;
-            }
-            else if (touch.phase == TouchPhase.Ended)
-            {
-                _rd.velocity = Vector3.zero;
-            }
-        }
     }
 
     IEnumerator AppearedAtStart ()
@@ -94,13 +73,4 @@ public class TheShepherd : MonoBehaviour
     {
         Destroy (gameObject);
     }
-
-    // void OnTriggerEnter (Collider other)
-    // {
-    //     if ("Daystar Attacker".Equals (other.tag))
-    //     {
-    //         Debug.Log (other.name);
-    //         _theHouse.OnInfected ();
-    //     }
-    // }
 }

@@ -62,6 +62,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitBlow: {fileID: 8865465580179617742, guid: afc0b3477c6184d7a8349613185e2056,
     type: 3}
+  _soundFxAtCollision: {fileID: 5740669409936881774, guid: ea8e7d152852d410ba845ba89680eeaf,
+    type: 3}
 --- !u!54 &6417859830192193503
 Rigidbody:
   m_ObjectHideFlags: 0
