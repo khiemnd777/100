@@ -506,6 +506,7 @@ MonoBehaviour:
   _display: {fileID: 0}
   _100txt: {fileID: 5666534023344992627}
   _nextScene: 
+  _settingData: {fileID: 11400000, guid: 285ec96391e804713912fd60ba442e6f, type: 2}
 --- !u!114 &8680391349266194973
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -64,6 +64,7 @@ MonoBehaviour:
     type: 3}
   _soundFxAtCollision: {fileID: 5740669409936881774, guid: ea8e7d152852d410ba845ba89680eeaf,
     type: 3}
+  _settingData: {fileID: 11400000, guid: 285ec96391e804713912fd60ba442e6f, type: 2}
 --- !u!54 &6417859830192193503
 Rigidbody:
   m_ObjectHideFlags: 0

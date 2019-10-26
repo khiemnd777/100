@@ -21,8 +21,7 @@ public class ShortcutToDaystar : MonoBehaviour
     {
         if (_settings.gameOver) return;
         var tilt = Input.acceleration;
-        Debug.Log (tilt.y);
-        if (tilt.y >= .8f)
+        if (tilt.y >= .6f)
         {
             _dueTimeNormalize += Time.deltaTime / _dueSeconds;
             if (_dueTimeNormalize >= 1f)

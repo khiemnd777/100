@@ -18,6 +18,8 @@ public class TheHouse : MonoBehaviour
     TextMesh _100txt;
     [SerializeField]
     string _nextScene;
+    [SerializeField]
+    SettingData _settingData;
     int _currentAppearanceState;
     Settings _settings;
     TheHellFire _hellFire;
@@ -72,7 +74,8 @@ public class TheHouse : MonoBehaviour
     {
         if (string.IsNullOrEmpty (scene)) yield break;
         yield return new WaitForSeconds (.5f);
-        SceneManager.LoadScene (string.Format ("Scenes/{0}", scene));
+        var loadScene = _settingData.killedCount >= 7000 ? "Daystar appear" : scene;
+        SceneManager.LoadScene (string.Format ("Scenes/{0}", loadScene));
     }
 
     void ChangeAppearanceAsIncrease ()

@@ -78,7 +78,7 @@ MonoBehaviour:
   probabilities:
   - 75
   - 25
-  _heavyFallenStarHp: 650
+  _heavyFallenStarHp: 340
   _heavyFallenStarSpeed: 1.125
   _heavyFallenStarDamage: 30
   _heavyFallenInfectedStarSpeed: 7

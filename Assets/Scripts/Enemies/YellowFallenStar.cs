@@ -133,6 +133,7 @@ public class YellowFallenStar : TheStar
         }
         else
         {
+            _settingData.IncreaseKilledCount ();
             _theHouse.OnConverted ();
             Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
             InstantiateDeathSoundEffectAtCollision ();

@@ -48,14 +48,14 @@ MonoBehaviour:
   probabilities:
   - 75
   - 25
-  _heavyFallenStarHp: 260
-  _heavyFallenStarSpeed: 2.5
+  _heavyFallenStarHp: 220
+  _heavyFallenStarSpeed: 1.25
   _heavyFallenStarDamage: 20
   _heavyFallenInfectedStarSpeed: 7
   _heavyYellowFallenStarPrefab: {fileID: 1496135868972005902, guid: b6fed5714033748de94232b6af4baf2a,
     type: 3}
   _fallenStarHp: 15
-  _fallenStarSpeed: 24
+  _fallenStarSpeed: 18
   _fallenStarDamage: 15
   _fallenInfectedStarSpeed: 14
   _yellowFallenStarPrefab: {fileID: 5106085451701770470, guid: fc4ba9bbdc08046d3bb6d96295575499,

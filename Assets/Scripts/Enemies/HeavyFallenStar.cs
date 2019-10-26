@@ -33,6 +33,7 @@ public class HeavyFallenStar : YellowFallenStar
         }
         else
         {
+            _settingData.IncreaseKilledCount (150);
             _theHouse.OnConverted ();
             Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
             SpawnYellowStar ();

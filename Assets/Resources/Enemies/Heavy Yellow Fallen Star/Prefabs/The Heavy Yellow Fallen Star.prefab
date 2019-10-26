@@ -4831,6 +4831,7 @@ MonoBehaviour:
   speed: 0
   display: {fileID: 5106085451510976973}
   _rotationSpeedModifier: 200
+  _settingData: {fileID: 11400000, guid: 285ec96391e804713912fd60ba442e6f, type: 2}
   _unfreezeDelay: 0.125
   infected: 0
   infectedSpeed: 0
@@ -4841,6 +4842,7 @@ MonoBehaviour:
   particle: {fileID: 5106085451699410419}
   _blowFx: {fileID: 3357290889976383843, guid: aa1819f507d56447da01d590ad4ad4c6, type: 3}
   _deathSoundFxAtCollision: {fileID: 0}
+  _playerSoundFxAtCollision: {fileID: 0}
   starNumber: 0
   _yellowStarPrefab: {fileID: 5106085451701770470, guid: fc4ba9bbdc08046d3bb6d96295575499,
     type: 3}

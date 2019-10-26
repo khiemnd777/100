@@ -4831,6 +4831,7 @@ MonoBehaviour:
   speed: 19
   display: {fileID: 5106085451510976973}
   _rotationSpeedModifier: 200
+  _settingData: {fileID: 11400000, guid: 285ec96391e804713912fd60ba442e6f, type: 2}
   _unfreezeDelay: 0.125
   infected: 0
   infectedSpeed: 12

@@ -11,6 +11,8 @@ public class TheHouseSpecialSkill : MonoBehaviour
     TheHouseEnergyRadioactive _radioactivePrefab;
     TheHouse _theHouse;
     CameraShake _cameraShake;
+    int _tapCount;
+    float _tapTime;
 
     void Awake ()
     {
@@ -23,9 +25,19 @@ public class TheHouseSpecialSkill : MonoBehaviour
     {
         if (_theHouse.sheep > 50)
         {
-            Instantiate (_radioactivePrefab, transform.position, Quaternion.identity);
-            _theHouse.sheep /= 2;
-            _cameraShake.Shake (.3f, .095f, true);
+            ++_tapCount;
+            if (_tapCount >= 2)
+            {
+                if (Time.time - _tapTime <= .325f)
+                {
+                    Instantiate (_radioactivePrefab, transform.position, Quaternion.identity);
+                    _theHouse.sheep /= 2;
+                    _cameraShake.Shake (.3f, .095f, true);
+                    _tapCount = 0;
+                    _tapTime = 0f;
+                }
+            }
+            _tapTime = Time.time;
         }
     }
 }

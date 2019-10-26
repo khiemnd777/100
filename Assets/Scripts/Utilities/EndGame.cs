@@ -9,9 +9,12 @@ public class EndGame : MonoBehaviour
     SpriteRenderer _theEndBackgroundPrefab;
     [SerializeField]
     SpriteRenderer _addOilPrefab;
+    [SerializeField]
+    SettingData _settingData;
 
     public IEnumerator Play ()
     {
+        _settingData.IncreaseFinishGameCount ();
         yield return StartCoroutine (EndGameScript ());
     }
 

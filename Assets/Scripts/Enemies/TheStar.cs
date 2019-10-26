@@ -10,6 +10,8 @@ public class TheStar : Enemy
     protected SpriteRenderer display;
     [SerializeField]
     float _rotationSpeedModifier = 200f;
+    [SerializeField]
+    protected SettingData _settingData;
     float _rotationSpeed;
     int _rotationDirection;
     int[] _indicatedRotationDirections = {-1, 1 };

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwipeTutorial : MonoBehaviour
+public class SpecialSkillTutorial : MonoBehaviour
 {
     [SerializeField]
     float _disappearanceSeconds;
@@ -10,17 +10,32 @@ public class SwipeTutorial : MonoBehaviour
     SpriteRenderer _renderer;
     [SerializeField]
     SettingData _settingData;
+    TheHouse _theHouse;
+
+    void Awake ()
+    {
+        _theHouse = FindObjectOfType<TheHouse> ();
+    }
 
     void Start ()
     {
-        if (!_settingData.alreadySwipeTutorial)
+        if (!_settingData.alreadySpecialSkillTutorial)
         {
-            _settingData.alreadySwipeTutorial = true;
-            _renderer.enabled = true;
-            StartCoroutine (Disappearance ());
+            StartCoroutine (CheckAbove50 ());
             return;
         }
         _renderer.enabled = false;
+    }
+
+    IEnumerator CheckAbove50 ()
+    {
+        while (_theHouse.sheep < 50)
+        {
+            yield return null;
+        }
+        _settingData.alreadySpecialSkillTutorial = true;
+        _renderer.enabled = true;
+        StartCoroutine (Disappearance ());
     }
 
     IEnumerator Disappearance ()
