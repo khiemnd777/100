@@ -18,7 +18,7 @@ public class SlidedMove : MonoBehaviour
         foreach (var touch in Input.touches)
         {
             _rd.velocity = touch.phase == TouchPhase.Moved ?
-                Vector3.right * (touch.deltaPosition.x / Screen.width) * (Time.deltaTime * _speed) :
+                Vector3.right * touch.deltaPosition.x * (Time.deltaTime * 7.5f) :
                 Vector3.zero;
         }
     }

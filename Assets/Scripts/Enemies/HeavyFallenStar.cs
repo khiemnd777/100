@@ -13,8 +13,6 @@ public class HeavyFallenStar : YellowFallenStar
     public float yellowSpeed;
     public int yellowDamage;
     public float yellowInfectedSpeed;
-    [SerializeField]
-    AudioSource _deathSoundFxAtCollision;
     Settings _settings;
     TheLight _theLight;
 
@@ -33,18 +31,12 @@ public class HeavyFallenStar : YellowFallenStar
         }
         else
         {
-            _settingData.IncreaseKilledCount (150);
+            _settingData.IncreaseKilledCount (120);
             _theHouse.OnConverted ();
             Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
             SpawnYellowStar ();
             InstantiateDeathSoundEffectAtCollision ();
         }
-    }
-
-    void InstantiateDeathSoundEffectAtCollision ()
-    {
-        if (!_deathSoundFxAtCollision) return;
-        Instantiate (_deathSoundFxAtCollision, transform.position, Quaternion.identity);
     }
 
     void SpawnYellowStar ()

@@ -4841,8 +4841,10 @@ MonoBehaviour:
   particleRenderer: {fileID: 5106085451699410416}
   particle: {fileID: 5106085451699410419}
   _blowFx: {fileID: 3357290889976383843, guid: aa1819f507d56447da01d590ad4ad4c6, type: 3}
-  _deathSoundFxAtCollision: {fileID: 0}
-  _playerSoundFxAtCollision: {fileID: 0}
+  _deathSoundFxAtCollision: {fileID: 1826962044964505815, guid: db7232e986540440b9065215634ae0b0,
+    type: 3}
+  _playerSoundFxAtCollision: {fileID: 8056055530601919810, guid: db5b0d17ccff24ee7a44235281568adf,
+    type: 3}
   starNumber: 0
   _yellowStarPrefab: {fileID: 5106085451701770470, guid: fc4ba9bbdc08046d3bb6d96295575499,
     type: 3}
@@ -4850,8 +4852,6 @@ MonoBehaviour:
   yellowSpeed: 0
   yellowDamage: 0
   yellowInfectedSpeed: 0
-  _deathSoundFxAtCollision: {fileID: 1826962044964505815, guid: db7232e986540440b9065215634ae0b0,
-    type: 3}
 --- !u!65 &774163547
 BoxCollider:
   m_ObjectHideFlags: 0

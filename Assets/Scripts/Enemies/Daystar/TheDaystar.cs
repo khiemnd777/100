@@ -104,6 +104,10 @@ public class TheDaystar : MonoBehaviour
         _skillController.Play ();
     }
 
+    public float GetHp(){
+        return _hp.hp;
+    }
+
     void ExecuteTransform ()
     {
         var ins = Instantiate<TheDaystarTransform> (_theDaystarTransformPrefab, transform.position, Quaternion.identity);

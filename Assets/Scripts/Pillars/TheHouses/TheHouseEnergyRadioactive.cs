@@ -28,7 +28,7 @@ public class TheHouseEnergyRadioactive : MonoBehaviour
             var theStar = other.GetComponent<TheStar> ();
             if (theStar)
             {
-                theStar.SelfDestruct ();
+                theStar.OnHit (9999, transform);
                 Handheld.Vibrate ();
             }
         }
@@ -37,7 +37,7 @@ public class TheHouseEnergyRadioactive : MonoBehaviour
             var theDaystar = other.GetComponent<TheDaystar> ();
             if (theDaystar)
             {
-                theDaystar.Hit(7999f);
+                theDaystar.Hit (theDaystar.GetHp () / 2f);
                 Handheld.Vibrate ();
             }
         }

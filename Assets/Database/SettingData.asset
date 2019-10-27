@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SettingData
   m_EditorClassIdentifier: 
   startCount: 0
-  killedCount: 0
-  alreadySwipeTutorial: 0
-  alreadySpecialSkillTutorial: 0
+  killedCount: 9652
+  finishGameCount: 0
+  alreadySwipeTutorial: 1
+  alreadySpecialSkillTutorial: 1

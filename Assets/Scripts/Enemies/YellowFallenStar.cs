@@ -47,7 +47,7 @@ public class YellowFallenStar : TheStar
         transform.Translate (Vector3.down * Time.deltaTime * (speed / 10f));
     }
 
-    void InstantiateDeathSoundEffectAtCollision ()
+    protected void InstantiateDeathSoundEffectAtCollision ()
     {
         if (!_deathSoundFxAtCollision) return;
         Instantiate (_deathSoundFxAtCollision, transform.position, Quaternion.identity);
