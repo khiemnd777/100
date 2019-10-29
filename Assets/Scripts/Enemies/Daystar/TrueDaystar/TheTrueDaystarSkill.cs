@@ -16,7 +16,16 @@ public class TheTrueDaystarSkill : MonoBehaviour
     int _outSheep;
     int _consumedSheep;
     int _maxSheep;
+    bool _stopFlyingOut;
     List<TheSheep> _insSheepList = new List<TheSheep> ();
+
+    public int consumedSheep
+    {
+        get
+        {
+            return _consumedSheep;
+        }
+    }
 
     public bool isOutOfSheep
     {
@@ -90,6 +99,7 @@ public class TheTrueDaystarSkill : MonoBehaviour
         }
         while (_theHouse.sheep > 1)
         {
+            if (_stopFlyingOut) yield break;
             _theHouse.OnInfected ();
             var pos = _theHouse.initSheepPoint.position;
             pos.x = Random.Range (-.8f, .8f);
@@ -125,6 +135,11 @@ public class TheTrueDaystarSkill : MonoBehaviour
             --total;
             yield return new WaitForSeconds (.02f);
         }
+    }
+
+    public void StopFlyingOut ()
+    {
+        _stopFlyingOut = true;
     }
 
     public void ConsumeSheep (TheSheep theSheep)

@@ -18,10 +18,13 @@ public class TheFallenWallSkill : DaystarSkill
     int[] _initMaskList = new [] { 1, 1, 1, 1, 1 };
     List<TheGoingDown> _currentList = new List<TheGoingDown> ();
     int _number;
+    TheDaystar _theDaystar;
+
     void Awake ()
     {
         _settings = FindObjectOfType<Settings> ();
         _theTraitorDueCount = GetComponent<TheTraitorDueCount> ();
+        _theDaystar = FindObjectOfType<TheDaystar> ();
     }
 
     public override void Execute ()
@@ -83,11 +86,18 @@ public class TheFallenWallSkill : DaystarSkill
 
     void InitGoingDownThing (float stepX)
     {
+        var normalizedHp = _theDaystar.GetNormalizeHp ();
+        var speed = normalizedHp <= (1f / 7f) ? initSpeed * 1.5f : initSpeed;
         var spawnPointX = _spawnPoint.position.x + stepX;
         var spawnPoint = new Vector3 (spawnPointX, _spawnPoint.position.y, _spawnPoint.position.z);
         var goingDown = Instantiate<TheGoingDown> (_theFallenBlockPrefab, spawnPoint, Quaternion.identity);
-        goingDown.theTraitor.isTraitor = _theTraitorDueCount.isDue;
-        goingDown.initSpeed = initSpeed;
+        var isTraitor = _theTraitorDueCount.isDue;
+        var damage = normalizedHp <= (1f / 7f) ?
+            (isTraitor ? 7 : 3) :
+            (isTraitor ? 5 : 1);
+        goingDown.theTraitor.isTraitor = isTraitor;
+        goingDown.initSpeed = speed;
+        goingDown.damage = damage;
         goingDown.transform.localScale = Vector3.zero;
         _currentList.Add (goingDown);
     }

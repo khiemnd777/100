@@ -30,6 +30,7 @@ public class TheHomingStar : MonoBehaviour
     int _rotationDirection;
     int[] _indicatedRotationDirections = {-1, 1 };
     CameraShake _shakeCamera;
+    TheDaystar _theDaystar;
 
     void Awake ()
     {
@@ -37,6 +38,7 @@ public class TheHomingStar : MonoBehaviour
         _rotationDirection = _indicatedRotationDirections[Random.Range (0, _indicatedRotationDirections.Length)];
         _shakeCamera = FindObjectOfType<CameraShake> ();
         theTraitor = GetComponent<TheTraitor> ();
+        _theDaystar = FindObjectOfType<TheDaystar> ();
     }
 
     void Start ()
@@ -93,13 +95,17 @@ public class TheHomingStar : MonoBehaviour
     {
         if ("Player".Equals (other.tag))
         {
-            other.GetComponent<TheShepherd> ().Hit (theTraitor.isTraitor ? 5 : 1);
+            var normalizedHp = _theDaystar.GetNormalizeHp ();
+            var damage = normalizedHp <= (1f / 7f) ?
+                (theTraitor.isTraitor ? 7 : 3) :
+                (theTraitor.isTraitor ? 5 : 1);
+            other.GetComponent<TheShepherd> ().Hit (damage);
             _shakeCamera.Shake (.175f, .065f);
             InstantiateEffectAtCollision ();
             InstantiateSoundEffectAtCollision ();
             if (theTraitor.isTraitor)
             {
-                theTraitor.InstantiateBullet (100f);
+                theTraitor.InstantiateBullet (300f);
             }
             Destroy (gameObject);
         }

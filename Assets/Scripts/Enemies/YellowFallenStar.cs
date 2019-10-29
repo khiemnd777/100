@@ -125,16 +125,25 @@ public class YellowFallenStar : TheStar
         _freeze = false;
     }
 
-    public override void OnDestroyed ()
+    public override void OnDestroyed (float damage, Transform damagedBy)
     {
         if (infected)
         {
-            _theHouse.OnHealed ();
+            _settingData.IncreaseKilledCount (5);
+            if (!"Radioactive".Equals (damagedBy.tag))
+            {
+                _theHouse.OnHealed ();
+            }
+            Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
+            InstantiateDeathSoundEffectAtCollision ();
         }
         else
         {
             _settingData.IncreaseKilledCount ();
-            _theHouse.OnConverted ();
+            if (!"Radioactive".Equals (damagedBy.tag))
+            {
+                _theHouse.OnConverted ();
+            }
             Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
             InstantiateDeathSoundEffectAtCollision ();
         }

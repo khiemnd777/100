@@ -106,6 +106,7 @@ public class TheTrueDaystar : MonoBehaviour
 
     IEnumerator ScriptReleaseAndDecay ()
     {
+        _skill.StopFlyingOut ();
         yield return StartCoroutine (_skill.SheepGoingHome2 ());
         yield return StartCoroutine (_skill.SheepGoingHome ());
         yield return StartCoroutine (BlastLight ());

@@ -14,12 +14,14 @@ public class TheTrueDaystarComeback : MonoBehaviour
     AnimationCurve _curveAnimThatPosition;
     TheDaystar _theDaystar;
     TheHouse _theHouse;
+    TheTrueDaystarSkill _skill;
     Settings _settings;
 
     void Awake ()
     {
         _theDaystar = Resources.FindObjectsOfTypeAll<TheDaystar> () [0];
         _theHouse = FindObjectOfType<TheHouse> ();
+        _skill = GetComponent<TheTrueDaystarSkill> ();
         _settings = FindObjectOfType<Settings> ();
     }
 
@@ -42,7 +44,8 @@ public class TheTrueDaystarComeback : MonoBehaviour
 
     void DaystarRestore ()
     {
-        _theDaystar.RestoreHp ();
+        var restoredHp = (_skill.consumedSheep / 100f) * _theDaystar.GetMaxHp ();
+        _theDaystar.RestoreHp (restoredHp);
         _theDaystar.gameObject.SetActive (true);
         _theDaystar.ExecuteSkill ();
         Destroy (gameObject);

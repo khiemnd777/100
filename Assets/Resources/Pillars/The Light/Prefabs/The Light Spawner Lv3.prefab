@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c681d1817f3438381a0fbfec185110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.4
+  delay: 0.3
   probabilities:
   - 75
   - 25
@@ -54,8 +54,8 @@ MonoBehaviour:
   _heavyFallenInfectedStarSpeed: 7
   _heavyYellowFallenStarPrefab: {fileID: 1496135868972005902, guid: b6fed5714033748de94232b6af4baf2a,
     type: 3}
-  _fallenStarHp: 15
-  _fallenStarSpeed: 18
+  _fallenStarHp: 20
+  _fallenStarSpeed: 19
   _fallenStarDamage: 15
   _fallenInfectedStarSpeed: 14
   _yellowFallenStarPrefab: {fileID: 5106085451701770470, guid: fc4ba9bbdc08046d3bb6d96295575499,

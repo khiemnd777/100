@@ -18,6 +18,7 @@ TagManager:
   - The Sheep
   - The Infected Shepherd
   - The Traitor Bullet
+  - Radioactive
   layers:
   - Default
   - TransparentFX

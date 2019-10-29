@@ -24,6 +24,10 @@ public class TapToPlay : MonoBehaviour
     [SerializeField]
     Transform _theHouse;
     [SerializeField]
+    Transform _twitter;
+    [SerializeField]
+    Transform _facebook;
+    [SerializeField]
     string _defaultScene;
 
     void Awake ()
@@ -35,6 +39,8 @@ public class TapToPlay : MonoBehaviour
     {
         tap2PlayButton.gameObject.SetActive (false);
         _logo.gameObject.SetActive (false);
+        _twitter.gameObject.SetActive (false);
+        _facebook.gameObject.SetActive (false);
         StartCoroutine (ScriptOnTap ());
     }
 

@@ -61,4 +61,9 @@ public class HealthPoint : MonoBehaviour
     {
         _maxHp = amount;
     }
+
+    public void SetHp (float amount)
+    {
+        _hp = amount;
+    }
 }

@@ -54,7 +54,7 @@ MonoBehaviour:
   _heavyFallenInfectedStarSpeed: 14
   _heavyYellowFallenStarPrefab: {fileID: 1496135868972005902, guid: b6fed5714033748de94232b6af4baf2a,
     type: 3}
-  _fallenStarHp: 30
+  _fallenStarHp: 45
   _fallenStarSpeed: 7.5
   _fallenStarDamage: 15
   _fallenInfectedStarSpeed: 20

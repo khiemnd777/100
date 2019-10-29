@@ -88,13 +88,15 @@ public class TheDaystar : MonoBehaviour
     public void Hit (float damage)
     {
         _hp.TakeDamage (damage / 4f);
+        ChangeAppearance ();
         _shake.Shake ();
     }
 
-    public void RestoreHp ()
+    public void RestoreHp (float restoredHp = 0)
     {
         _currentAppearanceState = _appearances.Length;
-        _hp.Recovery (_hp.maxHp);
+        _hp.SetMaxHp (restoredHp == 0 ? _hp.maxHp : restoredHp);
+        _hp.SetHp (restoredHp == 0 ? _hp.maxHp : restoredHp);
         _display.sprite = _originalDisplay;
         _permanent = true;
     }
@@ -104,8 +106,19 @@ public class TheDaystar : MonoBehaviour
         _skillController.Play ();
     }
 
-    public float GetHp(){
+    public float GetMaxHp ()
+    {
+        return _hp.maxHp;
+    }
+
+    public float GetHp ()
+    {
         return _hp.hp;
+    }
+
+    public float GetNormalizeHp ()
+    {
+        return _hp.normalize;
     }
 
     void ExecuteTransform ()

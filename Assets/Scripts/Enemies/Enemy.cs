@@ -30,12 +30,12 @@ public abstract class Enemy : MonoBehaviour
         hp -= damage;
         if (hp <= 0f)
         {
-            OnDestroyed ();
+            OnDestroyed (damage, damagedBy);
             Destroy (gameObject);
         }
     }
 
-    public virtual void OnDestroyed ()
+    public virtual void OnDestroyed (float damage, Transform damagedBy)
     {
 
     }

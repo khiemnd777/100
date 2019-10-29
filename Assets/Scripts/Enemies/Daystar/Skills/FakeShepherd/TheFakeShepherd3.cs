@@ -19,6 +19,7 @@ public class TheFakeShepherd3 : MonoBehaviour
     [SerializeField]
     AudioSource _soundFxAtCollision;
     CameraShake _shakeCamera;
+    TheDaystar _theDaystar;
     float _speed;
 
     void Awake ()
@@ -26,6 +27,7 @@ public class TheFakeShepherd3 : MonoBehaviour
         transform.localScale = Vector3.zero;
         _shakeCamera = FindObjectOfType<CameraShake> ();
         theTraitor = GetComponent<TheTraitor> ();
+        _theDaystar = FindObjectOfType<TheDaystar> ();
     }
 
     void Start ()
@@ -101,13 +103,17 @@ public class TheFakeShepherd3 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<TheShepherd> ().Hit (theTraitor.isTraitor ? 5 : 1);
+            var normalizedHp = _theDaystar.GetNormalizeHp ();
+            var damage = normalizedHp <= (1f / 7f) ?
+                (theTraitor.isTraitor ? 10 : 5) :
+                (theTraitor.isTraitor ? 5 : 2);
+            other.GetComponent<TheShepherd> ().Hit (damage);
             _shakeCamera.Shake (.175f, .065f);
             InstantiateEffectAtCollision ();
             InstantiateSoundEffectAtCollision ();
             if (theTraitor.isTraitor)
             {
-                theTraitor.InstantiateBullet (100f);
+                theTraitor.InstantiateBullet (300f);
             }
             Destroy (gameObject);
         }

@@ -23,16 +23,25 @@ public class HeavyFallenStar : YellowFallenStar
         base.Awake ();
     }
 
-    public override void OnDestroyed ()
+    public override void OnDestroyed (float damage, Transform damagedBy)
     {
         if (infected)
         {
-            _theHouse.OnHealed ();
+            _settingData.IncreaseKilledCount (20);
+            if (!"Radioactive".Equals (damagedBy.tag))
+            {
+                _theHouse.OnHealed ();
+            }
+            Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
+            InstantiateDeathSoundEffectAtCollision ();
         }
         else
         {
             _settingData.IncreaseKilledCount (120);
-            _theHouse.OnConverted ();
+            if (!"Radioactive".Equals (damagedBy.tag))
+            {
+                _theHouse.OnConverted ();
+            }
             Instantiate<ParticleSystem> (_blowFx, transform.position, Quaternion.identity);
             SpawnYellowStar ();
             InstantiateDeathSoundEffectAtCollision ();

@@ -9,6 +9,8 @@ public class TheGoingDown : MonoBehaviour
     public float initSpeed;
     public float acceleration;
     public float accelerationWaitedTime = .5f;
+    [System.NonSerialized]
+    public int damage;
     [SerializeField]
     bool _useFx;
     [SerializeField]
@@ -63,13 +65,13 @@ public class TheGoingDown : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<TheShepherd> ().Hit (theTraitor.isTraitor ? 5 : 1);
+            other.GetComponent<TheShepherd> ().Hit (damage);
             _shakeCamera.Shake (.175f, .065f);
             InstantiateEffectAtCollision ();
             InstantiateSoundEffectAtCollision ();
             if (theTraitor.isTraitor)
             {
-                theTraitor.InstantiateBullet (100f);
+                theTraitor.InstantiateBullet (300f);
             }
             Destroy (gameObject);
         }
