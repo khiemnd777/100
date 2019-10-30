@@ -6,6 +6,8 @@ TextureImporter:
     21300002: play pause_1
     21300004: play pause_2
     21300006: play pause_3
+    21300008: play pause_4
+    21300010: play pause_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -174,6 +176,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4037f643426ca44dba2f743dd5c626fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: play pause_4
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 87
+        width: 350
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd6f8a36533044b6be56fe290cf02ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: play pause_5
+      rect:
+        serializedVersion: 2
+        x: 2034
+        y: 87
+        width: 350
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5868e2ce4bb6c4542bfacf912ea636d3
       vertices: []
       indices: 
       edges: []

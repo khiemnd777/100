@@ -10,6 +10,7 @@ public class PlaylistManager : MonoBehaviour
 
     void Start ()
     {
+        if (_sources.Length == 0) return;
         StartCoroutine (Play ());
     }
 

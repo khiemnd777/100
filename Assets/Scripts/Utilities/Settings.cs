@@ -12,10 +12,13 @@ public class Settings : MonoBehaviour
     public float[] specificHorizontalSteps = { .6f, .4f, .2f, 0f };
     public Button play;
     public Button pause;
-    [Header ("Game Over")]
+    [Header ("Game over")]
     [SerializeField]
     GameOver _gameOverPrefab;
     public string defaultScene;
+    [Header ("Replay scene")]
+    public string replayScene;
+    public Button replay;
 
     int[] _movedStepDirections = {-1, 1 };
 
@@ -25,6 +28,7 @@ public class Settings : MonoBehaviour
         play.onClick.AddListener (Play);
         pause.onClick.AddListener (Pause);
         play.gameObject.SetActive (false);
+        replay.onClick.AddListener (Replay);
     }
 
     void Play ()
@@ -39,6 +43,12 @@ public class Settings : MonoBehaviour
         Time.timeScale = 0f;
         play.gameObject.SetActive (true);
         pause.gameObject.SetActive (false);
+    }
+
+    void Replay ()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene (string.Format ("Scenes/{0}", replayScene));
     }
 
     public float GetSpecificHorizontalStep (float[] indicators)
