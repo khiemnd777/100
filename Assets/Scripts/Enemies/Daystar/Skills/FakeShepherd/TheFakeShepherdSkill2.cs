@@ -70,14 +70,15 @@ public class TheFakeShepherdSkill2 : DaystarSkill
     void InitFakeShepherd (float stepX)
     {
         var normalizedHp = _theDaystar.GetNormalizeHp ();
-        var speed = normalizedHp <= (1f / 7f) ? initSpeed * 1.5f : initSpeed;
-        var accel = normalizedHp <= (1f / 7f) ? acceleration * 1.5f : acceleration;
+        var speed = normalizedHp <= (1f / 7f) ? initSpeed * 1.1f : initSpeed;
+        var accel = normalizedHp <= (1f / 7f) ? acceleration * 1.1f : acceleration;
+        var accelWaitedTime = normalizedHp <= (1f / 7f) ? accelerationWaitedTime * 1.1f : accelerationWaitedTime;
         var spawnPointX = _spawnPoint.position.x + stepX;
         var spawnPoint = new Vector3 (spawnPointX, _spawnPoint.position.y, _spawnPoint.position.z);
         var theFakeShepherd = Instantiate<TheFakeShepherd> (_fakeShepherdPrefab, spawnPoint, Quaternion.identity);
         theFakeShepherd.theTraitor.isTraitor = _theTraitorDueCount.isDue;
         theFakeShepherd.initSpeed = speed;
         theFakeShepherd.acceleration = accel;
-        theFakeShepherd.accelerationWaitedTime = accelerationWaitedTime;
+        theFakeShepherd.accelerationWaitedTime = accelWaitedTime;
     }
 }

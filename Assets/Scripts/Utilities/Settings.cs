@@ -17,8 +17,9 @@ public class Settings : MonoBehaviour
     GameOver _gameOverPrefab;
     public string defaultScene;
     [Header ("Replay scene")]
-    public string replayScene;
     public Button replay;
+    [SerializeField]
+    ExitOrReplay _exitOrReplay;
 
     int[] _movedStepDirections = {-1, 1 };
 
@@ -31,17 +32,17 @@ public class Settings : MonoBehaviour
         replay.onClick.AddListener (Replay);
     }
 
-    void Play ()
+    public void Play ()
     {
-        if(gameOver) return;
+        if (gameOver) return;
         Time.timeScale = 1f;
         play.gameObject.SetActive (false);
         pause.gameObject.SetActive (true);
     }
 
-    void Pause ()
+    public void Pause ()
     {
-        if(gameOver) return;
+        if (gameOver) return;
         Time.timeScale = 0f;
         play.gameObject.SetActive (true);
         pause.gameObject.SetActive (false);
@@ -49,9 +50,9 @@ public class Settings : MonoBehaviour
 
     void Replay ()
     {
-        if(gameOver) return;
-        Time.timeScale = 1f;
-        SceneManager.LoadScene (string.Format ("Scenes/{0}", replayScene));
+        if (gameOver) return;
+        Pause ();
+        _exitOrReplay.gameObject.SetActive (true);
     }
 
     public float GetSpecificHorizontalStep (float[] indicators)
@@ -76,7 +77,8 @@ public class Settings : MonoBehaviour
     {
         gameOver = true;
         Time.timeScale = 0f;
-        Instantiate (_gameOverPrefab, Vector3.zero, Quaternion.identity);
+        var gameOverPanel = Instantiate<GameOver> (_gameOverPrefab, Vector3.zero, Quaternion.identity);
+        gameOverPanel.defaultScene = defaultScene;
     }
 
     void PlayAgain ()
