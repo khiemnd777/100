@@ -11,6 +11,8 @@ public class ShortcutToDaystar : MonoBehaviour
     string _defaultScene;
     float _dueTimeNormalize;
     Settings _settings;
+    [SerializeField]
+    SettingData _settingData;
 
     void Awake ()
     {
@@ -26,6 +28,7 @@ public class ShortcutToDaystar : MonoBehaviour
             _dueTimeNormalize += Time.deltaTime / _dueSeconds;
             if (_dueTimeNormalize >= 1f)
             {
+                _settingData.unlockTheDaystar = true;
                 SceneManager.LoadScene (string.Format ("Scenes/{0}", _defaultScene));
                 _dueTimeNormalize = 0f;
             }

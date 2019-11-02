@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlaylistManager : MonoBehaviour
 {
+    [Range (0f, 1f)]
+    public float volume;
     [SerializeField]
     AudioSource[] _sources;
     AudioSource _currentSource;
@@ -26,6 +28,15 @@ public class PlaylistManager : MonoBehaviour
             {
                 _currentSource.UnPause ();
             }
+        }
+        AdjustVolume ();
+    }
+
+    void AdjustVolume ()
+    {
+        foreach (var source in _sources)
+        {
+            source.volume = volume;
         }
     }
 

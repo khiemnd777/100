@@ -11,11 +11,30 @@ public class EndGame : MonoBehaviour
     SpriteRenderer _addOilPrefab;
     [SerializeField]
     SettingData _settingData;
+    PlaylistManager _playlistManager;
+
+    void Awake ()
+    {
+        _playlistManager = FindObjectOfType<PlaylistManager> ();
+    }
 
     public IEnumerator Play ()
     {
         _settingData.IncreaseFinishGameCount ();
+        StartCoroutine (VolumeGoingDown ());
         yield return StartCoroutine (EndGameScript ());
+    }
+
+    IEnumerator VolumeGoingDown ()
+    {
+        var srcVol = _playlistManager.volume;
+        var t = 0f;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / 8f;
+            _playlistManager.volume = Mathf.Lerp (srcVol, 0f, t);
+            yield return null;
+        }
     }
 
     IEnumerator EndGameScript ()

@@ -5,6 +5,7 @@ TextureImporter:
     21300000: Buttons_0
     21300002: Buttons_1
     21300004: Buttons_2
+    21300006: Buttons_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -106,7 +107,7 @@ TextureImporter:
         width: 275
         height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,7 +127,7 @@ TextureImporter:
         width: 300
         height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,13 +147,33 @@ TextureImporter:
         width: 275
         height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 7e6a9ad81765348299097ebd176e7f0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_3
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 131
+        width: 275
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1912b9f50545443e086f0bffa8cbded7
       vertices: []
       indices: 
       edges: []

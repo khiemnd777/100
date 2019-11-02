@@ -87,7 +87,6 @@ public class TheFallenWallSkill : DaystarSkill
     void InitGoingDownThing (float stepX)
     {
         var normalizedHp = _theDaystar.GetNormalizeHp ();
-        var speed = normalizedHp <= (1f / 7f) ? initSpeed * 1.5f : initSpeed;
         var spawnPointX = _spawnPoint.position.x + stepX;
         var spawnPoint = new Vector3 (spawnPointX, _spawnPoint.position.y, _spawnPoint.position.z);
         var goingDown = Instantiate<TheGoingDown> (_theFallenBlockPrefab, spawnPoint, Quaternion.identity);
@@ -96,7 +95,7 @@ public class TheFallenWallSkill : DaystarSkill
             (isTraitor ? 7 : 3) :
             (isTraitor ? 5 : 1);
         goingDown.theTraitor.isTraitor = isTraitor;
-        goingDown.initSpeed = speed;
+        goingDown.initSpeed = initSpeed;
         goingDown.damage = damage;
         goingDown.transform.localScale = Vector3.zero;
         _currentList.Add (goingDown);

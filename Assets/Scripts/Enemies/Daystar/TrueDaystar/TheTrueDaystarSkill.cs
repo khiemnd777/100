@@ -137,6 +137,19 @@ public class TheTrueDaystarSkill : MonoBehaviour
         }
     }
 
+    public IEnumerator SheepGoingHome3 ()
+    {
+        var amount = 100 - _insSheepList.Count - _consumedSheep - _theHouse.sheep;
+        while (amount-- >= 0)
+        {
+            var ins = Instantiate<TheSheep> (_theSheepPrefab, transform.position, Quaternion.identity);
+            ins.target = _theHouse.transform;
+            ins.transform.localScale = Vector3.one * Random.Range (.7f, 1f);
+            ins.speed = Random.Range (_theSheepSpeed / 2.5f, _theSheepSpeed);
+            yield return new WaitForSeconds (.02f);
+        }
+    }
+
     public void StopFlyingOut ()
     {
         _stopFlyingOut = true;

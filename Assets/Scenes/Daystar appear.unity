@@ -578,7 +578,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-652248
+  m_Name: pb_Mesh-1400
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -782,7 +782,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-652250
+  m_Name: pb_Mesh-1402
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1922,7 +1922,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-652254
+  m_Name: pb_Mesh-1406
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2257,7 +2257,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-652256
+  m_Name: pb_Mesh-1414
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3100,17 +3100,27 @@ PrefabInstance:
     - target: {fileID: 120532535230708038, guid: a3d98c6619b1e498d9c96a6de2a61223,
         type: 3}
       propertyPath: _hp
-      value: 200
+      value: 19999
       objectReference: {fileID: 0}
     - target: {fileID: 120532535230708038, guid: a3d98c6619b1e498d9c96a6de2a61223,
         type: 3}
       propertyPath: _maxHp
-      value: 200
+      value: 19999
       objectReference: {fileID: 0}
     - target: {fileID: 7035682759220239783, guid: a3d98c6619b1e498d9c96a6de2a61223,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498829265308492957, guid: a3d98c6619b1e498d9c96a6de2a61223,
+        type: 3}
+      propertyPath: _delay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498829265308492957, guid: a3d98c6619b1e498d9c96a6de2a61223,
+        type: 3}
+      propertyPath: _speed
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3d98c6619b1e498d9c96a6de2a61223, type: 3}

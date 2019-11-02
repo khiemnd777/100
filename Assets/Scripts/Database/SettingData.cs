@@ -6,6 +6,7 @@ public class SettingData : ScriptableObject
     public int startCount;
     public int killedCount;
     public int finishGameCount;
+    public bool unlockTheDaystar;
     public bool alreadySwipeTutorial;
     public bool alreadySpecialSkillTutorial;
 

@@ -15,5 +15,6 @@ MonoBehaviour:
   startCount: 0
   killedCount: 0
   finishGameCount: 0
+  unlockTheDaystar: 0
   alreadySwipeTutorial: 0
   alreadySpecialSkillTutorial: 0

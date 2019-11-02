@@ -2606,6 +2606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dueSeconds: 3
   _defaultScene: Daystar appear
+  _settingData: {fileID: 11400000, guid: 285ec96391e804713912fd60ba442e6f, type: 2}
 --- !u!4 &1897552245
 Transform:
   m_ObjectHideFlags: 0

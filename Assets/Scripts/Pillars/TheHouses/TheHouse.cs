@@ -75,6 +75,10 @@ public class TheHouse : MonoBehaviour
         if (string.IsNullOrEmpty (scene)) yield break;
         yield return new WaitForSeconds (.5f);
         var loadScene = _settingData.killedCount >= 7000 ? "Daystar appear" : scene;
+        if (loadScene == "Daystar appear")
+        {
+            _settingData.unlockTheDaystar = true;
+        }
         SceneManager.LoadScene (string.Format ("Scenes/{0}", loadScene));
     }
 

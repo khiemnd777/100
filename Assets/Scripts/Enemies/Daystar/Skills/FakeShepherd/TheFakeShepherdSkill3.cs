@@ -68,7 +68,7 @@ public class TheFakeShepherdSkill3 : DaystarSkill
     void InitFakeShepherd (float stepX)
     {
         var normalizedHp = _theDaystar.GetNormalizeHp ();
-        var speed = normalizedHp <= (1f / 7f) ? initSpeed * 1.5f : initSpeed;
+        var speed = normalizedHp <= (1f / 7f) ? initSpeed * 1.105f : initSpeed;
         var spawnPointX = _spawnPoint.position.x + stepX;
         var spawnPoint = new Vector3 (spawnPointX, _spawnPoint.position.y, _spawnPoint.position.z);
         var theFakeShepherd = Instantiate<TheFakeShepherd3> (_fakeShepherdPrefab, spawnPoint, Quaternion.identity);

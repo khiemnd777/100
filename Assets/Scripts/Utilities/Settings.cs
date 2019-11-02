@@ -33,6 +33,7 @@ public class Settings : MonoBehaviour
 
     void Play ()
     {
+        if(gameOver) return;
         Time.timeScale = 1f;
         play.gameObject.SetActive (false);
         pause.gameObject.SetActive (true);
@@ -40,6 +41,7 @@ public class Settings : MonoBehaviour
 
     void Pause ()
     {
+        if(gameOver) return;
         Time.timeScale = 0f;
         play.gameObject.SetActive (true);
         pause.gameObject.SetActive (false);
@@ -47,6 +49,7 @@ public class Settings : MonoBehaviour
 
     void Replay ()
     {
+        if(gameOver) return;
         Time.timeScale = 1f;
         SceneManager.LoadScene (string.Format ("Scenes/{0}", replayScene));
     }

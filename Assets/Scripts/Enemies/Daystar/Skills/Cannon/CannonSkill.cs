@@ -63,7 +63,7 @@ public class CannonSkill : DaystarSkill
     void InstantiateBall (Vector3 forward)
     {
         var normalizedHp = _theDaystar.GetNormalizeHp ();
-        var speed = normalizedHp <= (1f / 7f) ? _speed * 1.5f : _speed;
+        var speed = normalizedHp <= (1f / 7f) ? _speed * 1.107f : _speed;
         var cannonBall = Instantiate<CannonBall> (_theCannonBallPrefab, transform.position, Quaternion.identity);
         cannonBall.theTraitor.isTraitor = _theTraitorDueCount.isDue;
         cannonBall.speed = _speed;
