@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
+    public SettingData settingData;
     public bool gameOver = false;
     public float horizontalStep = .2f;
     public float swipeSpeed = .075f;
@@ -20,6 +21,10 @@ public class Settings : MonoBehaviour
     public Button replay;
     [SerializeField]
     ExitOrReplay _exitOrReplay;
+    [Header ("Setting")]
+    public Button setting;
+    [SerializeField]
+    SettingPanel _settingPanel;
 
     int[] _movedStepDirections = {-1, 1 };
 
@@ -30,6 +35,7 @@ public class Settings : MonoBehaviour
         pause.onClick.AddListener (Pause);
         play.gameObject.SetActive (false);
         replay.onClick.AddListener (Replay);
+        setting.onClick.AddListener (ShowSetting);
     }
 
     public void Play ()
@@ -48,11 +54,34 @@ public class Settings : MonoBehaviour
         pause.gameObject.SetActive (false);
     }
 
+    public void Vibrate ()
+    {
+        if (!settingData.vibrated) return;
+        Handheld.Vibrate ();
+    }
+
     void Replay ()
     {
         if (gameOver) return;
+        SetInteractableButtons (false);
         Pause ();
         _exitOrReplay.gameObject.SetActive (true);
+    }
+
+    void ShowSetting ()
+    {
+        if (gameOver) return;
+        SetInteractableButtons (false);
+        Pause ();
+        _settingPanel.gameObject.SetActive (true);
+    }
+
+    public void SetInteractableButtons (bool interactable)
+    {
+        play.interactable = interactable;
+        pause.interactable = interactable;
+        replay.interactable = interactable;
+        setting.interactable = interactable;
     }
 
     public float GetSpecificHorizontalStep (float[] indicators)

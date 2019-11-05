@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementId: banner
-  testMode: 0
+  testMode: 1

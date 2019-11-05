@@ -46,7 +46,7 @@ public class TheDaystarTransform : MonoBehaviour
         yield return StartCoroutine (BlastLight ());
         StopCoroutine ("Shake");
         _display.sprite = permanent ? null : _lastTransformAppeareance;
-        _earthquake.StartEarthquake (true);
+        _earthquake.StartEarthquake ();
         if (!permanent)
         {
             InitTrueDaystar ();

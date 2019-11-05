@@ -9,6 +9,8 @@ public class TheShepherd : MonoBehaviour
     bool _isMoving = false;
     Settings _settings;
     TheHouse _theHouse;
+    [SerializeField]
+    DissolveEffect _dissolvedEffectOnHit;
 
     void Awake ()
     {
@@ -47,8 +49,9 @@ public class TheShepherd : MonoBehaviour
 
     public void Hit ()
     {
+        Instantiate (_dissolvedEffectOnHit, Vector3.up * 1.01f, Quaternion.identity);
         _theHouse.OnInfected ();
-        Handheld.Vibrate ();
+        _settings.Vibrate ();
         if (_theHouse.sheep <= 0)
         {
             _settings.GameOver ();
@@ -57,10 +60,11 @@ public class TheShepherd : MonoBehaviour
 
     public void Hit (int damage)
     {
+        Instantiate (_dissolvedEffectOnHit, Vector3.up * 1.01f, Quaternion.identity);
         for (var i = 0; i < damage; i++)
         {
             _theHouse.OnInfected ();
-            Handheld.Vibrate ();
+            _settings.Vibrate ();
             if (_theHouse.sheep <= 0)
             {
                 _settings.GameOver ();

@@ -7,11 +7,13 @@ public class Earthquake : MonoBehaviour
     public float duration;
     public float magnitude;
     CameraShake _cameraShake;
+    Settings _settings;
     bool _stop;
 
     void Awake ()
     {
         _cameraShake = FindObjectOfType<CameraShake> ();
+        _settings = FindObjectOfType<Settings> ();
         _stop = false;
     }
 
@@ -31,7 +33,7 @@ public class Earthquake : MonoBehaviour
             _cameraShake.Shake (duration, magnitude);
             if (vibrate)
             {
-                Handheld.Vibrate ();
+                _settings.Vibrate ();
             }
             yield return new WaitForSeconds (duration);
         }

@@ -8,6 +8,12 @@ public class ObjectShake : MonoBehaviour
     public float duration;
     public float magnitude;
     Vector3 _originalLocalPosition;
+    Settings _settings;
+
+    void Awake ()
+    {
+        _settings = FindObjectOfType<Settings> ();
+    }
 
     void Start ()
     {
@@ -36,7 +42,7 @@ public class ObjectShake : MonoBehaviour
         shakedObject.localPosition = _originalLocalPosition;
         if (vibrate)
         {
-            Handheld.Vibrate ();
+            _settings.Vibrate ();
         }
     }
 }

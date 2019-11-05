@@ -27,7 +27,7 @@ public class TheDaystarAppear : MonoBehaviour
 
     IEnumerator Appear ()
     {
-        _earthquake.StartEarthquake (true);
+        _earthquake.StartEarthquake ();
         var t = 0f;
         var srcPos = _daystar.position;
         var destPos = new Vector3 (srcPos.x, _appearPointY, srcPos.z);

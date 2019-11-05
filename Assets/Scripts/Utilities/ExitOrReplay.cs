@@ -37,6 +37,7 @@ public class ExitOrReplay : MonoBehaviour
 
     void Back ()
     {
+        _settings.SetInteractableButtons (true);
         _settings.Play ();
         gameObject.SetActive (false);
     }

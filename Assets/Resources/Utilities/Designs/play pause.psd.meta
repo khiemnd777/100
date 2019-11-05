@@ -8,6 +8,8 @@ TextureImporter:
     21300006: play pause_3
     21300008: play pause_4
     21300010: play pause_5
+    21300012: play pause_6
+    21300014: play pause_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -189,7 +191,7 @@ TextureImporter:
         width: 350
         height: 357
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,13 +211,53 @@ TextureImporter:
         width: 350
         height: 357
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 5868e2ce4bb6c4542bfacf912ea636d3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: play pause_6
+      rect:
+        serializedVersion: 2
+        x: 2525
+        y: 47
+        width: 407
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37aae05e1410e4dff8d7816a38dda080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: play pause_7
+      rect:
+        serializedVersion: 2
+        x: 3019
+        y: 48
+        width: 407
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c099b8a0d694684bfbd46633ba9b98
       vertices: []
       indices: 
       edges: []

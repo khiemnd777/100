@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class TheHouseEnergyRadioactive : MonoBehaviour
 {
+    Settings _settings;
+
+    void Awake ()
+    {
+        _settings = FindObjectOfType<Settings> ();
+    }
+
     void Start ()
     {
         StartCoroutine (ScaleOut ());
@@ -29,7 +36,7 @@ public class TheHouseEnergyRadioactive : MonoBehaviour
             if (theStar)
             {
                 theStar.OnHit (9999, transform);
-                Handheld.Vibrate ();
+                _settings.Vibrate ();
             }
         }
         else if ("Daystar".Equals (other.tag))
@@ -38,7 +45,7 @@ public class TheHouseEnergyRadioactive : MonoBehaviour
             if (theDaystar)
             {
                 theDaystar.Hit (theDaystar.GetHp () / 2f);
-                Handheld.Vibrate ();
+                _settings.Vibrate ();
             }
         }
     }

@@ -9,6 +9,7 @@ public class SettingData : ScriptableObject
     public bool unlockTheDaystar;
     public bool alreadySwipeTutorial;
     public bool alreadySpecialSkillTutorial;
+    public bool vibrated;
 
     public void IncreaseKilledCount ()
     {
