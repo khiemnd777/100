@@ -10,6 +10,8 @@ TextureImporter:
     21300010: Buttons_5
     21300012: Buttons_6
     21300014: Buttons_7
+    21300016: Buttons_8
+    21300018: Buttons_9
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -258,6 +260,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 715af2210e5214bf29a9180b36197ff9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 364
+        width: 275
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de7177103f099494c8c58c97c93976bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_9
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 248
+        width: 275
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d77cf5c7985c7413bbc06ebcfe63c6ef
       vertices: []
       indices: 
       edges: []

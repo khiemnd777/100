@@ -11,6 +11,8 @@ public class SettingPanel : MonoBehaviour
     Settings _settings;
     public Button vibrationOn;
     public Button vibrationOff;
+    public Button slowmotionOn;
+    public Button slowmotionOff;
     public Button back;
 
     void Awake ()
@@ -18,12 +20,15 @@ public class SettingPanel : MonoBehaviour
         _settings = FindObjectOfType<Settings> ();
         vibrationOn.onClick.AddListener (VibrationOff);
         vibrationOff.onClick.AddListener (VibrationOn);
+        slowmotionOn.onClick.AddListener (SlowmotionOff);
+        slowmotionOff.onClick.AddListener (SlowmotionOn);
         back.onClick.AddListener (Back);
     }
 
     void Start ()
     {
         RenderVibrationStatus ();
+        RenderSlowmotionStatus ();
     }
 
     void RenderVibrationStatus ()
@@ -40,6 +45,20 @@ public class SettingPanel : MonoBehaviour
         }
     }
 
+    void RenderSlowmotionStatus ()
+    {
+        if (_settingData.slowmotion)
+        {
+            slowmotionOn.gameObject.SetActive (true);
+            slowmotionOff.gameObject.SetActive (false);
+        }
+        else
+        {
+            slowmotionOn.gameObject.SetActive (false);
+            slowmotionOff.gameObject.SetActive (true);
+        }
+    }
+
     void VibrationOn ()
     {
         _settingData.vibrated = true;
@@ -51,6 +70,18 @@ public class SettingPanel : MonoBehaviour
     {
         _settingData.vibrated = false;
         RenderVibrationStatus ();
+    }
+
+    void SlowmotionOn ()
+    {
+        _settingData.slowmotion = true;
+        RenderSlowmotionStatus ();
+    }
+
+    void SlowmotionOff ()
+    {
+        _settingData.slowmotion = false;
+        RenderSlowmotionStatus ();
     }
 
     void Back ()

@@ -36,6 +36,7 @@ public class TheTrueDaystarComeback : MonoBehaviour
         _blastLightDisplay.enabled = false;
         // yield return StartCoroutine (MoveToThatPosition ());
         DaystarRestore ();
+        _settings.activedSlowUpMove = true;
         if (_theHouse.sheep <= 0)
         {
             _settings.GameOver ();

@@ -10,6 +10,7 @@ public class SettingData : ScriptableObject
     public bool alreadySwipeTutorial;
     public bool alreadySpecialSkillTutorial;
     public bool vibrated;
+    public bool slowmotion;
 
     public void IncreaseKilledCount ()
     {

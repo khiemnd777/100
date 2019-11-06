@@ -21,6 +21,7 @@ public class TheDaystar : MonoBehaviour
     ObjectShake _shake;
     HealthPoint _hp;
     TheDaystarSkillController _skillController;
+    Settings _settings;
     bool _isHit;
     int _currentAppearanceState;
     Sprite _originalDisplay;
@@ -29,6 +30,7 @@ public class TheDaystar : MonoBehaviour
     void Awake ()
     {
         _originalDisplay = _display.sprite;
+        _settings = FindObjectOfType<Settings> ();
         _shake = GetComponent<ObjectShake> ();
         _meshHits.ForEach (x => x.onHit += OnHit);
         _hp = GetComponent<HealthPoint> ();
@@ -123,6 +125,7 @@ public class TheDaystar : MonoBehaviour
 
     void ExecuteTransform ()
     {
+        _settings.activedSlowUpMove = false;
         var ins = Instantiate<TheDaystarTransform> (_theDaystarTransformPrefab, transform.position, Quaternion.identity);
         ins.permanent = _permanent;
         gameObject.SetActive (false);

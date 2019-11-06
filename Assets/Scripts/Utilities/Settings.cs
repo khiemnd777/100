@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     public SettingData settingData;
+    public bool activedSlowUpMove;
     public bool gameOver = false;
     public float horizontalStep = .2f;
     public float swipeSpeed = .075f;
@@ -25,6 +26,8 @@ public class Settings : MonoBehaviour
     public Button setting;
     [SerializeField]
     SettingPanel _settingPanel;
+    [System.NonSerialized]
+    public bool isPause;
 
     int[] _movedStepDirections = {-1, 1 };
 
@@ -41,6 +44,7 @@ public class Settings : MonoBehaviour
     public void Play ()
     {
         if (gameOver) return;
+        isPause = false;
         Time.timeScale = 1f;
         play.gameObject.SetActive (false);
         pause.gameObject.SetActive (true);
@@ -49,6 +53,7 @@ public class Settings : MonoBehaviour
     public void Pause ()
     {
         if (gameOver) return;
+        isPause = true;
         Time.timeScale = 0f;
         play.gameObject.SetActive (true);
         pause.gameObject.SetActive (false);

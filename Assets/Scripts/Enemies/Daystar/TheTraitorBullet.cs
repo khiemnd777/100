@@ -23,9 +23,9 @@ public class TheTraitorBullet : MonoBehaviour
         _twinkle.Play ();
     }
 
-    void FixedUpdate ()
+    void Update ()
     {
-        transform.Translate (Time.fixedDeltaTime * direction * (speed / 10f));
+        transform.Translate (Time.deltaTime * direction * (speed / 10f));
     }
 
     public void SelfDestruct ()

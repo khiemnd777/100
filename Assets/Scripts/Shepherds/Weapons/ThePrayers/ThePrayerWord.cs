@@ -21,9 +21,9 @@ public class ThePrayerWord : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate ()
+    void Update ()
     {
-        transform.Translate (Time.fixedDeltaTime * direction * (speed / 10f));
+        transform.Translate (Time.deltaTime * direction * (speed / 10f));
     }
 
     void InstantiateSoundEffectAtCollision ()
