@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SettingData
   m_EditorClassIdentifier: 
   startCount: 0
-  killedCount: 4
+  killedCount: 0
   finishGameCount: 0
   unlockTheDaystar: 0
   alreadySwipeTutorial: 0

@@ -12,6 +12,8 @@ public class EndGame : MonoBehaviour
     [SerializeField]
     SettingData _settingData;
     PlaylistManager _playlistManager;
+    [SerializeField]
+    AudioSource _glory2HongKong;
 
     void Awake ()
     {
@@ -31,8 +33,20 @@ public class EndGame : MonoBehaviour
         var t = 0f;
         while (t <= 1f)
         {
-            t += Time.deltaTime / 8f;
+            t += Time.deltaTime / 3.5f;
             _playlistManager.volume = Mathf.Lerp (srcVol, 0f, t);
+            yield return null;
+        }
+    }
+
+    IEnumerator G2HKVolumeGoingDown ()
+    {
+        var srcVol = _glory2HongKong.volume;
+        var t = 0f;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / 3.5f;
+            _glory2HongKong.volume = Mathf.Lerp (srcVol, 0f, t);
             yield return null;
         }
     }
@@ -50,6 +64,7 @@ public class EndGame : MonoBehaviour
             theEndBg.color = Color32.Lerp (ca, cb, t);
             yield return null;
         }
+        _glory2HongKong.Play ();
         t = 0f;
         var addOil = Instantiate<SpriteRenderer> (_addOilPrefab, new Vector3 (0f, .9f, 0f), Quaternion.identity);
         while (t <= 1f)
@@ -58,15 +73,16 @@ public class EndGame : MonoBehaviour
             addOil.color = Color32.Lerp (ca, cb, t);
             yield return null;
         }
-        yield return new WaitForSeconds (3f);
+        yield return new WaitForSeconds (10f);
+        StartCoroutine (G2HKVolumeGoingDown ());
         t = 0f;
         while (t <= 1f)
         {
-            t += Time.deltaTime / 1.5f;
+            t += Time.deltaTime / 2f;
             addOil.color = Color32.Lerp (cb, ca, t);
             yield return null;
         }
-        yield return new WaitForSeconds (1.25f);
+        yield return new WaitForSeconds (1.5f);
         SceneManager.LoadScene (string.Format ("Scenes/{0}", "Tap to play"));
     }
 }
