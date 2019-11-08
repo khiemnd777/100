@@ -25,7 +25,12 @@ public class ShortcutToDaystar : MonoBehaviour
         var tilt = Input.acceleration;
         if (tilt.y >= .6f)
         {
-            _dueTimeNormalize += Time.deltaTime / _dueSeconds;
+            if (_settings.isPause)
+            {
+                _dueTimeNormalize = 0f;
+                return;
+            }
+            _dueTimeNormalize += Time.unscaledDeltaTime / _dueSeconds;
             if (_dueTimeNormalize >= 1f)
             {
                 _settingData.unlockTheDaystar = true;

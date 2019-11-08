@@ -145,7 +145,6 @@ public class TheDaystar : MonoBehaviour
     {
         if ("Daystar Death Point".Equals (other.tag))
         {
-            Debug.Log (0);
         }
         else if ("Daystar Win Point".Equals (other.tag)) { }
     }

@@ -422,3 +422,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playAgainButton: {fileID: 5514767792888648273}
   defaultScene: 0.1
+  _settingData: {fileID: 11400000, guid: 285ec96391e804713912fd60ba442e6f, type: 2}

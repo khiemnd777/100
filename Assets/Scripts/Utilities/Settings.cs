@@ -34,11 +34,11 @@ public class Settings : MonoBehaviour
     void Awake ()
     {
         // Time.timeScale = defaultScene == "0.1" ? 0f : 1f;
-        play.onClick.AddListener (Play);
-        pause.onClick.AddListener (Pause);
-        play.gameObject.SetActive (false);
-        replay.onClick.AddListener (Replay);
-        setting.onClick.AddListener (ShowSetting);
+        if (play) play.onClick.AddListener (Play);
+        if (pause) pause.onClick.AddListener (Pause);
+        if (play) play.gameObject.SetActive (false);
+        if (replay) replay.onClick.AddListener (Replay);
+        if (setting) setting.onClick.AddListener (ShowSetting);
     }
 
     public void Play ()

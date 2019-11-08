@@ -20,3 +20,5 @@ MonoBehaviour:
   alreadySpecialSkillTutorial: 0
   vibrated: 0
   slowmotion: 0
+  videoAdsCooldown: 3
+  videoAdsCount: 0

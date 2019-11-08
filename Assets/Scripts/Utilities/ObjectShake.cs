@@ -35,9 +35,9 @@ public class ObjectShake : MonoBehaviour
         var elapsed = 0f;
         while (elapsed <= 1f)
         {
+            elapsed += Time.unscaledDeltaTime / duration;
             shakedObject.localPosition = _originalLocalPosition + Random.insideUnitSphere * magnitude;
-            elapsed += Time.fixedDeltaTime / duration;
-            yield return new WaitForFixedUpdate ();
+            yield return null;
         }
         shakedObject.localPosition = _originalLocalPosition;
         if (vibrate)

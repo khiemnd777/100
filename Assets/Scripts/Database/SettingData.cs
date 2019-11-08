@@ -11,6 +11,8 @@ public class SettingData : ScriptableObject
     public bool alreadySpecialSkillTutorial;
     public bool vibrated;
     public bool slowmotion;
+    public int videoAdsCooldown;
+    public int videoAdsCount;
 
     public void IncreaseKilledCount ()
     {
@@ -30,5 +32,16 @@ public class SettingData : ScriptableObject
     public void ResetKilledCount ()
     {
         killedCount = 0;
+    }
+
+    public bool CanShowVideoAds ()
+    {
+        if (videoAdsCount == videoAdsCooldown - 1)
+        {
+            videoAdsCount = 0;
+            return true;
+        }
+        ++videoAdsCount;
+        return false;
     }
 }

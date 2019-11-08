@@ -32,12 +32,12 @@ public class TheStar : Enemy
     public override void Update ()
     {
         base.Update ();
+        display.transform.RotateAround (display.transform.position, Vector3.forward * _rotationDirection, Time.deltaTime * _rotationSpeed);
     }
 
     public override void FixedUpdate ()
     {
         base.FixedUpdate ();
-        display.transform.RotateAround (display.transform.position, Vector3.forward * _rotationDirection, Time.fixedDeltaTime * _rotationSpeed);
     }
 
     public virtual void SelfDestruct ()
