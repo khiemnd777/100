@@ -11,7 +11,16 @@ public class VideoAds : MonoBehaviour, IUnityAdsListener
 #endif
     public string placementId = "video";
     public bool testMode = true;
-    public event System.Action<ShowResult> onAdsDidFinish;
+    public System.Action<ShowResult> onAdsDidFinish;
+    public System.Action onAdsReady;
+    public bool isReady
+    {
+        get
+        {
+            return _isReady;
+        }
+    }
+    bool _isReady;
 
     void Start ()
     {
@@ -21,7 +30,6 @@ public class VideoAds : MonoBehaviour, IUnityAdsListener
 
     public void Show ()
     {
-        if (!IsReady ()) return;
         Advertisement.Show (placementId);
     }
 
@@ -30,7 +38,15 @@ public class VideoAds : MonoBehaviour, IUnityAdsListener
         return Advertisement.IsReady (placementId);
     }
 
-    public void OnUnityAdsReady (string placementId) { }
+    public void OnUnityAdsReady (string placementId)
+    {
+        if (placementId != this.placementId) return;
+        _isReady = true;
+        if (onAdsReady != null)
+        {
+            onAdsReady ();
+        }
+    }
 
     public void OnUnityAdsDidError (string message)
     {
@@ -41,9 +57,16 @@ public class VideoAds : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidFinish (string placementId, ShowResult showResult)
     {
+        if (placementId != this.placementId) return;
         if (onAdsDidFinish != null)
         {
             onAdsDidFinish (showResult);
         }
+    }
+
+    void OnDestroy ()
+    {
+        onAdsDidFinish = null;
+        onAdsReady = null;
     }
 }

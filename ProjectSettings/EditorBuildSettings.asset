@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Splash.unity
     guid: de33d2502247e42508caefbb11f83717
   - enabled: 1
+    path: Assets/Scenes/Luke 1446.unity
+    guid: 1d2c28d1e5f00497caa62620628a5476
+  - enabled: 1
     path: Assets/Scenes/Tap to play.unity
     guid: 8613a0b7d6f6347cf9106be897073357
   - enabled: 1

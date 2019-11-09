@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,18 +7,22 @@ public class GameOver : MonoBehaviour
 {
     public Button playAgainButton;
     public string defaultScene;
-    VideoAds _videoAds;
+    [System.NonSerialized]
+    public VideoAds videoAds;
     [SerializeField]
     SettingData _settingData;
 
     void Awake ()
     {
-        _videoAds = FindObjectOfType<VideoAds> ();
-        if (_videoAds)
-        {
-            _videoAds.onAdsDidFinish += NavigateScene;
-        }
         playAgainButton.onClick.AddListener (PlayAgain);
+    }
+
+    void Start ()
+    {
+        if (videoAds)
+        {
+            videoAds.onAdsDidFinish = NavigateScene;
+        }
     }
 
     void PlayAgain ()
@@ -29,9 +31,9 @@ public class GameOver : MonoBehaviour
         if (string.IsNullOrEmpty (defaultScene)) return;
         if (_settingData.CanShowVideoAds ())
         {
-            if (_videoAds && _videoAds.IsReady ())
+            if (videoAds && videoAds.IsReady ())
             {
-                _videoAds.Show ();
+                videoAds.Show ();
                 return;
             }
         }

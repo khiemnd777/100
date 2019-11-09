@@ -126,6 +126,7 @@ public class TheDaystar : MonoBehaviour
     void ExecuteTransform ()
     {
         _settings.activedSlowUpMove = false;
+        _settings.ActiveSlowUpMove (false);
         var ins = Instantiate<TheDaystarTransform> (_theDaystarTransformPrefab, transform.position, Quaternion.identity);
         ins.permanent = _permanent;
         gameObject.SetActive (false);
@@ -144,8 +145,7 @@ public class TheDaystar : MonoBehaviour
     void OnTriggerEnter (Collider other)
     {
         if ("Daystar Death Point".Equals (other.tag))
-        {
-        }
+        { }
         else if ("Daystar Win Point".Equals (other.tag)) { }
     }
 }

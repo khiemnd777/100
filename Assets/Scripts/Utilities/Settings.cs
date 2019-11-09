@@ -18,6 +18,8 @@ public class Settings : MonoBehaviour
     [SerializeField]
     GameOver _gameOverPrefab;
     public string defaultScene;
+    [SerializeField]
+    VideoAds _videoAds;
     [Header ("Replay scene")]
     public Button replay;
     [SerializeField]
@@ -81,6 +83,15 @@ public class Settings : MonoBehaviour
         _settingPanel.gameObject.SetActive (true);
     }
 
+    public void ActiveSlowUpMove (bool actived)
+    {
+        activedSlowUpMove = actived;
+        if (!actived)
+        {
+            Time.timeScale = 1f;
+        }
+    }
+
     public void SetInteractableButtons (bool interactable)
     {
         play.interactable = interactable;
@@ -112,6 +123,7 @@ public class Settings : MonoBehaviour
         gameOver = true;
         Time.timeScale = 0f;
         var gameOverPanel = Instantiate<GameOver> (_gameOverPrefab, Vector3.zero, Quaternion.identity);
+        gameOverPanel.videoAds = _videoAds;
         gameOverPanel.defaultScene = defaultScene;
     }
 

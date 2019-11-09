@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 public class SettingPanel : MonoBehaviour
@@ -9,6 +10,8 @@ public class SettingPanel : MonoBehaviour
     [SerializeField]
     SettingData _settingData;
     Settings _settings;
+    [SerializeField]
+    RewardedAds _rewardedAds;
     public Button vibrationOn;
     public Button vibrationOff;
     public Button slowmotionOn;
@@ -27,8 +30,35 @@ public class SettingPanel : MonoBehaviour
 
     void Start ()
     {
+        SlowmotionInteractable (false);
         RenderVibrationStatus ();
         RenderSlowmotionStatus ();
+        if (_rewardedAds)
+        {
+            _rewardedAds.onAdsDidFinish = OnRewardedAdsDidFinish;
+            StartCoroutine (InteractSlowmotion ());
+        }
+    }
+
+    IEnumerator InteractSlowmotion ()
+    {
+        while (!Advertisement.IsReady (_rewardedAds.placementId))
+        // while (!_rewardedAds.isReady)
+        {
+            yield return new WaitForSecondsRealtime (.5f);
+        }
+        SlowmotionInteractable (true);
+    }
+
+    void SlowmotionInteractable (bool interactable)
+    {
+        slowmotionOn.interactable = interactable;
+        slowmotionOff.interactable = interactable;
+    }
+
+    void OnRewardedAdsDidFinish (ShowResult showResult)
+    {
+        TurnSlowmotionOn ();
     }
 
     void RenderVibrationStatus ()
@@ -73,6 +103,11 @@ public class SettingPanel : MonoBehaviour
     }
 
     void SlowmotionOn ()
+    {
+        _rewardedAds.Show ();
+    }
+
+    void TurnSlowmotionOn ()
     {
         _settingData.slowmotion = true;
         RenderSlowmotionStatus ();
