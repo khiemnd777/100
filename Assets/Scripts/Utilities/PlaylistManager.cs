@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlaylistManager : MonoBehaviour
 {
+    public bool playOnAwake;
+    public bool dontDestroyOnLoad;
     [Range (0f, 1f)]
     public float volume;
     [SerializeField]
@@ -13,7 +15,19 @@ public class PlaylistManager : MonoBehaviour
     void Start ()
     {
         if (_sources.Length == 0) return;
-        StartCoroutine (Play ());
+        if (playOnAwake)
+        {
+            Play ();
+        }
+        if (dontDestroyOnLoad)
+        {
+            DontDestroyOnLoad (gameObject);
+        }
+    }
+
+    public void Play ()
+    {
+        StartCoroutine (Playing ());
     }
 
     void Update ()
@@ -40,7 +54,7 @@ public class PlaylistManager : MonoBehaviour
         }
     }
 
-    IEnumerator Play ()
+    IEnumerator Playing ()
     {
         var inx = 0;
         while (gameObject)

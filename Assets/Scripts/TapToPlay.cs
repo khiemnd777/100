@@ -30,6 +30,8 @@ public class TapToPlay : MonoBehaviour
     Transform _facebook;
     [SerializeField]
     string _defaultScene;
+    [SerializeField]
+    PlayOstIfItDoesntExist _playOst;
 
     void Awake ()
     {
@@ -44,6 +46,22 @@ public class TapToPlay : MonoBehaviour
         _twitter.gameObject.SetActive (false);
         _facebook.gameObject.SetActive (false);
         StartCoroutine (ScriptOnTap ());
+        StartCoroutine (VolumePreloadingSoundTracksGoingDown ());
+    }
+
+    IEnumerator VolumePreloadingSoundTracksGoingDown ()
+    {
+        var preloadingSoundTracks = GameObject.Find ("Playlist Manager On Preloading");
+        if (!preloadingSoundTracks) yield break;
+        var playlistManager = preloadingSoundTracks.GetComponent<PlaylistManager> ();
+        var srcVol = playlistManager.volume;
+        var t = 0f;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime * _speed;
+            playlistManager.volume = Mathf.Lerp (srcVol, _playOst.volumeInBattle, t);
+            yield return null;
+        }
     }
 
     IEnumerator ScriptOnTap ()

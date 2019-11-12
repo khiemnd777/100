@@ -27,7 +27,7 @@ public class HeavyFallenStar : YellowFallenStar
     {
         if (infected)
         {
-            _settingData.IncreaseKilledCount (20);
+            _settingData.IncreaseKilledCount (50);
             if (!"Radioactive".Equals (damagedBy.tag))
             {
                 _theHouse.OnHealed ();
@@ -37,7 +37,7 @@ public class HeavyFallenStar : YellowFallenStar
         }
         else
         {
-            _settingData.IncreaseKilledCount (120);
+            _settingData.IncreaseKilledCount (25);
             if (!"Radioactive".Equals (damagedBy.tag))
             {
                 _theHouse.OnConverted ();

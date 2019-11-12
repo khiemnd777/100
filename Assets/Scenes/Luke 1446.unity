@@ -112,6 +112,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20204552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20204554}
+  - component: {fileID: 20204553}
+  m_Layer: 0
+  m_Name: Luke 1546 Scene Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &20204553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20204552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b1f3773c6f544d38bf87db4ac20972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: Tap to play
+  _logoAppearance: {fileID: 962325767}
+--- !u!4 &20204554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20204552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 414, y: 744, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +266,7 @@ GameObject:
   - component: {fileID: 962325766}
   - component: {fileID: 962325767}
   m_Layer: 0
-  m_Name: Luke 14:4-6 NIV
+  m_Name: Luke 15:4-6 NIV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +285,7 @@ Transform:
   m_Children:
   - {fileID: 2139457836}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &962325767
 MonoBehaviour:
@@ -261,7 +306,6 @@ MonoBehaviour:
   _disappearSeconds: 1
   _nextSeconds: 0.5
   _display: {fileID: 2139457837}
-  _defaultScene: Tap to play
 --- !u!1 &2139457835
 GameObject:
   m_ObjectHideFlags: 0

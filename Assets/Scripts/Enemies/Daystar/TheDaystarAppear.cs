@@ -13,16 +13,60 @@ public class TheDaystarAppear : MonoBehaviour
     Transform _daystar;
     [SerializeField]
     string _defaultScene;
+    [SerializeField]
+    SpriteRenderer _blackBg;
+    [SerializeField]
+    AudioSource _openedSoundTrack;
     Earthquake _earthquake;
+    Settings _settings;
 
     void Awake ()
     {
+        _settings = FindObjectOfType<Settings> ();
         _earthquake = FindObjectOfType<Earthquake> ();
     }
 
     void Start ()
     {
+        StartCoroutine (Scripting ());
+    }
+
+    IEnumerator Scripting ()
+    {
+        yield return StartCoroutine (VolumePreloadingSoundTracksGoingDown ());
+        yield return new WaitForSecondsRealtime (.625f);
+        _openedSoundTrack.Play ();
+        StartCoroutine (BlackBackgroundDisappear ());
         StartCoroutine (Appear ());
+    }
+
+    IEnumerator BlackBackgroundDisappear ()
+    {
+        var t = 0f;
+        var ca = new Color32 (255, 255, 255, 255);
+        var cb = new Color32 (255, 255, 255, 0);
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / .5f;
+            _blackBg.color = Color32.Lerp (ca, cb, t);
+            yield return null;
+        }
+    }
+
+    IEnumerator VolumePreloadingSoundTracksGoingDown ()
+    {
+        var preloadingSoundTracks = GameObject.Find ("Playlist Manager On Preloading");
+        if (!preloadingSoundTracks) yield break;
+        var playlistManager = preloadingSoundTracks.GetComponent<PlaylistManager> ();
+        var srcVol = playlistManager.volume;
+        var t = 0f;
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / 1f;
+            playlistManager.volume = Mathf.Lerp (srcVol, 0f, t);
+            yield return null;
+        }
+        Destroy (preloadingSoundTracks);
     }
 
     IEnumerator Appear ()

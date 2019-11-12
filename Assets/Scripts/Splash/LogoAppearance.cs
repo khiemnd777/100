@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LogoAppearance : MonoBehaviour
 {
@@ -18,8 +17,6 @@ public class LogoAppearance : MonoBehaviour
     float _nextSeconds = 1.25f;
     [SerializeField]
     SpriteRenderer _display;
-    [SerializeField]
-    string _defaultScene;
 
     void Awake ()
     {
@@ -31,7 +28,7 @@ public class LogoAppearance : MonoBehaviour
         StartCoroutine (Queue ());
     }
 
-    IEnumerator Queue ()
+    public IEnumerator Queue ()
     {
         yield return StartCoroutine (Appear ());
         if (_enableDisappear)
@@ -39,7 +36,6 @@ public class LogoAppearance : MonoBehaviour
             yield return StartCoroutine (Disappear ());
         }
         yield return new WaitForSeconds (_nextSeconds);
-        SceneManager.LoadScene (string.Format ("Scenes/{0}", _defaultScene));
     }
 
     IEnumerator Appear ()
