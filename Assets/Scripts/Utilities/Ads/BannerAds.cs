@@ -14,7 +14,7 @@ public class BannerAds : MonoBehaviour
 
     void Start ()
     {
-        Advertisement.Initialize (gameId, testMode);
+        // Advertisement.Initialize (gameId, testMode);
         Advertisement.Banner.SetPosition (BannerPosition.BOTTOM_CENTER);
         StartCoroutine (ShowBannerWhenReady ());
     }

@@ -12,6 +12,7 @@ TextureImporter:
     21300014: Buttons_7
     21300016: Buttons_8
     21300018: Buttons_9
+    21300020: Buttons_10
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -300,6 +301,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d77cf5c7985c7413bbc06ebcfe63c6ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_10
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 367
+        width: 275
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25d6a13fcd634db58aafe31070cb087
       vertices: []
       indices: 
       edges: []

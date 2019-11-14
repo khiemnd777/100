@@ -9,6 +9,8 @@ public class AgainstTheDaystar : MonoBehaviour
     [SerializeField]
     Button _button;
     [SerializeField]
+    Button _againstDaystarDisabledButton;
+    [SerializeField]
     string _defaultScene;
 
     void Awake ()
@@ -22,5 +24,6 @@ public class AgainstTheDaystar : MonoBehaviour
     void Start ()
     {
         _button.gameObject.SetActive (_settingData.unlockTheDaystar);
+        _againstDaystarDisabledButton.gameObject.SetActive(!_settingData.unlockTheDaystar);
     }
 }

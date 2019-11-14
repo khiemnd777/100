@@ -25,7 +25,7 @@ public class VideoAds : MonoBehaviour, IUnityAdsListener
     void Start ()
     {
         Advertisement.AddListener (this);
-        Advertisement.Initialize (gameId, testMode);
+        // Advertisement.Initialize (gameId, testMode);
     }
 
     public void Show ()

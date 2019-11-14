@@ -739,7 +739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &239529613
 Transform:
   m_ObjectHideFlags: 0
@@ -2811,7 +2811,7 @@ PrefabInstance:
     - target: {fileID: 3762913020915363373, guid: 48140b4a56b9b4b91b37e3fafde7b5af,
         type: 3}
       propertyPath: _stepUp
-      value: 1.5
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48140b4a56b9b4b91b37e3fafde7b5af, type: 3}
@@ -3118,11 +3118,6 @@ PrefabInstance:
       propertyPath: _shieldDamage
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 5692252918819089734, guid: d34f59c2d6aee456383b00868a8e3bfe,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 717, guid: d34f59c2d6aee456383b00868a8e3bfe, type: 3}
       propertyPath: _dissolvedEffectOnHit
       value: 
@@ -3132,6 +3127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692252918819089734, guid: d34f59c2d6aee456383b00868a8e3bfe,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1809599645075924953, guid: d34f59c2d6aee456383b00868a8e3bfe,
         type: 3}

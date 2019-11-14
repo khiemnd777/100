@@ -74,9 +74,10 @@ public class YellowFallenStar : TheStar
                 display.sprite = infectedSprite;
                 particleRenderer.material = infectedParticleMaterial;
                 transform.localScale = Vector3.zero;
-                speed = 0f;
+                // speed = 0f;
                 var particleMain = particle.main;
                 particleMain.loop = false;
+                // transform.position = new Vector3 (transform.position.x, goOutPoint.position.y, transform.position.z);
                 StartCoroutine (GoingOut (goOutPoint));
             }
         }
@@ -100,7 +101,7 @@ public class YellowFallenStar : TheStar
 
     IEnumerator GoingOut (Transform goOutPoint)
     {
-        yield return new WaitForSeconds (1.5f);
+        yield return new WaitForSeconds (1f);
         var particleMain = particle.main;
         particleMain.loop = true;
         particle.Play ();

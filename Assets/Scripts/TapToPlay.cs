@@ -10,6 +10,7 @@ public class TapToPlay : MonoBehaviour
     float _speed;
     public Button tap2PlayButton;
     public Button againstDaystarButton;
+    public Button againstDaystarDisabledButton;
     [SerializeField]
     Transform _logo;
     [SerializeField]
@@ -42,6 +43,7 @@ public class TapToPlay : MonoBehaviour
     {
         tap2PlayButton.gameObject.SetActive (false);
         againstDaystarButton.gameObject.SetActive (false);
+        againstDaystarDisabledButton.gameObject.SetActive (false);
         _logo.gameObject.SetActive (false);
         _twitter.gameObject.SetActive (false);
         _facebook.gameObject.SetActive (false);
